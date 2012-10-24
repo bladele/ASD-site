@@ -1,0 +1,1005 @@
+<!doctype html>  
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	<title>Love Log</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<style type="text/css">
+	div h1 img {
+	overflow: visible;
+	}
+    </style>
+	
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
+
+</head>
+
+<body>
+
+
+	<!--Intro page of app. Intro to user.-->
+	<div data-role="page" id="home">
+
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1>About</h1>
+		</div>
+        
+        <div data-role="content">
+        	<img src="images/header_logo.png"  alt="Logo">
+       	</div>
+
+		<div data-role="content">
+		  <p>Love is the prime directive of life, but we often shy away from applying love's equation into our
+		day to day lives. This application is a vehicle to record one's experience in love, in all it's forms,
+		from day to day. Learning to recognized and appreciate one's experience in love broadens one's capacity
+		for love. When was the last time you experienced love? Make a record of it.</p>
+		
+		</div>
+        
+        <!--My Lists of Categories-->
+		<div data-role="content">
+			<ul data-role="listview" data-inset="true" data-theme="b">
+				<li><h2>Choose An Event Type</h2>
+					<p>The Nature of Your Experience.</p></li>
+				<li><a href="#agape" data-transition="slide">
+					<h2>Agape: Of the soul</h2><span class="ui-li-count">4</span>
+				</a></li>
+				<li><a href="#eros" data-transition="slide">
+					<h2>Eros: Of passion</h2><span class="ui-li-count">2</span>
+				</a></li>	
+				<li><a href="#philia" data-transition="slide">
+					<h2>Philia: Of the mind</h2><span class="ui-li-count">6</span>
+				</a></li>
+				<li><a href="#storge" data-transition="slide">
+					<h2>Storge: Parental</h2><span class="ui-li-count">5</span>
+				</a></li>
+				<li><a href="#xenia" data-transition="slide">
+					<h2>Xenia: Hospitality</h2><span class="ui-li-count">3</span>
+				</a></li>
+			</ul>
+		</div>
+
+		<div data-role="footer" data-position="fixed" data-id="logs" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" id="home" data-icon="home">About</a></li>
+					<li><a href="#newLog" id="newLog" data-icon="plus">New Log</a></li>
+					<li><a href="#search" id="search" data-icon="search">Search</a></li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+
+	<!--Page 2:My Logs, Where user can browse logs.-->
+	<div data-role="page" id="myLogs" data-add-back-btn="true" >
+
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1>My Logs</h1>
+		</div>
+
+
+		
+
+		<div data-role="footer" data-position="fixed" data-id="logs" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" id="home" data-icon="home">About</a></li>
+					<li><a href="#newLog" id="newLog" data-icon="plus">New Log</a></li>
+					<li><a href="#search" id="search" data-icon="search">Search</a></li>
+				</ul>
+			</div>
+	  </div>
+
+	</div>
+
+	<!--Page 3: Create New Log -->
+	<div data-role="page" id="newLog" data-add-back-btn="true">
+		
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1>New Log</h1>
+		</div>
+
+			<div data-role="content">
+
+				<form action="#"  method="post" id="lovelogform">
+
+					<h3><span>*Fields are required</span></h3>
+					<ul id="errors"></ul>
+					
+						<div data-role="fieldcontain">
+							<label for="type">*Event Type</label>
+							<select name="type" id="type" data-native-menu="false" class="required">
+								<option data-placeholder="true" value>*Choose An Event Type</option>
+								<option value="agape">Agape: Of the Soul</option>
+								<option value="eros">Eros: Of Passion</option>
+								<option value="philia">Philia: Of the Mind</option>
+								<option value="storge">Storge: Parental</option>
+								<option value="xenia">Xenia: Hospitality</option>
+							</select>
+						</div>
+
+						<div data-role="fieldcontain">
+							<label for="title">*Event Title</label>
+							<input type="text" name="title" id="title" value placeholder="Love Event 1" class="required" />
+						</div>
+
+						<div data-role="fieldcontain">
+							<label for="location">Location</label>
+							<input type="text" name="location" id="location" value placeholder="Anywhere, USA" />
+						</div>
+
+						<div data-role="fieldcontain">
+							<fieldset data-role="controlgroup" data-type="horizontal" >
+								<legend>*Your Role</legend>
+								<input type="radio" value="recipient" name="role" id="role-1" class="required" />
+								<label for="role-1">Recipient</label>
+								<input type="radio" value="donor" name="role" id="role-2" class="required" />
+								<label for="role-2">Donor</label>
+							</fieldset>
+						</div>
+
+						
+						<div data-role="fieldcontain">
+							<label for="wow">Wow Factor</label>
+							<input type="range" name="wow" id="wow" value="0" min="0" max="100" />
+						</div>
+						
+						<div data-role="fieldcontain">
+							<label for="notes">The Details</label>
+							<textarea value placeholder="A brief desicription of events..."></textarea>
+						</div>
+				
+				<div data-role="fieldcontain">
+					<input type="submit" value="Save Log" data-theme="b" />
+          <input type="reset" value="Reset" data-theme="a" />
+				</div>
+
+				<a href="#newLogerrors" id="logerrorslink" data-rel="dialog" data-transition="flip">Open Errors</a>
+
+			</form>
+		</div>
+
+		<div data-role="footer" data-position="fixed" data-id="logs" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" id="home" data-icon="home">About</a></li>
+					<li><a href="#newLog" id="newLog" data-icon="plus">New Log</a></li>
+					<li><a href="#search" id="search" data-icon="search">Search</a></li>
+				</ul>
+			</div>
+		</div>		
+
+	</div>
+
+	<!--Validation dialog -->
+	<div data-role="dialog" id="newLogerrors">
+		
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1>Missing Fields</h1>
+		</div>
+
+		<div data-role="content">
+			<ul>
+				<li>Test.</li>
+			</ul>
+		</div>
+	</div>
+
+	
+
+
+	<!--Search Page-->
+	<div data-role="page" id="search" data-add-back-btn="true" >
+
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1>Search Logs</h1>
+		</div>
+		
+        <div data-role="content">
+            
+          <ul data-role="listview" data-filter="true">
+          
+          	<li>
+				<a href="#alog1" data-transition="slide">
+					<h3>The World is a bueatiful place.</h3>
+					<p>Location: Concord, NC</p>
+					<span class="ui-li-aside"><p>06/12/12</p></span>
+					<p>Details: Watching the sunrise this morning was breathtaking.</p>
+                </a>
+			</li>
+
+			<li>
+				<a href="#alog2" data-transition="slide">
+					<h3>Dogs are so cute sometimes.</h3>
+					<p>Location: Concord, NC</p>
+					<span class="ui-li-aside"><p>10/20/11</p></span>
+					<p>Details: Sometimes, I wonder what my dogs are thinking. Jill often looks at me with inquiring eyes.</p>
+                </a>
+			</li>
+
+			<li>
+				<a href="#alog3" data-transition="slide">
+					<h3>Melody Gardot is an inspiration</h3>
+					<p>Location: Concord, NC</p>
+					<span class="ui-li-aside"><p>09/13/11</p></span>
+					<p>Details: Was listening to Melody Gardot's new album today. Love it!!</p>
+            	</a>
+			</li>
+
+			<li>
+				<a href="#alog4" data-transition="slide">
+					<h3>The Sky</h3>
+					<p>Location: Concord, NC</p>
+					<span class="ui-li-aside"><p>09/20/10</p></span>
+					<p>Details: I often find that that sky seems like a woderful painting. The often occurs at sunset.</p>
+              </a>
+			</li>
+            
+            <li>
+				<a href="#elog1" data-transition="slide">
+					<h3>She is so beautiful</h3>
+					<h4>Location: Concord, NC</h4>
+					<span class="ui-li-aside"><p>05/01/12</p></span>
+					<p>Details: I find she is the most beautiful when she's not trying so hard. Caught her in refelective thought, sitting in her pajamas. She is so beautiful.</p>
+                </a>
+			</li>
+
+			<li>
+				<a href="#elog2" data-transition="slide">
+					<h3>Bought my wife a gift.</h3>
+					<p>Location: Concord, NC</p>
+					<span class="ui-li-aside"><p>08/01/11</p></span>
+					<p>Details: Jenny is going to be so jazzed about what I got her for her birthday!</p>
+                </a>
+			</li>
+            
+            <li>
+				<a href="#plog1" data-transition="slide">
+					<h3>Learning to code.</h3>
+					<p>Location: Concord, NC</p>
+					<span class="ui-li-aside"><p>07/04/12</p></span>
+					<p>Details: I wasn't sure about how well I would do in the mobile development program at FSU. I have been pleasently surprised about how much pleasure I am starting to gain from looking at pages of code that I have writen. Still have a lot to learn, but I am now excited about it.</p>
+               	</a>
+			</li>
+
+			<li>
+				<a href="#plog2" data-transition="slide">
+					<h3>The Matrix rocks.</h3>
+					<p>Location: Concord, NC</p>
+					<span class="ui-li-aside"><p>04/29/12</p></span>
+					<p>Details: This is such a great movie. It has a great message and commentary on human society as a whole. The whole saga is my all time favourite set of movies.</p>
+                 </a>
+			</li>
+
+			<li>
+				<a href="#plog3" data-transition="slide">
+					<h3>Conversations with Niran.</h3>
+					<p>Location: Concord, NC</p>
+					<span class="ui-li-aside"><p>03/19/12</p></span>
+					<p>Details: Had another long conversation with Niran today. We always get into the most philosophical topics about society, and how we can best affect it with what we do.</p>
+                </a>
+			</li>
+
+			<li>
+				<a href="#plog4" data-transition="slide">
+					<h3>Star Treck</h3>
+					<p>Location: Concord, NC</p>
+					<span class="ui-li-aside"><p>12/30/11</p></span>
+				<p>Details: Hands down greatest tv show series ever created. Social commentary, philosophical narratives, action, drama, theres so much brain candy here. Just want to gorge on it all day.</p>
+                </a>
+			</li>
+
+			<li>
+				<a href="#plog5" data-transition="slide">
+					<h3>Radio Lab</h3>
+					<p>Location: Concord, NC</p>
+					<span class="ui-li-aside"><p>11/13/11</p></span>
+					<p>Details: Science on the radio? I would have thought this would be a snore fest. But the prodution is so well done, so creative, I find myself so drawn in. Love it!</p>
+                 </a>
+			</li>
+
+			<li>
+				<a href="#plog6" data-transition="slide">
+					<h3>NPR</h3>
+					<p>Location: Concord, NC</p>
+					<span class="ui-li-aside"><p>10/26/11</p></span>
+					<p>Details: Hands down the last and single saving grace to news media. I never thought I would learn so much from news media. Very inteligent reporting.</p>
+                </a>
+			</li>
+            
+            <li>
+				<a href="#slog1" data-transition="slide">
+				<h3>Cuddling with the kids</h3>
+				<p>Location: Concord, NC</p>
+				<span class="ui-li-aside"><p>04/23/12</p></span>
+				<p>Details: There is nothing like the feeling of your kids cuddling with you on the couch. It's a hard feeling to describe; knowing the safety and love they feel and how it somehow reasures you more than it does them. Sigh....</p>
+                </a>
+			</li>
+
+			<li>
+				<a href="#slog2" data-transition="slide">
+					<h3>So proud</h3>
+					<p>Location: Concord, NC</p>
+					<span class="ui-li-aside"><p>03/10/12</p></span>
+					<p>Details: Listen to Audrey sing while playing the piano make me so proud.</p>
+                </a>
+			</li>
+
+			<li>
+				<a href="#slog3" data-transition="slide">
+					<h3>Questions, questions.</h3>
+					<p>Location: Concord, NC</p>
+					<span class="ui-li-aside"><p>01/04/12</p></span>
+					<p>Details: Ayo is always asking a million questions. "Why this?, why that?" His curiosity is growing, but it is exhausting 'cause he expects I have all the answers</p>
+            	</a>
+			</li>
+
+			<li>
+				<a href="#slog4" data-transition="slide">
+					<h3>Ayo's Birthday.</h3>
+					<p>Location: Concord, NC</p>
+					<span class="ui-li-aside"><p>12/21/11</p></span>
+					<p>Details: Wow, he's already 4 years old. Where does the time go?</p>
+                </a>
+			</li>
+
+			<li>
+				<a href="#slog5" data-transition="slide">
+					<h3>Audrey's gift.</h3>
+					<p>Location: Concord, NC</p>
+					<span class="ui-li-aside"><p>11/25/11</p></span>
+					<p>Details: Can't wait to give Audrey her Christmas gift, the look on her face will priceless.</p>
+                </a>
+			</li>
+            
+            <li>
+				<a href="#xlog1" data-transition="slide">
+					<h3>Saturday at the Bormann party house.</h3>
+					<p>Location: Concord, NC</p>
+					<span class="ui-li-aside"><p>08/14/12</p></span>
+					<p>Details: It's always fun to spend time at my inlaws. With aboundant food and drink, and the pool, we always have fun as family there.</p>
+            	</a>
+			</li>
+
+			<li>
+				<a href="#xlog3" data-transition="slide">
+					<h3>Dinner at the Browns'</h3>
+					<p>Location: Concord, NC</p>
+					<span class="ui-li-aside"><p>04/14/12</p></span>
+					<p>Details: Dinner at the Browns was a lot of fun. Jenny and I enjoyed cooking for them.</p>
+                </a>
+			</li>
+
+			<li>
+				<a href="#xlog3" data-transition="slide">
+					<h3>Brinley and Zoe</h3>
+					<p>Location: Concord, NC</p>
+					<span class="ui-li-aside"><p>02/17/12</p></span>
+					<p>Details: Ayo always likes having those two over. And the are always so polite.</p>
+               	</a>
+			</li>
+
+		  </ul>
+           
+        </div>
+		
+
+		<div data-role="footer" data-position="fixed" data-id="logs" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" id="home" data-icon="home">About</a></li>
+					<li><a href="#newLog" id="newLog" data-icon="plus">New Log</a></li>
+					<li><a href="#search" id="search" data-icon="search">Search</a></li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+		<!--Agape Category Page-->
+		<div data-role="page" id="agape" data-add-back-btn="true">
+
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Agape</h1></div>
+
+			<!--List of logs under category.-->
+			<div data-role="content" >
+
+				<ul data-role="listview" data-filter="true">
+					
+					<li>
+						<a href="#alog1" data-transition="slide">
+						<h3>The World is a bueatiful place.</h3>
+						<p>Location: Concord, NC</p>
+						<span class="ui-li-aside"><p>06/12/12</p></span>
+						<p>Details: Watching the sunrise this morning was breathtaking.</p></a>
+					</li>
+
+					<li>
+						<a href="#alog2" data-transition="slide">
+						<h3>Dogs are so cute sometimes.</h3>
+						<p>Location: Concord, NC</p>
+						<span class="ui-li-aside"><p>10/20/11</p></span>
+						<p>Details: Sometimes, I wonder what my dogs are thinking. Jill often looks at me with inquiring eyes.</p></a>
+					</li>
+
+					<li>
+						<a href="#alog3" data-transition="slide">
+						<h3>Melody Gardot is an inspiration</h3>
+						<p>Location: Concord, NC</p>
+						<span class="ui-li-aside"><p>09/13/11</p></span>
+						<p>Details: Was listening to Melody Gardot's new album today. Love it!!</p></a>
+					</li>
+
+					<li>
+						<a href="#alog4" data-transition="slide">
+						<h3>The Sky</h3>
+						<p>Location: Concord, NC</p>
+						<span class="ui-li-aside"><p>09/20/10</p></span>
+						<p>Details: I often find that that sky seems like a woderful painting. The often occurs at sunset.</p></a>
+					</li>
+
+				</ul>
+
+			</div>
+
+		
+			<div data-role="footer" data-position="fixed" data-id="logs" data-theme="b">
+				<div data-role="navbar" data-position="fixed">
+					<ul>
+						<li><a href="#home" id="home" data-icon="home">About</a></li>
+						<li><a href="#newLog" id="newLog" data-icon="plus">New Log</a></li>
+						<li><a href="#search" id="clear" data-icon="search">Search</a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+
+		<!--Eros Category Page-->
+		<div data-role="page" id="eros" data-add-back-btn="true">
+
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Eros</h1></div>
+
+				<!--List of logs under category.-->
+				<div data-role="content">
+
+					<ul data-role="listview" data-filter="true">
+						
+						<li>
+							<a href="#elog1" data-transition="slide">
+							<h3>She is so beautiful</h3>
+							<h4>Location: Concord, NC</h4>
+							<span class="ui-li-aside"><p>05/01/12</p></span>
+							<p>Details: I find she is the most beautiful when she's not trying so hard. Caught her in refelective thought, sitting in her pajamas. She is so beautiful.</p></a>
+						</li>
+
+						<li>
+							<a href="#elog2" data-transition="slide">
+							<h3>Bought my wife a gift.</h3>
+							<p>Location: Concord, NC</p>
+							<span class="ui-li-aside"><p>08/01/11</p></span>
+							<p>Details: Jenny is going to be so jazzed about what I got her for her birthday!</p></a>
+						</li>
+
+					</ul>
+
+				</div>
+	
+			<div data-role="footer" data-position="fixed" data-id="logs" data-theme="b">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" id="home" data-icon="home">About</a></li>
+						<li><a href="#newLog" id="newLog" data-icon="plus">New Log</a></li>
+						<li><a href="#search" id="search" data-icon="search">Search</a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+
+		<!--Philia Category Page-->
+		<div data-role="page" id="philia" data-add-back-btn="true">
+
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Philia</h1></div>
+
+				<!--List of logs under category.-->
+				<div data-role="content">
+
+					<ul data-role="listview" data-filter="true">
+						
+						<li>
+							<a href="#plog1" data-transition="slide">
+							<h3>Learning to code.</h3>
+							<p>Location: Concord, NC</p>
+							<span class="ui-li-aside"><p>07/04/12</p></span>
+							<p>Details: I wasn't sure about how well I would do in the mobile development program at FSU. I have been pleasently surprised about how much pleasure I am starting to gain from looking at pages of code that I have writen. Still have a lot to learn, but I am now excited about it.</p></a>
+						</li>
+
+						<li>
+							<a href="#plog2" data-transition="slide">
+							<h3>The Matrix rocks.</h3>
+							<p>Location: Concord, NC</p>
+							<span class="ui-li-aside"><p>04/29/12</p></span>
+							<p>Details: This is such a great movie. It has a great message and commentary on human society as a whole. The whole saga is my all time favourite set of movies.</p>
+                            </a>
+						</li>
+
+						<li>
+							<a href="#plog3" data-transition="slide">
+								<h3>Conversations with Niran.</h3>
+								<p>Location: Concord, NC</p>
+								<span class="ui-li-aside"><p>03/19/12</p></span>
+								<p>Details: Had another long conversation with Niran today. We always get into the most philosophical topics about society, and how we can best affect it with what we do.</p>
+                            </a>
+						</li>
+
+						<li>
+							<a href="#plog4" data-transition="slide">
+							<h3>Star Treck</h3>
+							<p>Location: Concord, NC</p>
+							<span class="ui-li-aside"><p>12/30/11</p></span>
+							<p>Details: Hands down greatest tv show series ever created. Social commentary, philosophical narratives, action, drama, theres so much brain candy here. Just want to gorge on it all day.</p></a>
+						</li>
+
+						<li>
+							<a href="#plog5" data-transition="slide">
+							<h3>Radio Lab</h3>
+							<p>Location: Concord, NC</p>
+							<span class="ui-li-aside"><p>11/13/11</p></span>
+							<p>Details: Science on the radio? I would have thought this would be a snore fest. But the prodution is so well done, so creative, I find myself so drawn in. Love it!</p></a>
+						</li>
+
+						<li>
+							<a href="#plog6" data-transition="slide">
+							<h3>NPR</h3>
+							<p>Location: Concord, NC</p>
+							<span class="ui-li-aside"><p>10/26/11</p></span>
+							<p>Details: Hands down the last and single saving grace to news media. I never thought I would learn so much from news media. Very inteligent reporting.</p></a>
+						</li>
+
+					</ul>
+
+				</div>
+	
+			<div data-role="footer" data-position="fixed" data-id="logs" data-theme="b">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" id="home" data-icon="home">About</a></li>
+						<li><a href="#newLog" id="newLog" data-icon="plus">New Log</a></li>
+						<li><a href="#search" id="search" data-icon="search">Search</a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+
+<!--Storge Category Page-->
+		<div data-role="page" id="storge" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Storge</h1></div>
+
+				<!--List of logs under category.-->
+				<div data-role="content">
+
+					<ul data-role="listview" data-filter="true">
+						
+						<li>
+							<a href="#slog1" data-transition="slide">
+							<h3>Cuddling with the kids</h3>
+							<p>Location: Concord, NC</p>
+							<span class="ui-li-aside"><p>04/23/12</p></span>
+							<p>Details: There is nothing like the feeling of your kids cuddling with you on the couch. It's a hard feeling to describe; knowing the safety and love they feel and how it somehow reasures you more than it does them. Sigh....</p></a>
+						</li>
+
+						<li>
+							<a href="#slog2" data-transition="slide">
+							<h3>So proud</h3>
+							<p>Location: Concord, NC</p>
+							<span class="ui-li-aside"><p>03/10/12</p></span>
+							<p>Details: Listen to Audrey sing while playing the piano make me so proud.</p></a>
+						</li>
+
+						<li>
+							<a href="#slog3" data-transition="slide">
+							<h3>Questions, questions.</h3>
+							<p>Location: Concord, NC</p>
+							<span class="ui-li-aside"><p>01/04/12</p></span>
+							<p>Details: Ayo is always asking a million questions. "Why this?, why that?" His curiosity is growing, but it is exhausting 'cause he expects I have all the answers</p></a>
+						</li>
+
+						<li>
+							<a href="#slog4" data-transition="slide">
+							<h3>Ayo's Birthday.</h3>
+							<p>Location: Concord, NC</p>
+							<span class="ui-li-aside"><p>12/21/11</p></span>
+							<p>Details: Wow, he's already 4 years old. Where does the time go?</p></a>
+						</li>
+
+						<li>
+							<a href="#slog5" data-transition="slide">
+							<h3>Audrey's gift.</h3>
+							<p>Location: Concord, NC</p>
+							<span class="ui-li-aside"><p>11/25/11</p></span>
+							<p>Details: Can't wait to give Audrey her Christmas gift, the look on her face will priceless.</p></a>
+						</li>
+
+					</ul>
+
+				</div>
+	
+			<div data-role="footer" data-position="fixed" data-id="logs" data-theme="b">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" id="home" data-icon="home">About</a></li>
+						<li><a href="#newLog" id="newLog" data-icon="plus">New Log</a></li>
+						<li><a href="#search" id="search" data-icon="search">Search</a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+
+
+
+		<!--Xenia Category Page-->
+		<div data-role="page" id="xenia" data-add-back-btn="true">
+
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Xenia</h1></div>
+
+
+				<!--List of logs under category.-->
+				<div data-role="content">
+
+					<ul data-role="listview" data-filter="true">
+						
+						<li>
+							<a href="#xlog1" data-transition="slide">
+							<h3>Saturday at the Bormann party house.</h3>
+							<p>Location: Concord, NC</p>
+							<span class="ui-li-aside"><p>08/14/12</p></span>
+							<p>Details: It's always fun to spend time at my inlaws. With aboundant food and drink, and the pool, we always have fun as family there.</p></a>
+						</li>
+
+						<li>
+							<a href="#xlog2" data-transition="slide">
+							<h3>Dinner at the Browns'</h3>
+							<p>Location: Concord, NC</p>
+							<span class="ui-li-aside"><p>04/14/12</p></span>
+							<p>Details: Dinner at the Browns was a lot of fun. Jenny and I enjoyed cooking for them.</p></a>
+						</li>
+
+						<li>
+							<a href="#xlog3" data-transition="slide">
+							<h3>Brinley and Zoe</h3>
+							<p>Location: Concord, NC</p>
+							<span class="ui-li-aside"><p>02/17/12</p></span>
+							<p>Details: Ayo always likes having those two over. And the are always so polite.</p></a>
+						</li>
+
+					</ul>
+
+				</div>
+	
+		<div data-role="footer" data-position="fixed" data-id="logs" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" id="home" data-icon="home">About</a></li>
+					<li><a href="#newLog" id="newLog" data-icon="plus">New Log</a></li>
+					<li><a href="#search" id="search" data-icon="search">Search</a></li>
+				</ul>
+			</div>
+		</div>
+
+		</div>
+        
+<!--Agape Entry Page 1-->
+		<div data-role="page" id="alog1" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Agape</h1></div>
+			<!--Log content.-->
+			<div data-role="content" >				
+				<span class="ui-li-aside"><h3>06/12/12</h3></span>
+				<h2>Title: The World is a bueatiful place.</2>
+				<h2>Location: Concord, NC</h2>
+				<h2>Role: Recepient</h2>
+				<h2>Wow Factor: 85%</h2>
+				<h2>Details: Watching the sunrise this morning was breathtaking.</h2>				
+			</div>
+		</div>
+
+<!--Agape Entry Page 2-->
+		<div data-role="page" id="alog2" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Agape</h1></div>
+			<!--Log content.-->
+			<div data-role="content" >	
+				<span class="ui-li-aside"><h3>10/20/11</h3></span>
+				<h2>Title: Dogs are so cute sometimes.</2>
+				<h2>Location: Concord, NC</h2>
+				<h2>Role: Recepient</h2>
+				<h2>Wow Factor: 70%</h2>
+				<h2>Details: Sometimes, I wonder what my dogs are thinking. Jill often looks at me with inquiring eyes.</h2>
+			</div>
+		</div>
+
+<!--Agape Entry Page 3-->
+		<div data-role="page" id="alog3" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Agape</h1></div>
+			<!--Log content.-->
+			<div data-role="content" >		
+				<span class="ui-li-aside"><h3>09/13/11</h3></span>
+				<h2>Title: Melody Gardot is an inspiration</2>
+				<h2>Location: Concord, NC</h2>
+				<h2>Role: Recepient</h2>
+				<h2>Wow Factor: 95%</h2>
+				<h2>Details: Was listening to Melody Gardot's new album today. Love it!!</h2>					
+			</div>
+		</div>
+
+<!--Agape Entry Page 4-->
+		<div data-role="page" id="alog4" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Agape</h1></div>
+			<!--Log content.-->
+			<div data-role="content" >	
+				<span class="ui-li-aside"><h3>10/20/11</h3></span>
+				<h2>Title: The Sky</2>
+				<h2>Location: Concord, NC</h2>
+				<h2>Role: Recepient</h2>
+				<h2>Wow Factor: 70%</h2>
+				<h2>Details: Sometimes, I wonder what my dogs are thinking. Jill often looks at me with inquiring eyes.</h2>	
+			</div>
+		</div>
+
+<!--Eros Entry Page 1-->
+		<div data-role="page" id="elog1" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Eros</h1></div>
+			<!--Log content.-->
+			<div data-role="content" >	
+				<span class="ui-li-aside"><h3>05/01/12</h3></span>
+				<h2>Title: She is so beautiful</2>
+				<h2>Location: Concord, NC</h2>
+				<h2>Role: Recepient</h2>
+				<h2>Wow Factor: 90%</h2>
+				<h2>Details: I find she is the most beautiful when she's not trying so hard. Caught her in refelective thought, sitting in her pajamas. She is so beautiful.</h2>				
+			</div>
+		</div>
+
+<!--Eros Entry Page 2-->
+		<div data-role="page" id="elog2" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Eros</h1></div>
+			<!--Log content.-->
+			<div data-role="content" >					
+				<span class="ui-li-aside"><h3>08/01/11</h3></span>
+				<h2>Title: Bought my wife a gift.</2>
+				<h2>Location: Concord, NC</h2>
+				<h2>Role: Recepient</h2>
+				<h2>Wow Factor: 85%</h2>
+				<h2>Details: Jenny is going to be so jazzed about what I got her for her birthday!</h2>
+			</div>
+		</div>
+
+<!--Philia Entry Page 1-->
+		<div data-role="page" id="plog1" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Philia</h1></div>
+			<!--Storge content.-->
+			<div data-role="content" >
+				<span class="ui-li-aside"><h3>07/04/12</h3></span>
+				<h2>Title: Learning to code.</2>
+				<h2>Location: Concord, NC</h2>
+				<h2>Role: Recepient</h2>
+				<h2>Wow Factor: 86%</h2>
+				<h2>Details: I wasn't sure about how well I would do in the mobile development program at FSU. I have been pleasently surprised about how much pleasure I am starting to gain from looking at pages of code that I have writen. Still have a lot to learn, but I am now excited about it.</h2>					
+			</div>
+		</div>
+
+<!--Philia Entry Page 2-->
+		<div data-role="page" id="plog2" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Philia</h1></div>
+			<!--Log content.-->
+			<div data-role="content" >					
+				<span class="ui-li-aside"><h3>04/29/12</h3></span>
+				<h2>Title: The Matrix rocks.</2>
+				<h2>Location: Concord, NC</h2>
+				<h2>Role: Recepient</h2>
+				<h2>Wow Factor: 99%</h2>
+				<h2>Details: This is such a great movie. It has a great message and commentary on human society as a whole. The whole saga is my all time favourite set of movies.</h2>		
+			</div>
+
+<!--Philia Entry Page 3-->
+		<div data-role="page" id="plog3" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Philia</h1></div>
+			<!--Log content.-->
+			<div data-role="content" >					
+				<span class="ui-li-aside"><h3>03/19/12</h3></span>
+				<h2>Title: Conversations with Niran.</2>
+				<h2>Location: Concord, NC</h2>
+				<h2>Role: Donor</h2>
+				<h2>Wow Factor: 78%</h2>
+				<h2>Details: Had another long conversation with Niran today. We always get into the most philosophical topics about society, and how we can best affect it with what we do.</h2>		
+			</div>
+
+<!--Philia Entry Page 4-->
+		<div data-role="page" id="plog4" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Philia</h1></div>
+			<!--Log content.-->
+			<div data-role="content" >		
+				<span class="ui-li-aside"><h3>10/20/11</h3></span>
+				<h2>Title: Star Treck</2>
+				<h2>Location: Concord, NC</h2>
+				<h2>Role: Recepient</h2>
+				<h2>Wow Factor: 98%</h2>
+				<h2>Details: Hands down greatest tv show series ever created. Social commentary, philosophical narratives, action, drama, theres so much brain candy here. Just want to gorge on it all day.</h2>
+			</div>
+		</div>
+
+<!--Philia Entry Page 5-->
+		<div data-role="page" id="plog5" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Philia</h1></div>
+			<!--Log content.-->
+			<div data-role="content" >				
+				<span class="ui-li-aside"><h3>10/20/11</h3></span>
+				<h2>Title: Radio Lab.</2>
+				<h2>Location: Concord, NC</h2>
+				<h2>Role: Recepient</h2>
+				<h2>Wow Factor: 95%</h2>
+				<h2>Details: Science on the radio? I would have thought this would be a snore fest. But the prodution is so well done, so creative, I find myself so drawn in. Love it!</h2>
+			</div>
+		</div>
+
+<!--Philia Entry Page 6-->
+		<div data-role="page" id="plog6" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Philia</h1></div>
+			<!--Log content.-->
+			<div data-role="content" >
+				<span class="ui-li-aside"><h3>10/26/11</h3></span>
+				<h2>Title: NPR</2>
+				<h2>Location: Concord, NC</h2>
+				<h2>Role: Recepient</h2>
+				<h2>Wow Factor: 95%</h2>
+				<h2>Details: Hands down the last and single saving grace to news media. I never thought I would learn so much from news media. Very inteligent reporting.</h2>
+			</div>
+		</div>
+        
+<!--Storge Entry Page 1-->
+		<div data-role="page" id="slog1" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Storge</h1></div>
+			<!--Storge content.-->
+			<div data-role="content" >
+				<span class="ui-li-aside"><h3>04/23/12</h3></span>
+				<h2>Title: Cuddling with the kids</2>
+				<h2>Location: Concord, NC</h2>
+				<h2>Role: Recepient</h2>
+				<h2>Wow Factor: 100%</h2>
+				<h2>Details: There is nothing like the feeling of your kids cuddling with you on the couch. It's a hard feeling to describe; knowing the safety and love they feel and how it somehow reasures you more than it does them. Sigh....</h2>					
+			</div>
+		</div>
+
+<!--Storge Entry Page 2-->
+		<div data-role="page" id="slog2" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Storge</h1></div>
+			<!--Storge content.-->
+			<div data-role="content" >
+				<span class="ui-li-aside"><h3>03/10/12</h3></span>
+				<h2>Title: So proud</2>
+				<h2>Location: Concord, NC</h2>
+				<h2>Role: Recepient</h2>
+				<h2>Wow Factor: 98%</h2>
+				<h2>Details: Listen to Audrey sing while playing the piano make me so proud.</h2>					
+			</div>
+		</div>
+
+<!--Storge Entry Page 3-->
+		<div data-role="page" id="slog3" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Storge</h1></div>
+			<!--Storge content.-->
+			<div data-role="content" >
+				<span class="ui-li-aside"><h3>01/04/12</h3></span>
+				<h2>Title: Questions, questions.</2>
+				<h2>Location: Concord, NC</h2>
+				<h2>Role: Recepient</h2>
+				<h2>Wow Factor: 70%</h2>
+				<h2>Details: Ayo is always asking a million questions. "Why this?, why that?" His curiosity is growing, but it is exhausting 'cause he expects I have all the answers</h2>					
+			</div>
+		</div>
+
+<!--Storge Entry Page 4-->
+		<div data-role="page" id="slog4" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Storge</h1></div>
+			<!--Storge content.-->
+			<div data-role="content" >
+				<span class="ui-li-aside"><h3>12/21/11</h3></span>
+				<h2>Title: Ayo's Birthday.</2>
+				<h2>Location: Concord, NC</h2>
+				<h2>Role: Recepient</h2>
+				<h2>Wow Factor: 90%</h2>
+				<h2>Details: Wow, he's already 4 years old. Where does the time go?</h2>					
+			</div>
+		</div>
+
+<!--Storge Entry Page 5-->
+		<div data-role="page" id="slog5" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Storge</h1></div>
+			<!--Storge content.-->
+			<div data-role="content" >
+				<span class="ui-li-aside"><h3>11/25/11</h3></span>
+				<h2>Title: Audrey's gift.</2>
+				<h2>Location: Concord, NC</h2>
+				<h2>Role: Donor</h2>
+				<h2>Wow Factor: 90%</h2>
+				<h2>Details: Can't wait to give Audrey her Christmas gift, the look on her face will priceless.</h2>					
+			</div>
+		</div>
+
+
+
+<!--Xenia Entry Page 1-->
+		<div data-role="page" id="xlog1" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Xenia</h1></div>
+			<!--Storge content.-->
+			<div data-role="content" >
+				<span class="ui-li-aside"><h3>08/14/12</h3></span>
+				<h2>Title: Saturday at the Bormann party house.</2>
+				<h2>Location: Concord, NC</h2>
+				<h2>Role: Recepient</h2>
+				<h2>Wow Factor: 96%</h2>
+				<h2>Details: It's always fun to spend time at my inlaws. With aboundant food and drink, and the pool, we always have fun as family there.				</h2>					
+			</div>
+		</div>
+
+<!--Xenia Entry Page 2-->
+		<div data-role="page" id="xlog2" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Xenia</h1></div>
+			<!--Storge content.-->
+			<div data-role="content" >
+				<span class="ui-li-aside"><h3>04/14/12</h3></span>
+				<h2>Title: Dinner at the Browns'</2>
+				<h2>Location: Concord, NC</h2>
+				<h2>Role: Donor</h2>
+				<h2>Wow Factor: 83%</h2>
+				<h2>Details: Dinner at the Browns was a lot of fun. Jenny and I enjoyed cooking for them.</h2>					
+			</div>
+		</div>
+
+<!--Xenia Entry Page 3-->
+		<div data-role="page" id="xlog3" data-add-back-btn="true">
+			<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Xenia</h1></div>
+			<!--Storge content.-->
+			<div data-role="content" >
+				<span class="ui-li-aside"><h3>02/17/12</h3></span>
+				<h2>Title: Brinley and Zoe</2>
+				<h2>Location: Concord, NC</h2>
+				<h2>Role: Donor</h2>
+				<h2>Wow Factor: 75%</h2>
+				<h2>Details: Ayo always likes having those two over. And the are always so polite.</h2>					
+			</div>
+		</div>
+
+	
+
+	<!-- JavaScript under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script><!--Go to http://jquerymobile.com/download/ and get the most recent version from the CDN-->
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
+  	<script type="text/javascript" src="js/json.js"></script>
+ 	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
