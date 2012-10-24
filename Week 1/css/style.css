@@ -1,0 +1,13 @@
+/* write your CSS in here */
+
+#home {
+	text-align: center;
+	
+}
+
+#home .ui-grid-a div{text-align:center;}
+
+#home .ui-grid-a .ui-bar{padding:50px 20px;}
+
+
+
