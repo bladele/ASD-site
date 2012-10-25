@@ -169,13 +169,13 @@
       </div>
             
       <div data-role="content">
-        <form action="#"  method="post" id="addmovieform">
+        <form action=""  method="post" id="addmovieform">
           <h2>*Fields are required</h2>
                         
           <div data-role="fieldcontain">
             <label for="genre">*Genre:</label>
               <select name="genre" id="genre" data-native-menu="true" class="required">
-                <option data-placeholder="true" value>Please Select One</option>
+                <option data-placeholder="true">Please Select One</option>
                 <option value="action">Action Adventure</option>
                 <option value="comedy">Comedy</option>
                 <option value="drama">Drama</option>
@@ -197,18 +197,23 @@
             <input type="range" name="rating" id="rating" min="0" max="10" id="rating" data-theme="b">
           </div>
 
-    			<div data-role="fieldcontain">
+    			<div class="containing-element">
             <label for="status">Status: </label>
-              <select data-role="slider">
+              <select name="status" id="status" data-role="slider" data-theme="b">
                 <option value="off">In</option>
                 <option value="on">Out</option>
               </select>
           </div>     
                             
-          <div data-role="fieldcontain">
-            <input type="reset" value="Reset" data-theme="a"/>                   
+          <div data-role="fieldcontain">                   
             <input type="button" value="Add Movie" id="submit" data-theme="b"/>
           </div>
+
+          <div data-role="fieldcontain"> 
+            <input type="reset" value="Reset" data-theme="a"/>
+          </div>
+
+          <a href="#errors" id="errorslink" data-rel="dialog">Open errors</a>
 
         </form>
                 
@@ -228,6 +233,17 @@
 
     	</div>
     	
+    </div>
+
+    <div data-role="dialogue" id="errors">
+        <div data-role="header" data-position="fixed" data-theme="b">
+            <h1>Missing Fields</h1>
+        </div>
+
+        <div data-role="content">
+          <ul><li>test</li></ul>
+        </div>
+
     </div>
 
 
@@ -490,7 +506,6 @@
 	
 
 	<!-- JavaScript under here -->
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script><!--Go to http://jquerymobile.com/download/ and get the most recent version from the CDN-->
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 	<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
