@@ -2,14 +2,14 @@
 //Full Sail University
 
 
-$$('#home').on('pageinit', function(){
+$('#home').on('pageinit', function(){
 	//code needed for home page goes here
 });	
 		
-$('#addItem').on('pageinit', function(){
+$('#addmovie').on('pageinit', function(){
 
-		var myForm = $('#formId');
-		    myForm.validate({
+		var mForm = $('#addmovieform');
+		    mForm.validate({
 			invalidHandler: function(form, validator) {
 			},
 			submitHandler: function() {
@@ -30,11 +30,35 @@ var autofillData = function (){
 
 var getData = function(){
 
+	if(localStorage.length === 0){
+		alert("There are movies in Local Storage, so default data has been added.");
+		autoFillData();
+	}
+
 };
 
-var storeData = function(data){
-	
+var storeData = function(data, key){
+
+	var id;
+	if(!key){
+				id = Math.floor(Math.random()*10000001);
+			}else{
+				id = key;
+			}
 }; 
+
+//Gather up all our form fiel value and store in an object.
+//Object properties contain array with the form lable and input value.
+getSelectedRadio();
+var item = {};
+	item.genre 	= ["Genre: ", $('genre').value()];
+	item.title	= ["Title: ", $('title').value()];
+	item.rating = ["Rating: ", $('rating').value()];
+	item.status	= ["Status: ", $('status').value()];
+
+	localStorage.setItem(id, JSON.stringify(item));
+	alert("Movie Saved!");
+
 
 var	deleteItem = function (){
 			

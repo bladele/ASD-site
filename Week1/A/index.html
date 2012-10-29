@@ -40,6 +40,9 @@
         </p>
         <p>This application is here to help you keep a record of your dvds you have in your library and make sure you don't loose track of them.
         </p>
+
+        <p><a href="#addmovie" data-role="button" data-theme="b">Add Movie</a></p>
+
       </div>
             
     <!--Footer: Nav bar-->            
@@ -56,15 +59,101 @@
     	</div>
 
     </div>
+
+
+    <!--Add Movie Page-->
+    <div data-role="page" id="addmovie" data-add-back-btn="true">
+        
+      <div data-role="header" data-position="fixed" data-theme="b">
+        <h1>Add Movie</h1>
+      </div>
+            
+      <div data-role="content">
+        <form action=""  method="post" id="addmovieform">
+          <h2>*Fields are required</h2>
+                        
+          <div data-role="fieldcontain">
+            <label for="genre">*Genre:</label>
+              <select name="genre" id="genre" data-native-menu="true" class="required">
+                <option data-placeholder="true">Please Select One</option>
+                <option value="action">Action Adventure</option>
+                <option value="comedy">Comedy</option>
+                <option value="drama">Drama</option>
+                <option value="horror">Horror</option>
+                <option value="kids">Kids and Family</option>
+                <option value="romance">Romance</option>
+                <option value="scifi">Science Fiction</option>
+                <option value="thriller">Thriller</option>
+              </select>
+          </div>
+                            
+          <div data-role="fieldcontain">
+            <label for="title">*Movie Title: </label>
+            <input type="text" name="title" id="title" class="required" />
+          </div>
+                            
+          <div data-role="fieldcontain">
+            <label for="rating">Rating: </label>
+            <input type="range" name="rating" id="rating" min="0" max="10" id="rating" data-theme="b">
+          </div>
+
+          <div class="containing-element">
+            <label for="status">Status: </label>
+              <select name="status" id="status" data-role="slider" data-theme="b">
+                <option value="off">Movie In</option>
+                <option value="on">Movie Out</option>
+              </select>
+          </div>     
+                            
+          <div data-role="fieldcontain">                   
+            <input type="button" value="Add Movie" id="submit" data-theme="b"/>
+          </div>
+
+          <div data-role="fieldcontain"> 
+            <input type="reset" value="Reset" data-theme="a"/>
+          </div>
+
+          <a href="#errors" id="errorslink" data-rel="dialog">Open errors</a>
+
+        </form>
+                
+      </div>
+                
+    <!--Footer: Nav bar-->            
+      <div data-role="footer" data-position="fixed" data-id="browse" data-theme="b">
+        <div data-role="navbar" data-position="fixed">
+          <ul>
+              <li><a href="#home" id="home" data-icon="home">About</a></li>
+              <li><a href="#genres" id="genres" data-icon="grid">Genres</a></li>
+              <li><a href="#addmovie" id="addmovie" data-icon="plus">Add Movie</a></li> 
+              <li><a href="#browse" id="browse" data-icon="search">Search</a></li>
+              <li><a href="#loans" id="loans" data-icon="alert">Loans</a></li>
+          </ul>
+        </div>
+
+      </div>
+      
+    </div>
+
+    <div data-role="dialogue" id="errors">
+        <div data-role="header" data-position="fixed" data-theme="b">
+            <h1>Missing Fields</h1>
+        </div>
+
+        <div data-role="content">
+          <ul><li>test</li></ul>
+        </div>
+
+    </div>
+
+
         
     <!--Loans Page-->
     <div data-role="page" id="loans" data-add-back-btn="true">
         
       <div data-role="header" data-position="fixed" data-theme="b">
         <h1>Loans</h1>
-      </div>
-            
-           
+      </div>       
     <!--A list of all the users dvd's out of the library, on loan to friend or family.-->        
       <div data-role="content">
             
@@ -161,90 +250,7 @@
     </div>
 
         
-    <!--Add Movie Page-->
-    <div data-role="page" id="addmovie" data-add-back-btn="true">
-        
-      <div data-role="header" data-position="fixed" data-theme="b">
-        <h1>Add Movie</h1>
-      </div>
-            
-      <div data-role="content">
-        <form action=""  method="post" id="addmovieform">
-          <h2>*Fields are required</h2>
-                        
-          <div data-role="fieldcontain">
-            <label for="genre">*Genre:</label>
-              <select name="genre" id="genre" data-native-menu="true" class="required">
-                <option data-placeholder="true">Please Select One</option>
-                <option value="action">Action Adventure</option>
-                <option value="comedy">Comedy</option>
-                <option value="drama">Drama</option>
-                <option value="horror">Horror</option>
-                <option value="kids">Kids and Family</option>
-                <option value="romance">Romance</option>
-                <option value="scifi">Science Fiction</option>
-                <option value="thriller">Thriller</option>
-              </select>
-          </div>
-                            
-          <div data-role="fieldcontain">
-            <label for="title">*Movie Title: </label>
-            <input type="text" name="title" id="title" class="required" />
-          </div>
-                            
-          <div data-role="fieldcontain">
-            <label for="rating">Rating: </label>
-            <input type="range" name="rating" id="rating" min="0" max="10" id="rating" data-theme="b">
-          </div>
-
-    			<div class="containing-element">
-            <label for="status">Status: </label>
-              <select name="status" id="status" data-role="slider" data-theme="b">
-                <option value="off">Movie In</option>
-                <option value="on">Movie Out</option>
-              </select>
-          </div>     
-                            
-          <div data-role="fieldcontain">                   
-            <input type="button" value="Add Movie" id="submit" data-theme="b"/>
-          </div>
-
-          <div data-role="fieldcontain"> 
-            <input type="reset" value="Reset" data-theme="a"/>
-          </div>
-
-          <a href="#errors" id="errorslink" data-rel="dialog">Open errors</a>
-
-        </form>
-                
-      </div>
-                
-    <!--Footer: Nav bar-->            
-    	<div data-role="footer" data-position="fixed" data-id="browse" data-theme="b">
-    		<div data-role="navbar" data-position="fixed">
-    			<ul>
-    					<li><a href="#home" id="home" data-icon="home">About</a></li>
-    					<li><a href="#genres" id="genres" data-icon="grid">Genres</a></li>
-    					<li><a href="#addmovie" id="addmovie" data-icon="plus">Add Movie</a></li>	
-              <li><a href="#browse" id="browse" data-icon="search">Search</a></li>
-              <li><a href="#loans" id="loans" data-icon="alert">Loans</a></li>
-    			</ul>
-    		</div>
-
-    	</div>
-    	
-    </div>
-
-    <div data-role="dialogue" id="errors">
-        <div data-role="header" data-position="fixed" data-theme="b">
-            <h1>Missing Fields</h1>
-        </div>
-
-        <div data-role="content">
-          <ul><li>test</li></ul>
-        </div>
-
-    </div>
+    
 
 
     <!--Genres Page-->
@@ -491,7 +497,7 @@
             
     </div>
         
-        <!--The Matrix-->
+        <!--The Matrix Page-->
     <div data-role="page" id="thematrix" data-add-back-btn="true">
     	<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Info</h1></div>
     			<!--Movie Info-->
@@ -503,13 +509,14 @@
     		</div>
     </div>
 
-	
+
+
 
 	<!-- JavaScript under here -->
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script><!--Go to http://jquerymobile.com/download/ and get the most recent version from the CDN-->
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 	<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="js/json.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+  <!-- <script type="text/javascript" src="js/json.js"></script> -->
+  <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

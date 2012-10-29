@@ -1,122 +1,126 @@
-var json = {
-	"movie1": {
-		"genre": ["Genre: ", "Sci-Fi / Fantacy"],
-		"title": ["Title: ", "The Matrix"],
-		"status": ["Status: ", "In"],
-		"rating": ["Rating: ", "10"],
-	},
-	"movie2": {
-		"genre": ["Genre: ", "Comedy"],
-		"title": ["Title: ", "The 40 Year Old Virgin"],
-		"status": ["Status: ", "In"],
-		"rating": ["Rating: ", "8"],
-	},
-	"movie3": {
-		"genre": ["Genre: ", "Drama"],
-		"title": ["Title: ", "The American President"],
-		"status": ["Status: ", "In"],
-		"rating": ["Rating: ", "7"],
-	},
-	"movie4": {
-		"genre": ["Genre: ", "Drama"],
-		"title": ["Title: ", "August Rush"],
-		"status": ["Status: ", "In"],
-		"rating": ["Rating: ", "7"],
-	},
-	"movie5": {
-		"genre": ["Genre: ", "Action Adventure"],
-		"title": ["Title: ", "Avatar"],
-		"status": ["Status: ", "In"],
-		"rating": ["Rating: ", "10"],
-	},
-	"movie6": {
-		"genre": ["Genre: ", "Action Adventure"],
-		"title": ["Title: ", "Captain America"],
-		"status": ["Status: ", "In"],
-		"rating": ["Rating: ", "8"],
-	},
-	"movie7": {
-		"genre": ["Genre: ", "Action Adventure"],
-		"title": ["Title: ", "The Book of Eli"],
-		"status": ["Status: ", "In"],
-		"rating": ["Rating: ", "9"],
-	},
-	"movie8": {
-		"genre": ["Genre: ", "Kids and Family"],
-		"title": ["Title: ", "Cars 2"],
-		"status": ["Status: ", "In"],
-		"rating": ["Rating: ", "8"],
-	},
-	"movie9": {
-		"genre": ["Genre: ", "Kids and Family"],
-		"title": ["Title: ", "Alvin and the Chipmunks: Chipwrecked"],
-		"status": ["Status: ", "In"],
-		"rating": ["Rating: ", "6"],
-	},
-	"movie10": {
-		"genre": ["Genre: ", "Romance"],
-		"title": ["Title: ", "Dan In Real Life"],
-		"status": ["Status: ", "In"],
-		"rating": ["Rating: ", "9"],
-	},
-	"movie11": {
-		"genre": ["Genre: ", "Horror"],
-		"title": ["Title: ", "I Am Lengend"],
-		"status": ["Status: ", "In"],
-		"rating": ["Rating: ", "6"],
-	},
-	"movie12": {
-		"genre": ["Genre: ", "Kids and Family"],
-		"title": ["Title: ", "Dr. Seuss' The Lorax"],
-		"status": ["Status: ", "In"],
-		"rating": ["Rating: ", "8"],
-	},
-	"movie13": {
-		"genre": ["Genre: ", "Sci-Fi / Fantacy"],
-		"title": ["Title: ", "The Matrix Reloaded"],
-		"status": ["Status: ", "In"],
-		"rating": ["Rating: ", "9"],
-	},
-	"movie14": {
-		"genre": ["Genre: ", "Sci-Fi / Fantacy"],
-		"title": ["Title: ", "The Matrix Revolutions"],
-		"status": ["Status: ", "In"],
-		"rating": ["Rating: ", "9"],
-	},
-	"movie15": {
-		"genre": ["Genre: ", "Comedy"],
-		"title": ["Title: ", "The Rocker"],
-		"status": ["Status: ", "In"],
-		"rating": ["Rating: ", "9"],
-	},
-	"movie16": {
-		"genre": ["Genre: ", "Thriller"],
-		"title": ["Title: ", "Signs"],
-		"status": ["Status: ", "In"],
-		"rating": ["Rating: ", "8"],
-	},
-	"movie17": {
-		"genre": ["Genre: ", "Sci-Fi / Fantacy"],
-		"title": ["Title: ", "The Animatrix"],
-		"status": ["Status: ", "In"],
-		"rating": ["Rating: ", "8"],
-	},
-	"movie18": {
-		"genre": ["Genre: ", "Romance"],
-		"title": ["Title: ", "The Vow"],
-		"status": ["Status: ", "In"],
-		"rating": ["Rating: ", "8"],
-	},
-	"movie19": {
-		"genre": ["Genre: ", "Thriller"],
-		"title": ["Title: ", "The DaVinci Code"],
-		"status": ["Status: ", "In"],
-		"rating": ["Rating: ", "7"],
-	},
-	"movie20": {
-		"genre": ["Genre: ", "Drama"],
-		"title": ["Title: ", "Shall We Dance"],
-		"status": ["Status: ", "In"],
-		"rating": ["Rating: ", "7"],
-	}
+{
+	"Movies" : 
+	[
+
+		{
+		"genre"	: "Sci-Fi / Fantacy",
+		"title"	: "The Matrix",
+		"status": "In",
+		"rating": "10"
+		},
+	 	{
+		"genre"	: "Comedy",
+		"title"	: "The 40 Year Old Virgin",
+		"status": "In",
+		"rating": "8"
+		},
+		{
+		"genre"	: "Drama",
+		"title"	: "The American President",
+		"status": "In",
+		"rating": "7"
+		},
+		{
+		"genre"	: "Drama",
+		"title"	: "August Rush",
+		"status": "In",
+		"rating": "7"
+		},
+		{
+		"genre"	: "Action Adventure",
+		"title"	: "Avatar",
+		"status": "In",
+		"rating": "10"
+		},
+		{
+		"genre"	: "Action Adventure",
+		"title"	: "Captain America",
+		"status": "In",
+		"rating": "8"
+		},
+		{
+		"genre"	: "Action Adventure",
+		"title"	: "The Book of Eli",
+		"status": "In",
+		"rating": "9"
+		},
+		{
+		"genre"	: "Kids and Family",
+		"title"	: "Cars 2",
+		"status": "In",
+		"rating": "8"
+		},
+		{
+		"genre"	: "Kids and Family",
+		"title"	: "Alvin and the Chipmunks: Chipwrecked",
+		"status": "In",
+		"rating": "6"
+		},
+		{
+		"genre"	: "Romance",
+		"title"	: "Dan In Real Life",
+		"status": "In",
+		"rating": "9"
+		},
+		{
+		"genre"	: "Horror",
+		"title"	: "I Am Lengend",
+		"status": "In",
+		"rating": "6"
+		},
+		{
+		"genre"	: "Kids and Family",
+		"title"	: "Dr. Seuss' The Lorax",
+		"status": "In",
+		"rating": "8"
+		},
+		{
+		"genre"	: "Sci-Fi / Fantacy",
+		"title"	: "The Matrix Reloaded",
+		"status": "In",
+		"rating": "9"
+		},
+		{
+		"genre"	: "Sci-Fi / Fantacy",
+		"title"	: "The Matrix Revolutions",
+		"status": "In",
+		"rating": "9"
+		},
+		{
+		"genre"	: "Comedy",
+		"title"	: "The Rocker",
+		"status": "In",
+		"rating": "9"
+		},
+		{
+		"genre"	: "Thriller",
+		"title"	: "Signs",
+		"status": "In",
+		"rating": "8"
+		},
+		{
+		"genre"	: "Sci-Fi / Fantacy",
+		"title"	: "The Animatrix",
+		"status": "In",
+		"rating": "8"
+		},
+		{
+		"genre"	: "Romance",
+		"title"	: "The Vow",
+		"status": "In",
+		"rating": "8"
+		},
+		{
+		"genre"	: "Thriller",
+		"title"	: "The DaVinci Code",
+		"status": "In",
+		"rating": "7"
+		},
+		{
+		"genre"	: "Drama",
+		"title"	: "Shall We Dance",
+		"status": "In",
+		"rating": "7"
+		}
+	]
 }
