@@ -3,7 +3,7 @@
 <head>
 
 	<meta charset="utf-8">
-    <title>My DVD Library</title>
+    <title>My DVD Libriary</title>
 	
 	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
 	<meta name="HandheldFriendly" content="True">
@@ -245,21 +245,19 @@
         
       <div data-role="header" data-position="fixed" data-theme="b">
         <h1>All DVD's</h1>
-        <a href="#home" data-icon="gear" id="clear" class="ui-btn-right">Clear</a>
+        <a href="#browse" data-icon="gear" id="clear" class="ui-btn-right">Clear</a>
       </div>
             
     <!--All the movies in the Directory-->        
       <div data-role="content">
-      
-      
-      
-      
-            
+        
         <ul data-role="listview" data-filter="true">
-                	
-          
-          
-          
+      		<div id= "data">
+            
+            </div>       	
+       
+      </div>
+              
       
     <!--Footer: Nav bar-->            
     	<div data-role="footer" data-position="fixed" data-id="browse" data-theme="b">
@@ -277,18 +275,7 @@
             
     </div>
         
-        <!--The Matrix Page-->
-    <div data-role="page" id="thematrix" data-add-back-btn="true">
-    	<div data-role="header" data-postiion="fixed" data-theme="b"><h1>Info</h1></div>
-    			<!--Movie Info-->
-    		<div data-role="content" >				
-    			<p><img src="images/matrix.jpg" width="180" height="270"></p>
-    			<h3>Status: Out</h3>
-    			<h3>Rating: 10</h3>
-    			<h3>Borrower: David Brown</h3>
-    		</div>
-    </div>
-
+    
 
 
 
@@ -296,7 +283,7 @@
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script><!--Go to http://jquerymobile.com/download/ and get the most recent version from the CDN-->
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 	<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
-  <!-- <script type="text/javascript" src="js/json.js"></script> -->
+  <script type="text/javascript" src="js/json.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

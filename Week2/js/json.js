@@ -1,5 +1,5 @@
 {
-	"Movies" : 
+	"Movies" 
 	[
 
 		{
