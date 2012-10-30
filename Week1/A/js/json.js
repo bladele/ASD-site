@@ -52,7 +52,7 @@
 		},
 		{
 		"genre"	: "Kids and Family",
-		"title"	: "Alvin and the Chipmunks: Chipwrecked",
+		"title"	: "Alvin and the Chipmunks:Chipwrecked",
 		"status": "In",
 		"rating": "6"
 		},
