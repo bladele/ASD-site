@@ -5,15 +5,15 @@
 	<meta charset="utf-8">
     <title>My DVD Libriary</title>
 	
-	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+<!--  Mobile viewport optimized: j.mp/bplateviewport -->
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<!-- Mobile IE needs ClearType for smoothing fonts -->
+<!-- Mobile IE needs ClearType for smoothing fonts -->
 	<meta http-equiv="cleartype" content="on">
 	
-	<!-- StyleSheets under here -->
+<!-- StyleSheets under here -->
 	<link href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css">
     <style type="text/css">
@@ -21,13 +21,13 @@
     #home div p {text-align: justify;}
     </style>
 
-	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+<!--JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects-->
 	<script src="js/libs/modernizr.custom.min.js"></script>
 
 </head>
 <body>
 
-	<!--Intro page of app. Intro to user.-->
+<!--  Intro page of app. Intro to user. -->
     <div data-role="page" id="home">
 
     	<div data-role="header" data-position="fixed" data-theme="b">
@@ -44,7 +44,7 @@
 
         <p><a href="#addmovie" data-role="button" data-theme="b">Add Movie</a></p>
 
-        <!--My Lists of Categories-->
+<!--    My Lists of Categories    -->
     	<div data-role="content">
 
     		<ul data-role="listview" data-inset="true" data-theme="b">
@@ -88,7 +88,7 @@
           </li>
                     
           <li>
-            <a href="#scifi" data-transition="slide">
+            <a href="#scifa" data-transition="slide">
     			   <h2>Sci-Fi / Fantacy</h2>
             </a>
           </li>
@@ -105,14 +105,14 @@
 
       </div>
             
-    <!--Footer: Nav bar-->            
+<!--  Footer: Nav bar   -->            
     	<div data-role="footer" data-position="fixed" data-id="loans" data-theme="b">
     		<div data-role="navbar" data-position="fixed">
     		  <ul>
-    				<li><a href="#home" id="home" data-icon="home">About</a></li>
-    				<li><a href="#addmovie" id="addmovie" data-icon="plus">Add Movie</a></li>	
-            <li><a href="#browse" id="browse" data-icon="search">Browse</a></li>
-            	
+    				<li><a href="#home" data-icon="home">About</a></li>
+            <li><a href="#addmovie" data-icon="plus">Add Movie</a></li> 
+            <li><a href="#browse" id="displayList" data-icon="search">Browse</a></li>
+            <li><a href="#loans" id="loans" data-icon="alert">Loans</a></li>  	
     			</ul>
     		</div>
     	</div>
@@ -120,7 +120,240 @@
     </div>
 
 
-    <!--Add Movie Page-->
+<!-- Action Adventure Page -->
+    <div data-role="page" id="actadv" data-add-back-btn="true">
+        
+      <div data-role="header" data-position="fixed" data-theme="b">
+        <h1>Action Adventure</h1>
+      </div>       
+
+      <div data-role="content">
+        
+        <ul data-role="listview" data-filter="true">
+          <div id= "actAdv">
+            
+            </div>        
+       
+      </div>    
+    <!--Footer: Nav bar-->            
+      <div data-role="footer" data-position="fixed" data-id="loans" data-theme="b">
+        <div data-role="navbar" data-position="fixed">
+          <ul>
+            <li><a href="#home" data-icon="home">About</a></li>
+            <li><a href="#addmovie" data-icon="plus">Add Movie</a></li> 
+            <li><a href="#browse" id="displayList" data-icon="search">Browse</a></li>
+            <li><a href="#loans" id="loans" data-icon="alert">Loans</a></li>    
+          </ul>
+        </div>
+      </div>  
+            
+    </div>
+
+<!-- Comedy Page -->
+    <div data-role="page" id="comedy" data-add-back-btn="true">
+        
+      <div data-role="header" data-position="fixed" data-theme="b">
+        <h1>Comedy</h1>
+      </div>       
+
+      <div data-role="content">
+        
+        <ul data-role="listview" data-filter="true">
+          <div id= "com">
+            
+            </div>        
+       
+      </div>   
+    <!--Footer: Nav bar-->            
+      <div data-role="footer" data-position="fixed" data-id="loans" data-theme="b">
+        <div data-role="navbar" data-position="fixed">
+          <ul>
+            <li><a href="#home" data-icon="home">About</a></li>
+            <li><a href="#addmovie" data-icon="plus">Add Movie</a></li> 
+            <li><a href="#browse" id="displayList" data-icon="search">Browse</a></li>
+            <li><a href="#loans" id="loans" data-icon="alert">Loans</a></li>    
+          </ul>
+        </div>
+      </div>  
+            
+    </div>
+
+<!-- Drama Page -->
+    <div data-role="page" id="drama" data-add-back-btn="true">
+        
+      <div data-role="header" data-position="fixed" data-theme="b">
+        <h1>Drama</h1>
+      </div>       
+
+      <div data-role="content">
+        
+        <ul data-role="listview" data-filter="true">
+          <div id= "dram">
+            
+            </div>        
+       
+      </div>      
+    <!--Footer: Nav bar-->            
+      <div data-role="footer" data-position="fixed" data-id="loans" data-theme="b">
+        <div data-role="navbar" data-position="fixed">
+          <ul>
+            <li><a href="#home" data-icon="home">About</a></li>
+            <li><a href="#addmovie" data-icon="plus">Add Movie</a></li> 
+            <li><a href="#browse" id="displayList" data-icon="search">Browse</a></li>
+            <li><a href="#loans" id="loans" data-icon="alert">Loans</a></li>    
+          </ul>
+        </div>
+      </div>  
+            
+    </div>
+    
+<!-- Horror Page -->
+    <div data-role="page" id="horror" data-add-back-btn="true">
+        
+      <div data-role="header" data-position="fixed" data-theme="b">
+        <h1>Horror</h1>
+      </div>       
+
+      <div data-role="content">
+        
+        <ul data-role="listview" data-filter="true">
+          <div id= "horr">
+            
+            </div>        
+       
+      </div> 
+    <!--Footer: Nav bar-->            
+      <div data-role="footer" data-position="fixed" data-id="loans" data-theme="b">
+        <div data-role="navbar" data-position="fixed">
+          <ul>
+            <li><a href="#home" id="home" data-icon="home">About</a></li>
+            <li><a href="#addmovie" id="addmovie" data-icon="plus">Add Movie</a></li> 
+            <li><a href="#browse" id="displaylink" data-icon="search">Browse</a></li>
+            <li><a href="#loans" id="loaned" data-icon="alert">Loans</a></li>    
+          </ul>
+        </div>
+      </div>  
+            
+    </div>    
+    
+<!-- Kids & Family Page -->
+    <div data-role="page" id="kidfam" data-add-back-btn="true">
+        
+      <div data-role="header" data-position="fixed" data-theme="b">
+        <h1>Kids & Family</h1>
+      </div>       
+
+      <div data-role="content">
+        
+        <ul data-role="listview" data-filter="true">
+          <div id= "kfam">
+            
+            </div>        
+       
+      </div>        
+    <!--Footer: Nav bar-->            
+      <div data-role="footer" data-position="fixed" data-id="loans" data-theme="b">
+        <div data-role="navbar" data-position="fixed">
+          <ul>
+            <li><a href="#home" data-icon="home">About</a></li>
+            <li><a href="#addmovie" data-icon="plus">Add Movie</a></li> 
+            <li><a href="#browse" id="displayList" data-icon="search">Browse</a></li>
+            <li><a href="#loans" id="loans" data-icon="alert">Loans</a></li>    
+          </ul>
+        </div>
+      </div>  
+            
+    </div>  
+    
+<!-- Romance Page -->
+    <div data-role="page" id="romance" data-add-back-btn="true">
+        
+      <div data-role="header" data-position="fixed" data-theme="b">
+        <h1>Romance</h1>
+      </div>       
+
+      <div data-role="content">
+        
+        <ul data-role="listview" data-filter="true">
+          <div id= "romnc">
+            
+            </div>        
+       
+      </div>        
+    <!--Footer: Nav bar-->            
+      <div data-role="footer" data-position="fixed" data-id="loans" data-theme="b">
+        <div data-role="navbar" data-position="fixed">
+          <ul>
+            <li><a href="#home" data-icon="home">About</a></li>
+            <li><a href="#addmovie" data-icon="plus">Add Movie</a></li> 
+            <li><a href="#browse" id="displayList" data-icon="search">Browse</a></li>
+            <li><a href="#loans" id="loans" data-icon="alert">Loans</a></li>    
+          </ul>
+        </div>
+      </div>  
+            
+    </div>
+    
+
+<!-- Sci-fi/Fantacy Page -->
+    <div data-role="page" id="scifa" data-add-back-btn="true">
+        
+      <div data-role="header" data-position="fixed" data-theme="b">
+        <h1>Sci-Fi/Fantacy</h1>
+      </div>       
+
+      <div data-role="content">
+        
+        <ul data-role="listview" data-filter="true">
+          <div id= "scif">
+            
+            </div>        
+       
+      </div>        
+    <!--Footer: Nav bar-->            
+      <div data-role="footer" data-position="fixed" data-id="loans" data-theme="b">
+        <div data-role="navbar" data-position="fixed">
+          <ul>
+            <li><a href="#home" data-icon="home">About</a></li>
+            <li><a href="#addmovie" data-icon="plus">Add Movie</a></li> 
+            <li><a href="#browse" id="displayList" data-icon="search">Browse</a></li>
+            <li><a href="#loans" id="loans" data-icon="alert">Loans</a></li>    
+          </ul>
+        </div>
+      </div>  
+            
+    </div>
+    
+<!-- Thriller Page -->
+    <div data-role="page" id="thriller" data-add-back-btn="true">
+        
+      <div data-role="header" data-position="fixed" data-theme="b">
+        <h1>Thriller</h1>
+      </div>       
+
+      <div data-role="content">
+        
+        <ul data-role="listview" data-filter="true">
+          <div id= "thril">
+            
+            </div>        
+       
+      </div>        
+    <!--Footer: Nav bar-->            
+      <div data-role="footer" data-position="fixed" data-id="loans" data-theme="b">
+        <div data-role="navbar" data-position="fixed">
+          <ul>
+            <li><a href="#home" data-icon="home">About</a></li>
+            <li><a href="#addmovie" data-icon="plus">Add Movie</a></li> 
+            <li><a href="#browse" id="displayList" data-icon="search">Browse</a></li>
+            <li><a href="#loans" id="loans" data-icon="alert">Loans</a></li>    
+          </ul>
+        </div>
+      </div>  
+            
+    </div>    
+
+<!-- Add Movie Page  -->
     <div data-role="page" id="addmovie" data-add-back-btn="true">
         
       <div data-role="header" data-position="fixed" data-theme="b">
@@ -178,14 +411,14 @@
                 
       </div>
                 
-    <!--Footer: Nav bar-->            
+<!-- Footer: Nav bar -->            
       <div data-role="footer" data-position="fixed" data-id="browse" data-theme="b">
         <div data-role="navbar" data-position="fixed">
           <ul>
-              <li><a href="#home" id="home" data-icon="home">About</a></li>
-              <li><a href="#addmovie" id="addmovie" data-icon="plus">Add Movie</a></li> 
-              <li><a href="#browse" id="browse" data-icon="search">Browse</a></li>
-              
+              <li><a href="#home" data-icon="home">About</a></li>
+            <li><a href="#addmovie" data-icon="plus">Add Movie</a></li> 
+            <li><a href="#browse" id="displayList" data-icon="search">Browse</a></li>
+            <li><a href="#loans" id="loans" data-icon="alert">Loans</a></li>  
           </ul>
         </div>
 
@@ -193,7 +426,7 @@
       
     </div>
 
-<!--Validation dialog-->
+<!-- Validation dialog -->
     <div data-role="dialogue" id="errors">
 
         <div data-role="header" data-position="fixed" data-theme="b">
@@ -210,24 +443,32 @@
 
 
         
-    <!--Loans Page-->
+<!-- Loans Page -->
     <div data-role="page" id="loans" data-add-back-btn="true">
         
       <div data-role="header" data-position="fixed" data-theme="b">
         <h1>Loans</h1>
       </div>       
-    <!--A list of all the users dvd's out of the library, on loan to friend or family.--> 
+<!-- A list of all the users dvd's out of the library, on loan to friend or family. --> 
+      <div data-role="content">
+        
+        <ul data-role="listview" data-filter="true">
+          <div id= "mLoans">
+            
+            </div>        
+       
+      </div>
    
       
              
- Footer: Nav bar            
+ <!--Footer: Nav bar-->            
     	<div data-role="footer" data-position="fixed" data-id="loans" data-theme="b">
     		<div data-role="navbar" data-position="fixed">
     			<ul>
-    				<li><a href="#home" id="home" data-icon="home">About</a></li>
-    				<li><a href="#addmovie" id="addmovie" data-icon="plus">Add Movie</a></li>	
-            <li><a href="#browse" id="browse" data-icon="search">Browse</a></li>
-            	
+    				<li><a href="#home" data-icon="home">About</a></li>
+            <li><a href="#addmovie" data-icon="plus">Add Movie</a></li> 
+            <li><a href="#browse" id="displayList" data-icon="search">Browse</a></li>
+            <li><a href="#loans" id="loans" data-icon="alert">Loans</a></li>  	
     			</ul>
     		</div>
     	</div>  
@@ -264,17 +505,19 @@
 
     		<div data-role="navbar" data-position="fixed">
     				<ul>
-    					<li><a href="#home" id="home" data-icon="home">About</a></li>
-    					<li><a href="#addmovie" id="addmovie" data-icon="plus">Add Movie</a></li>	
-              <li><a href="#browse" id="browse" data-icon="search">Browse</a></li>
-              	
+    					<li><a href="#home" data-icon="home">About</a></li>
+            <li><a href="#addmovie" data-icon="plus">Add Movie</a></li> 
+            <li><a href="#browse" id="displayList" data-icon="search">Browse</a></li>
+            <li><a href="#loans" id="loans" data-icon="alert">Loans</a></li>  	
     				</ul>
     		</div>
 
     	</div>
             
     </div>
-        
+    
+
+  
     
 
 
