@@ -54,7 +54,7 @@ var storeData = function(data){
     }else{
             id = data;
     };
-};
+
 
 
 //Gather up all our form field value and store in an object.
@@ -64,14 +64,14 @@ var item = {};
     item.title  = ["Title: ", $('#title').val()];
     item.rating = ["Rating: ", $('#rating').val()];
     item.status = ["Status: ", $('#status').val()];
-    item.key    = id;
+    
 
     localStorage.setItem(id, JSON.stringify(item));
     alert("Movie Saved!");
     changePage("showData");
     getData();
     console.log('getData');
-	
+};	
 	
 //Use JSON to Auto-fill Data
 var autofillData = function (){
