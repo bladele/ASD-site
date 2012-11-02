@@ -37,6 +37,10 @@ $('#addmovie').on('pageinit', function(){
     
 });
 
+$('#addmovie').on('click', function(){
+    validate();
+});
+
 $('#displaylink').on('click', function(){
     getData();
 });
@@ -138,7 +142,7 @@ function makeEventLinks(key, linksLi) {
 	deleteLink.href = "#browse";
 	deleteLink.key = key;
 	var deleteText = "Delete Log";
-	deleteLink.addEventListener("click", deleteLog);
+	deleteLink.addEventListener("click", deleteItem);
 	deleteLink.innerHTML = deleteText;
 	linksLi.appendChild(deleteLink);
 }
@@ -158,8 +162,8 @@ function editMovie() {
 	//Remove the initial listner fromt the input 'save log' botton.
 	save.removeEventListener("click", storeData);
 	//Change Submit Button Value to Edit Botton
-	$('submit').value = "Edit Movie";
-	var editSubmit = $('submit');
+	$('#submit').value = "Edit Movie";
+	var editSubmit = $('#submit');
 	/*Save the key value established in this function as a property of the editSubmit event
 	so we can ust that value when we save the data edited.*/
 	editSubmit.addEventListener("click", validate);
