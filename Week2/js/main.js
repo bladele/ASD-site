@@ -37,17 +37,6 @@ $('#addmovie').on('pageinit', function(){
     
 });
 
-$('#addmovie').on('click', function(){
-    validate();
-});
-
-$('#displaylink').on('click', function(){
-    getData();
-});
-
-$('#clear').on('click', function(){
-    clearLocal();
-});
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
 
@@ -57,9 +46,7 @@ var storeData = function(data){
             var id = Math.floor(Math.random()*10000001);
     }else{
             id = data;
-    };
-
-
+    }
 
 //Gather up all our form field value and store in an object.
 //Object properties contain array with the form lable and input value.
@@ -75,13 +62,13 @@ var item = {};
     changePage("showData");
     getData();
     console.log('getData');
-};	
+}	
 	
 //Use JSON to Auto-fill Data
 var autofillData = function (){
      for(var n in JSON){
          var id = Math.floor(Math.random()*10000001);
-         localStorage.setItem(id, JSON.stringify(JSON[n]));
+         localStorage.setItem(id, JSON.stringify(json[n]));
      };
 };
 
@@ -197,6 +184,52 @@ var clearLocal = function(){
         return false;
     };
 };
+
+
+
+//Set Link & Submit Click Events
+$('#addmovie').on('click', function(){
+    validate();
+});
+
+$('#displaylink').on('click', function(){
+    getData();
+});
+
+$('#clear').on('click', function(){
+    clearLocal();
+});
+
+
+//AJAX is here
+$("#json").on("click", function(){
+        $("#ajaxJson").empty(); //Remove all current data
+        $.ajax({
+            url: "xhr/data.json",
+            type: "GET",
+            dataType: "json",
+            success: function(json){
+                alert("JSON Data is now loaded.");
+                for(var i=0, j=json.Movies.length; i < j; i++){
+            var movies = json.Movies[i];
+                $('' +
+                    '<li><p><strong> Genre:</strong> ' + '<em>' + movies.genre + '</em>' + '</p>' +
+                    '<p><strong> Title:</strong>' + '<em>' + movies.title + '</em>' + '</p>' +
+                    '<p><strong> Status:</strong>' + '<em>' + movies.status + '</em>' + '</p>' +
+                    '<p><strong> Rating:</strong>' + '<em>' + movies.rating + '</em>' + '</p>'
+
+                    ).appendTo('#ajaxJson');
+                }
+                $("#ajaxJson").listview('refresh');
+            },
+        });
+});
+
+
+
+
+
+
 
 
 
