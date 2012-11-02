@@ -179,7 +179,7 @@ var clearLocal = function(){
         var conf = confirm("Sure you want to clear all saved movies?");
         if(conf){
                     localStorage.clear();
-                    alert("All love logs are deleted!");
+                    alert("All movies are deleted!");
         };
         return false;
     };
