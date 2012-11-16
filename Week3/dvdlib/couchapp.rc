@@ -1,0 +1,10 @@
+{
+	"env":{
+		"local":{
+		"db":"http://bladele:ayoaudrey1@127.0.0.1:5984/dvdlib"
+		},
+		"cloudant":{
+		"db":"https://bladele:ayoaudrey1@bladele.cloudant.com/dvdlib"
+		}
+	}
+}
