@@ -1,0 +1,112 @@
+<!doctype html>  
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	<title>My Stuff</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	
+	<!-- StyleSheets under here -->
+	<link href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
+
+</head>
+<body>
+
+<!-- _____________Intro Page(begin)_____________ -->
+	<div data-role="page" id="home">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1>My Stuff</h1>
+				<a href="https://github.com/bladele/ASD-site/tree/gh-pages/Wk1" data-icon="gear" class="ui-btn-right">GHP</a>
+		</div>
+
+		<div data-role="content">
+			<p>Tag line; Mission statement and other info about app
+			</p>
+
+			<p><a href="#additem" data-role="button" data-theme="b">Add Stuff</a></p>
+			<p><a href="#ajax" data-role="button" data-theme="a">AJAX DATA</a></p>
+<!-- _______________Categories_________________-->
+		</div>
+
+<!--______________Footer: Navigation Bar_____________-->
+		<div data-role="footer" data-postition="fixed" data-theme="b">
+			<div data-role="navbar" data-position="fixed">
+				<ul>
+					<li><a href="#home" data-icon="home">About</a></li>
+					<li><a href="#additem" data-icon="plus">Add Stuff</a></li>
+					<li><a href="#browse" data-icon="search">Browse</a></li>
+					<li><a href="#favs" data-icon="star">Favs</a></li>
+				</ul>
+			</div>
+		</div>
+
+	</div>	
+<!-- __________________Intro Page(end)____________________ -->
+
+
+<!-- _____________Add Item Page(begin)_____________ -->
+	<div data-role="page" id="additem" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1>Add Item</h1>
+		</div>
+		<div data-role="content">
+			<form action="" method="post" id="additemform">
+				<h2>*Fields are required</h2>
+				<div data-role="fieldcontain">
+					<label for="cats">*Categories:</label>
+						<select name="cats" id="cats" data-native-menu="true" class="required">
+							<option data-placeholder="true">Please Select One</option>
+							<option value="movie">Movies</option>
+							<option value="music">Music</option>
+							<option value="movies">Movies</option>
+							<option value="tools">Tools</option>
+							<option value="tech">Tech</option>
+							<option value="gear">Gear</option>
+						</select>
+				</div>
+
+				<div data-role="fieldcontain">
+					<label for="name">*Item Name:</label>
+					<input type="text" name="name" class="required">
+				</div>
+
+				<div data-role="fieldcontain">
+					<label for="condition">Condition:</label>
+					<input type="range" name="condition" min="0" max="10" data-theme="b">
+				</div>
+			</form>
+		</div>
+
+<!--______________Footer: Navigation Bar_____________-->
+		<div data-role="footer" data-postition="fixed" data-theme="b">
+			<div data-role="navbar" data-position="fixed">
+				<ul>
+					<li><a href="#home" data-icon="home">About</a></li>
+					<li><a href="#additem" data-icon="plus">Add Stuff</a></li>
+					<li><a href="#browse" data-icon="search">Browse</a></li>
+					<li><a href="#favs" data-icon="star">Favs</a></li>
+				</ul>
+			</div>
+		</div>		
+	</div>	
+<!-- _____________Add Item Page(end)_____________ -->
+
+	<!-- JavaScript under here -->
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script><!--Go to http://jquerymobile.com/download/ and get the most recent version from the CDN-->
+	<script src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+	<script type="text/javascript" src="jquery.validate.min.js"></script>
+	<script type="text/javascript" src="json.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
