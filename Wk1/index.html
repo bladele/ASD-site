@@ -47,6 +47,7 @@
 					<li><a href="#additem" data-icon="plus">Add Stuff</a></li>
 					<li><a href="#browse" data-icon="search">Browse</a></li>
 					<li><a href="#favs" data-icon="star">Favs</a></li>
+					<li><a href="#loans" data-icon="alert">Loans</a></li> 
 				</ul>
 			</div>
 		</div>
@@ -64,31 +65,58 @@
 			<form action="" method="post" id="additemform">
 				<h2>*Fields are required</h2>
 				<div data-role="fieldcontain">
-					<label for="cats">*Categories:</label>
+					<label for="cats">*Categories: </label>
 						<select name="cats" id="cats" data-native-menu="true" class="required">
 							<option data-placeholder="true">Please Select One</option>
 							<option value="movie">Movies</option>
 							<option value="music">Music</option>
 							<option value="movies">Movies</option>
-							<option value="tools">Tools</option>
+							<option value="books">Books</option>
 							<option value="tech">Tech</option>
 							<option value="gear">Gear</option>
 						</select>
 				</div>
 
 				<div data-role="fieldcontain">
-					<label for="name">*Item Name:</label>
-					<input type="text" name="name" class="required">
+					<label for="name">*Item Name: </label>
+					<input type="text" name="name" class="required" />
 				</div>
 
 				<div data-role="fieldcontain">
-					<label for="condition">Condition:</label>
-					<input type="range" name="condition" min="0" max="10" data-theme="b">
+					<fieldset data-role="controlgroup" data-type="horizontal">
+						<legend>Choose Condition</legend>
+						<input type="radio" name="condition" id="radio-choice-1" value="choice-1" checked="checked"/>
+						<label for="radio-choice-1">New</label>
+
+						<input type="radio" name="condition" id="radio-choice-2" value="choice-2" />
+						<label for="radio-choice-2">Good</label>
+
+						<input type="radio" name="condition" id="radio-choice-3" value="choice-3" />
+						<label for="radio-choice-3">Worn</label>
+					</fieldset>
 				</div>
+
+				<div class="containing-element">
+					<label for="status">Status: </label>
+						<select name="status" data-role="slider" data-theme="b" />
+							<option value="off">Item In</option>
+							<option value="on">Item Out</option>
+						</select>
+				</div>
+
+				<div data-role="fieldcontain">
+					<input type="button" value="Add Item" id="submit" data-theme="b" />
+				</div>
+
+				<div data-role="fieldcontain">
+					<input type="button" value="Reset" id="reset" data-theme="a" />
+				</div>
+
+				<a href="errors" id="errorslink" data-rel="dialog">Open errors</a>
 			</form>
 		</div>
 
-<!--______________Footer: Navigation Bar_____________-->
+<!--_______Footer: Navigation Bar_________-->
 		<div data-role="footer" data-postition="fixed" data-theme="b">
 			<div data-role="navbar" data-position="fixed">
 				<ul>
@@ -96,6 +124,7 @@
 					<li><a href="#additem" data-icon="plus">Add Stuff</a></li>
 					<li><a href="#browse" data-icon="search">Browse</a></li>
 					<li><a href="#favs" data-icon="star">Favs</a></li>
+					<li><a href="#loans" data-icon="alert">Loans</a></li> 
 				</ul>
 			</div>
 		</div>		
