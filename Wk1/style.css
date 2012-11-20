@@ -1,1 +1,19 @@
-// write your CSS in here
+/* write your CSS in here */
+
+
+label.error{display: block; margin:10px 0; color: #cc0000;}
+
+#logerrorslink{display: none;}
+
+
+#home {
+	text-align: center;
+	
+}
+
+#home .ui-grid-a div{text-align:center;}
+
+#home .ui-grid-a .ui-bar{padding:50px 20px;}
+
+.containing-element .ui-slider-switch { width: 12em }
+
