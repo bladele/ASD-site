@@ -57,15 +57,60 @@ var storeData = function(data){
 }
 
 //Use JSON to Auto-fill Data
-var autofillData = function (){
-     for(var n in JSON){
-         var id = Math.floor(Math.random()*10000001);
-         localStorage.setItem(id, JSON.stringify(json[n]));
-     };
-};
+
 
 //Get Data function
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Get AJAX Data
+$("#json").on("click", function(){
+        $("#ajaxJson").empty(); //Remove all current data
+        $.ajax({
+            url: "xhr/data.json",
+            type: "GET",
+            dataType: "json",
+            success: function(json){
+                alert("JSON Data is now loaded.");
+                for(var i=0, j=json.Movies.length; i < j; i++){
+            var movies = json.Movies[i];
+                $('' +
+                    '<li><p><strong> Genre: </strong> ' + '<em>' + movies.genre + '</em>' + '</p>' +
+                    '<p><strong> Title: </strong>' + '<em>' + movies.title + '</em>' + '</p>' +
+                    '<p><strong> Status: </strong>' + '<em>' + movies.status + '</em>' + '</p>' +
+                    '<p><strong> Rating: </strong>' + '<em>' + movies.rating + '</em>' + '</p>'
+                    ).appendTo('#ajaxJson');
+                }
+                $("#ajaxJson").listview('refresh');
+            },
+        });
+});
+
+
+//Set Link & Submit Click Events
+
+$('#additem').on('click', function(){
+	validate();
+});
+
+$('#browse').on('click', function(){
+	getData();
+});
+
+$('#clear').on('click', function(){
+	clearLocal();
+});
 
 
 
