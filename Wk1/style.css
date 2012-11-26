@@ -1,18 +1,12 @@
 /* write your CSS in here */
 
-#home{background:url(background.jpg) repeat left top;
+#home{	background:url(background.jpg) repeat left top;
+		text-align: left;
 }
-
-#home div p
 
 label.error{display: block; margin:10px 0; color: #cc0000;}
 
 #logerrorslink{display: none;}
-
-
-#home {
-	text-align: center;	
-}
 
 #additem{background:url(background.jpg) repeat left top;
 }
@@ -23,8 +17,10 @@ label.error{display: block; margin:10px 0; color: #cc0000;}
 #favs{background:url(background.jpg) repeat left top;
 }
 
-#loans{background:url(background.jpg) repeat left top;
+#ajax{background:url(background.jpg) repeat left top;
 }
+
+
 /*#home .ui-grid-a div{text-align:center;}*/
 
 /*#home .ui-grid-a .ui-bar{padding:50px 20px;}*/

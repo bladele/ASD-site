@@ -78,7 +78,7 @@ var storeData = function(data){
 $("#json").on("click", function(){
         $("#ajaxJson").empty(); //Remove all current data
         $.ajax({
-            url: "xhr/data.json",
+            url: "data.json",
             type: "GET",
             dataType: "json",
             success: function(json){

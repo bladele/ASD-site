@@ -3,7 +3,7 @@
 <head>
 
 	<meta charset="utf-8">
-	<title>My Stuff</title>
+	<title>All My Stuff</title>
 	
 	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
 	<meta name="HandheldFriendly" content="True">
@@ -26,7 +26,7 @@
 <!-- _____________Intro Page(begin)_____________ -->
 	<div data-role="page" id="home">
 		<div data-role="header" data-position="fixed" data-theme="b">
-			<h1>My Stuff</h1>
+			<h1>All My Stuff</h1>
 				<a href="https://github.com/bladele/ASD-site/tree/gh-pages/Wk1" data-icon="gear" class="ui-btn-right">GHP</a>
 		</div>
 
@@ -160,15 +160,29 @@
 				<h2>*Fields are required</h2>
 				<div data-role="fieldcontain">
 <!--I want the cats to be dynamic; that might have to come later when I better at coding.-->
-					<label for="cats">*Categories: </label>
+					<label for="cats" class="select">*Categories: </label>
 						<select name="cats" id="cats" data-native-menu="true" class="required" data-theme="b">
 							<option data-placeholder="true">Please Select One</option>
-							<option value="movie">Movies</option>
-							<option value="music">Music</option>
-							<option value="movies">Movies</option>
-							<option value="books">Books</option>
-							<option value="tech">Tech</option>
-							<option value="gear">Gear</option>
+							<optgroup label="Entertainment">
+								<option value="bray">Blu-Ray</option>
+								<option value="dvd">DVD</option>
+								<option value="vgames">Video Games</option>
+							</optgroup>
+							<optgroup label="Gear">
+								<option value="camp">Camping</option>
+								<option value="winter">Winter</option>
+							</optgroup>
+							<optgroup label="Household">
+								<option value="apl">Appliance</option>
+								<option value="fntre">Furniture</option>
+								<option value="tech">Technology</option>
+							</optgroup>
+							<optgroup label="Literature">
+								<option value="com">Comics</option>
+								<option value="fict">Fiction</option>
+								<option value="nonfict">Non-Fiction</option>
+								<option value="edu">Education</option>
+							</optgroup>
 						</select>
 				</div>
 
