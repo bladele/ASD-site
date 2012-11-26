@@ -2,7 +2,18 @@
 //Full Sail University
 
 $('#home').on('pageinit', function(){
-    //code needed for home page goes here
+    console.log("Home page loaded.");//code needed for home page goes here
+
+// transition to page, using data from a form and reloading the page from scratch
+	var loadAllItems = function(tobrowse){
+		$.mobile.changePage("#browse" + tobrowse, {
+			type:"post",
+			data:$("form").serialize(),
+			reloadPage:true
+		});
+	};
+
+	
 });
 
 $('#additem').on('pageinit', function(){
@@ -70,7 +81,19 @@ var storeData = function(data){
 
 
 
-
+//Clear Local Storage.
+var clearLocal = function(){
+	if(localStorage.length === 0){
+		alert("There is no data to clear.");
+	}else{
+		var conf = confirm("Sure you want to clear all saved items?");
+		if(conf){
+					localStorage.clear();
+					alert("All movies are deleted!");
+		};
+		return false;
+	};
+};
 
 
 
@@ -99,7 +122,7 @@ $("#json").on("click", function(){
 
 
 //Set Link & Submit Click Events
-
+/*
 $('#additem').on('click', function(){
 	validate();
 });
@@ -112,7 +135,7 @@ $('#clear').on('click', function(){
 	clearLocal();
 });
 
-
+*/
 
 
 
