@@ -202,9 +202,9 @@
 			<form action="" method="post" id="additemform">
 				<h2>*Fields are required</h2>
 				<div data-role="fieldcontain">
-<!--I want the cats to be dynamic; that might have to come later when I better at coding.-->
-					<label for="cats" class="select">*Categories: </label>
-						<select name="cats" id="cats" data-native-menu="true" class="required" data-theme="b">
+<!--I want the catgry to be dynamic; that might have to come later when I better at coding.-->
+					<label for="catgry" class="select">*Categories: </label>
+						<select name="catgry" id="catgry" data-native-menu="true" class="required" data-theme="b">
 							<option data-placeholder="true">Please Select One</option>
 							<optgroup label="Entertainment">
 								<option value="bray">Blu-Ray</option>
@@ -236,7 +236,7 @@
 
 				<div data-role="fieldcontain">
 					<label for="quantity">Quantity: </label>
-					<input type="range" name="quantity" id="quantity" value="1" min="0" max="100" data-highlight="true" />
+					<input type="range" name="quantity" id="quantity" value="1" min="1" max="100" data-highlight="true" />
 				</div>
 
 				<div data-role="fieldcontain">
@@ -254,19 +254,16 @@
 				</div>
 
 				<div data-role="fieldcontain" >
-					<fieldset data-role="controlgroup" >
+					<fieldset data-role="controlgroup">
 						<legend>Usage(How much item is used) : </legend>
-						<input type="radio" name="condition" id="radio-choice-1" value="choice-1" checked="checked" data-theme="b" />
+						<input type="radio" name="usage" id="radio-choice-1" value="choice-1" checked="checked" data-theme="b" />
 						<label for="radio-choice-1">Often</label>
 
-						<input type="radio" name="condition" id="radio-choice-2" value="choice-2" data-theme="b" />
+						<input type="radio" name="usage" id="radio-choice-2" value="choice-2" data-theme="b" />
 						<label for="radio-choice-2">Sometimes</label>
 
-						<input type="radio" name="condition" id="radio-choice-3" value="choice-3" data-theme="b" />
-						<label for="radio-choice-3">Hardly</label>
-
-						<input type="radio" name="condition" id="radio-choice-4" value="choice-4" data-theme="b" />
-						<label for="radio-choice-4">Never</label>
+						<input type="radio" name="usage" id="radio-choice-3" value="choice-3" data-theme="b" />
+						<label for="radio-choice-3">Never</label>
 					</fieldset>
 				</div>
 

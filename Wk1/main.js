@@ -70,8 +70,10 @@ var storeData = function(data){
 //Use JSON to Auto-fill Data
 
 
-//Get Data function
-
+//Get localStorage 
+$("#storage").on('click', function(){
+	$("#browse")
+})
 
 
 
@@ -130,12 +132,10 @@ $('#additem').on('click', function(){
 $('#browse').on('click', function(){
 	getData();
 });
+*/
 
 $('#clear').on('click', function(){
 	clearLocal();
 });
-
-*/
-
 
 
