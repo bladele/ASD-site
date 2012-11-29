@@ -4,14 +4,6 @@
 $('#home').on('pageinit', function(){
     console.log("Home page loaded.");//code needed for home page goes here
 
-// transition to page, using data from a form and reloading the page from scratch
-	var loadAllItems = function(tobrowse){
-		$.mobile.changePage("#browse" + tobrowse, {
-			type:"post",
-			data:$("form").serialize(),
-			reloadPage:true
-		});
-	};
 
 	
 });
@@ -32,7 +24,7 @@ $('#additem').on('pageinit', function(){
 				var fieldName = legend.lenght ? legend.text() : label.text();
 				html += '<li>' + fieldName + '</li>';
 			};
-			$("#errors ul"). html(html);
+			$("#errors ul").html(html);
 		},
 		submitHandler: function() {
 			var data = iForm.serializeArray();
@@ -56,9 +48,13 @@ var storeData = function(data){
 //Gather up all our form field value and store in an object.
 //Object properties contain array with the form lable and input value.
 	var item 		= {};
-		item.cat 	= ["Categorie: ", $('#cat').val()];
-		item.name 	= ["Name: ", $('#name').val()];
-		item.status = ["Status: ", $('#status').val()];
+		item.catgry		= ["Categorie: ", $('#catgry').val()];
+		item.name 		= ["Name: ", $('#name').val()];
+//		item.quantity	= ["Quantity: " $('#quantity').val()];
+//		item.condition	= ["Usage: " $('#usage').val()];
+		item.status 	= ["Status: ", $('#status').val()];
+		item.notes 		= ["Notes: ", $('#notes').val()];
+
 
 	localStorage.setItem(id, JSON.stringify(item));
 	alert("Item Saved!");
@@ -73,9 +69,39 @@ var storeData = function(data){
 //Get localStorage 
 $("#storage").on('click', function(){
 	$("#browse")
-})
+});
 
 
+
+
+//Get JSON Data when browse page is open.
+$("#browseBtn").on("click", function(){
+	
+	$.mobile.changePage("#browse");
+	$.ajax({
+		url: "data.json",
+		type: "Get",
+		dataType: "json",
+		success: function(json){
+			alert("All items are loaded.");
+
+			$("#ajaxJson").empty(); //Remove all current
+
+			for(var i=0, j=json.Movies.length; i < j; i++){
+        var movies = json.Movies[i];
+                $('' +
+                    '<li><p><strong> Genre: </strong> ' + '<em>' + movies.genre + '</em>' + '</p>' +
+                    '<p><strong> Title: </strong>' + '<em>' + movies.title + '</em>' + '</p>' +
+                    '<p><strong> Status: </strong>' + '<em>' + movies.status + '</em>' + '</p>' +
+                    '<p><strong> Rating: </strong>' + '<em>' + movies.rating + '</em>' + '</p></li>'
+                    ).appendTo('#ajaxJson');
+                }
+                $("#ajaxJson").listview('refresh');
+
+                $.mobile.changePage("#browse");
+		}, 
+	});
+});
 
 
 
@@ -99,7 +125,8 @@ var clearLocal = function(){
 
 
 
-//Get AJAX Data
+//Get AJAX Data 
+
 $("#json").on("click", function(){
         $("#ajaxJson").empty(); //Remove all current data
         $.ajax({
@@ -107,6 +134,7 @@ $("#json").on("click", function(){
             type: "GET",
             dataType: "json",
             success: function(json){
+            	console.log("JSON Data is now loaded.");
                 alert("JSON Data is now loaded.");
                 for(var i=0, j=json.Movies.length; i < j; i++){
             var movies = json.Movies[i];
@@ -114,10 +142,11 @@ $("#json").on("click", function(){
                     '<li><p><strong> Genre: </strong> ' + '<em>' + movies.genre + '</em>' + '</p>' +
                     '<p><strong> Title: </strong>' + '<em>' + movies.title + '</em>' + '</p>' +
                     '<p><strong> Status: </strong>' + '<em>' + movies.status + '</em>' + '</p>' +
-                    '<p><strong> Rating: </strong>' + '<em>' + movies.rating + '</em>' + '</p>'
+                    '<p><strong> Rating: </strong>' + '<em>' + movies.rating + '</em>' + '</p></li>'
                     ).appendTo('#ajaxJson');
                 }
                 $("#ajaxJson").listview('refresh');
+
             },
         });
 });
