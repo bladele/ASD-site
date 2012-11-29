@@ -128,7 +128,7 @@ var clearLocal = function(){
 //Get AJAX Data 
 
 $("#json").on("click", function(){
-        $("#ajaxJson").empty(); //Remove all current data
+        $("#ajaxJson2").empty(); //Remove all current data
         $.ajax({
             url: "data.json",
             type: "GET",
@@ -143,9 +143,9 @@ $("#json").on("click", function(){
                     '<p><strong> Title: </strong>' + '<em>' + movies.title + '</em>' + '</p>' +
                     '<p><strong> Status: </strong>' + '<em>' + movies.status + '</em>' + '</p>' +
                     '<p><strong> Rating: </strong>' + '<em>' + movies.rating + '</em>' + '</p></li>'
-                    ).appendTo('#ajaxJson');
+                    ).appendTo('#ajaxJson2');
                 }
-                $("#ajaxJson").listview('refresh');
+                $("#ajaxJson2").listview('refresh');
 
             },
         });
