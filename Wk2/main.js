@@ -81,7 +81,7 @@ $("#browseBtn").on("click", function(){
 	
 	$.mobile.changePage("#browse");
 	$.ajax({
-		url: "data.json",
+		url: "items.json",
 		type: "Get",
 		dataType: "json",
 		success: function(json){
@@ -90,18 +90,18 @@ $("#browseBtn").on("click", function(){
 			$("#ajaxJson").empty(); //Remove all current
 
 			for(var i=0, j=json.Items.length; i < j; i++){
-        var movies = json.Movies[i];
+        var items = json.Items[i];
                 $('' +
                     '<li>' +
-                    '<p><strong> Category: </strong> ' + '<em>' + movies.catgry + '</em>' + '</p>' +
-                    '<p><strong> Type: </strong>' + '<em>' + movies.type + '</em>' + '</p>' +
-                    '<p><strong> Name: </strong>' + '<em>' + movies.name + '</em>' + '</p>' +
-                    '<p><strong> Quantity: </strong>' + '<em>' + movies.quantity + '</em>' + '</p>' +
-                    '<p><strong> Condition: </strong>' + '<em>' + movies.condition + '</em>' + '</p>' +
-                    '<p><strong> Usage: </strong>' + '<em>' + movies.usage + '</em>' + '</p>' +
-                    '<p><strong> Status: </strong>' + '<em>' + movies.status + '</em>' + '</p>' +
-                    '<p><strong> Notes: </strong>' + '<em>' + movies.notes + '</em>' + '</p>' +
-                    '</li>'
+	                 '<p><strong> Category: </strong> ' + '<em>' + items.catgry + '</em>' + '</p>' +
+	                 '<p><strong> Type: </strong>' + '<em>' + items.type + '</em>' + '</p>' +
+	                 '<p><strong> Name: </strong>' + '<em>' + items.name + '</em>' + '</p>' +
+	                 '<p><strong> Quantity: </strong>' + '<em>' + items.quantity + '</em>' + '</p>' +
+	                 '<p><strong> Condition: </strong>' + '<em>' + items.condition + '</em>' + '</p>' +
+	                 '<p><strong> Usage: </strong>' + '<em>' + items.usage + '</em>' + '</p>' +
+	                 '<p><strong> Status: </strong>' + '<em>' + items.status + '</em>' + '</p>' +
+	                 '<p><strong> Notes: </strong>' + '<em>' + items.notes + '</em>' + '</p>' +
+	                 '</li>'
                     ).appendTo('#ajaxJson');
                 }
                 $("#ajaxJson").listview('refresh');
@@ -135,39 +135,97 @@ var clearLocal = function(){
 
 
 //Get AJAX Data 
+$('#ajax').on('pageinit', function(){
 
-$("#json").on("click", function(){
-        $("#ajaxJson2").empty(); //Remove all current data
-        $.ajax({
-            url: "items.xml",
-            type: "GET",
-            dataType: "xml",
-            success: function(xml,data){
-            	console.log("JSON Data is now loaded.");
-                alert("JSON Data is now loaded.");
-                for(var i=0, j=json.Movies.length; i < j; i++){
-            var movies = json.Movies[i];
-                $('' +
-                    '<li>' +
-                    '<p><strong> Category: </strong> ' + '<em>' + movies.catgry + '</em>' + '</p>' +
-                    '<p><strong> Type: </strong>' + '<em>' + movies.type + '</em>' + '</p>' +
-                    '<p><strong> Name: </strong>' + '<em>' + movies.name + '</em>' + '</p>' +
-                    '<p><strong> Quantity: </strong>' + '<em>' + movies.quantity + '</em>' + '</p>' +
-                    '<p><strong> Condition: </strong>' + '<em>' + movies.condition + '</em>' + '</p>' +
-                    '<p><strong> Usage: </strong>' + '<em>' + movies.usage + '</em>' + '</p>' +
-                    '<p><strong> Status: </strong>' + '<em>' + movies.status + '</em>' + '</p>' +
-                    '<p><strong> Notes: </strong>' + '<em>' + movies.notes + '</em>' + '</p>' +
-                    '</li>'
-                    ).appendTo('#ajaxJson2');
-                }
-                $("#ajaxJson2").listview('refresh');
-            },
-            errors: function(data){}
-        });
+//JSON Data
+	$("#jsonBtn").on("click", function(){
+	        $("#ajaxData").empty(); //Remove all current data
+	        $.ajax({
+	            url: "items.json",
+	            type: "GET",
+	            dataType: "json",
+	            success: function(json){
+	            	console.log(json);
+	                alert("JSON Data is now loaded.");
+	                for(var i=0, j=json.Items.length; i < j; i++){
+	            var items = json.Items[i];
+	                $('' +
+	                    '<li>' +
+	                    '<p><strong> Category: </strong> ' + '<em>' + items.catgry + '</em>' + '</p>' +
+	                    '<p><strong> Type: </strong>' + '<em>' + items.type + '</em>' + '</p>' +
+	                    '<p><strong> Name: </strong>' + '<em>' + items.name + '</em>' + '</p>' +
+	                    '<p><strong> Quantity: </strong>' + '<em>' + items.quantity + '</em>' + '</p>' +
+	                    '<p><strong> Condition: </strong>' + '<em>' + items.condition + '</em>' + '</p>' +
+	                    '<p><strong> Usage: </strong>' + '<em>' + items.usage + '</em>' + '</p>' +
+	                    '<p><strong> Status: </strong>' + '<em>' + items.status + '</em>' + '</p>' +
+	                    '<p><strong> Notes: </strong>' + '<em>' + items.notes + '</em>' + '</p>' +
+	                    '</li>'
+	                    ).appendTo('#ajaxData');
+	                }
+	                $("#ajaxData").listview('refresh');
+	            },
+	            errors: function(data){}
+	        });
+	});
+
+//XML
+	$('#xmlBtn').on('click', function(){
+
+		$('#ajaxData').empty();
+		$.ajax({
+			url: "items.xml",
+	        type: "GET",
+	        dataType: "xml",
+	        success: function(xml,data){
+	            	console.log(xml);
+	                alert("XML Data is now loaded.");
+	                for(var i=0, j=json.Items.length; i < j; i++){
+	            	
+	            	$(xml).find("items").each(function(){
+	            		var catgry 		= $(this).find('catgry').text(),
+	            			type 		= $(this).find('type').text(),
+	            			name 		= $(this).find('name').text(),
+	            			quantity 	= $(this).find('quantity').text(),
+	            			condition 	= $(this).find('condition').text(),
+	            			status 		= $(this).find('status').text(),
+	            			notes 		= $(this).find('notes').text();
+
+	            		$("#ajaxData").appendTo($(	'<ul>' +
+		            									'<li>' + "Category: " + catgry + '<br/>' + '</li>' +
+		            									'<li>' + "Type: " + type + '<br/>' + '</li>' +
+		            									'<li>' + "Name: " + name + '<br/>' + '</li>' +
+		            									'<li>' + "Quantity: " + quantity + '<br/>' + '</li>' +
+		            									'<li>' + "Condition: " + condition + '<br/>' + '</li>' +
+		            									'<li>' + "Status: " + status + '<br/>' + '</li>' +
+		            									'<li>' + "Notes: " + notes + '<br/>' + '</li>' +
+	            									'</ul>'
+	            								));
+	            	});
+					$('#ajaxData').listview();
+				$('#ajaxData').listview('refresh');
+			}
+			error: function(data){}
+		});
+	});
+
+
+
+
+//CSV
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
-
-
-
 
 
 //Set Link & Submit Click Events

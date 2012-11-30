@@ -113,6 +113,7 @@
 				<!-- JSON DATA -->
       			<div id="jsonData">
           			<ul data-role="listview" id="ajaxJson" data-filter="true">
+          			</ul>
       			</div>
 		</div>
 
@@ -316,16 +317,16 @@
 <!-- _____________Validation Dialogue Page(end)_____________ -->
 
 
-<!-- _____________JSON DATA Page(begin)_____________ -->
+<!-- _____________AJAX DATA Page(begin)_____________ -->
 	<div data-role="page" id="ajax" data-add-back-btn="true">
       <!-- Buttons for populating data in header-navbar -->  
       <div data-role="header" data-position="fixed" data-theme="a">
       	<h1>AJAX DATA</h1>
       	<div data-role="navbar">
 				<ul>
-					<li><a href="#json" id="json" data-role="button">JSON</a></li>				
-					<li><a href="#xml" id="xml" data-role="button">XML</a></li>
-					<li><a href="#csv" id="csv" data-role="button">CSV</a></li>  
+					<li><a href="#json" id="jsonBtn" data-role="button">JSON</a></li>				
+					<li><a href="#xml" id="xmlBtn" data-role="button">XML</a></li>
+					<li><a href="#csv" id="csvBtn" data-role="button">CSV</a></li>  
 				</ul>
 		</div>
         
@@ -334,15 +335,9 @@
 <!-- JSON DATA -->
       <div id="json">
         <ul data-role="listview" id="ajaxJson2">
+        </ul>
       </div>		
-<!-- JSON DATA -->
-      <div id="xml">
-          <ul data-role="listview" id="xml">
-      </div>
-<!-- JSON DATA -->
-      <div id="csv">
-          <ul data-role="listview" id="csv">
-      </div> 
+
 
 
 <!--_______Footer: Navigation Bar_________-->
