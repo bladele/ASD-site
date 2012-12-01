@@ -203,7 +203,7 @@ $('#ajax').on('pageinit', function(){
 	            	});
 					$('#ajaxData').listview();
 				$('#ajaxData').listview('refresh');
-			}
+			},
 			error: function(data){}
 		});
 	});
