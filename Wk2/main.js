@@ -173,10 +173,10 @@ $('#ajax').on('pageinit', function(){
 
 		$('#ajaxData').empty();
 		$.ajax({
-			url: "items.xml",
-	        type: "GET",
+			url     : "items.xml",
+	        type    : "GET",
 	        dataType: "xml",
-	        success: function(xml,data){
+	        success : function(xml,data){
 	            	console.log(xml);
 	                alert("XML Data is now loaded.");
 	                for(var i=0, j=json.Items.length; i < j; i++){
@@ -191,13 +191,13 @@ $('#ajax').on('pageinit', function(){
 	            			notes 		= $(this).find('notes').text();
 
 	            		$("#ajaxData").appendTo($(	'<ul>' +
-		            									'<li>' + "Category: " + catgry + '<br/>' + '</li>' +
-		            									'<li>' + "Type: " + type + '<br/>' + '</li>' +
-		            									'<li>' + "Name: " + name + '<br/>' + '</li>' +
-		            									'<li>' + "Quantity: " + quantity + '<br/>' + '</li>' +
-		            									'<li>' + "Condition: " + condition + '<br/>' + '</li>' +
-		            									'<li>' + "Status: " + status + '<br/>' + '</li>' +
-		            									'<li>' + "Notes: " + notes + '<br/>' + '</li>' +
+		            									'<li>' + "Category: " + catgry + '<br />' + '</li>' +
+		            									'<li>' + "Type: " + type + '<br />' + '</li>' +
+		            									'<li>' + "Name: " + name + '<br />' + '</li>' +
+		            									'<li>' + "Quantity: " + quantity + '<br />' + '</li>' +
+		            									'<li>' + "Condition: " + condition + '<br />' + '</li>' +
+		            									'<li>' + "Status: " + status + '<br />' + '</li>' +
+		            									'<li>' + "Notes: " + notes + '<br />' + '</li>' +
 	            									'</ul>'
 	            								));
 	            	});
@@ -213,17 +213,35 @@ $('#ajax').on('pageinit', function(){
 
 //CSV
 
+	$('#csv').on('click', function(){
+		$('#ajaxData').empty();
 
-
-
-
-
-
-
-
-
-
-
+		$.ajax(
+			url  	 : "items.csv",
+			type 	 : "GET",
+			dataType : "text",
+			success  : function(data){
+						console.log(data){
+					var lines = data.split("\n");
+					for(var lineNum = 1; lineNum < lines.length; lineNum++) {
+						var row = lines[lineNum];
+						var columns = row.split(",");
+						$("#ajaxData").append($('<ul>' +
+													'<li>' + "Category: " + columns(0) + '<br />' + '</li>' +
+													'<li>' + "Type: " + columns(1) + '<br />' + '</li>' +
+		            								'<li>' + "Name: " + columns(2) + '<br />' + '</li>' +
+		            								'<li>' + "Quantity: " + columns(3) + '<br />' + '</li>' +
+		            								'<li>' + "Condition: " + columns(4) + '<br />' + '</li>' +
+		            								'<li>' + "Status: " + columns(5) + '<br />' + '</li>' +
+		            								'<li>' + "Notes: " + columns(6) + '<br />' + '</li>' +
+	            								'</ul>'
+													));
+					}
+					$('#ajaxData').listview();
+					$('#ajaxData').listview(refresh);
+				},
+			});
+	});
 
 });
 
