@@ -76,7 +76,7 @@ $("#storage").on('click', function () {
 
 
 //Get JSON Data when browse page is open.
-/*$("#browseBtn").on("click", function () {
+$("#browseBtn").on("click", function () {
 
     $.mobile.changePage("#browse");
     $.ajax({
@@ -108,7 +108,7 @@ $("#storage").on('click', function () {
         },
         errors: function (data) {}
     });
-});*/
+});
 
 
 
@@ -133,92 +133,94 @@ var clearLocal = function () {
 
 
 //Get AJAX Data 
-$('#ajax').on('pageinit', function () {
 
-    //JSON Data
-    $("#jsonBtn").on("click", function () {
-        $("#ajaxData").empty(); //Remove all current data
-        $.ajax({
-            url: "items.json",
-            type: "GET",
-            dataType: "json",
-            success: function (json) {
-                console.log(json);
-                alert("JSON Data is now loaded.");
-                for (var i = 0, j = json.Items.length; i < j; i++) {
-                    var items = json.Items[i];
-                    $('' +
-                        '<li>' +
-                        '<p><strong> Category: </strong> ' + '<em>' + items.catgry + '</em>' + '</p>' +
-                        '<p><strong> Type: </strong>' + '<em>' + items.type + '</em>' + '</p>' +
-                        '<p><strong> Name: </strong>' + '<em>' + items.name + '</em>' + '</p>' +
-                        '<p><strong> Quantity: </strong>' + '<em>' + items.quantity + '</em>' + '</p>' +
-                        '<p><strong> Condition: </strong>' + '<em>' + items.condition + '</em>' + '</p>' +
-                        '<p><strong> Usage: </strong>' + '<em>' + items.usage + '</em>' + '</p>' +
-                        '<p><strong> Status: </strong>' + '<em>' + items.status + '</em>' + '</p>' +
-                        '<p><strong> Notes: </strong>' + '<em>' + items.notes + '</em>' + '</p>' +
-                        '</li>').appendTo('#ajaxData');
-                }
-                $("#ajaxData").listview('refresh');
-            },
-            errors: function (data) {}
-        });
+
+//JSON Data
+$("#jsonBtn").on("click", function () {
+    $("#ajaxData").empty(); //Remove all current data
+    $.ajax({
+        url: "items.json",
+        type: "GET",
+        dataType: "json",
+        success: function (json) {
+            console.log(json);
+            alert("JSON Data is now loaded.");
+            for (var i = 0, j = json.Items.length; i < j; i++) {
+                var items = json.Items[i];
+                $('' +
+                    '<li>' +
+                    '<p><strong> Category: </strong> ' + '<em>' + items.catgry + '</em>' + '</p>' +
+                    '<p><strong> Type: </strong>' + '<em>' + items.type + '</em>' + '</p>' +
+                    '<p><strong> Name: </strong>' + '<em>' + items.name + '</em>' + '</p>' +
+                    '<p><strong> Quantity: </strong>' + '<em>' + items.quantity + '</em>' + '</p>' +
+                    '<p><strong> Condition: </strong>' + '<em>' + items.condition + '</em>' + '</p>' +
+                    '<p><strong> Usage: </strong>' + '<em>' + items.usage + '</em>' + '</p>' +
+                    '<p><strong> Status: </strong>' + '<em>' + items.status + '</em>' + '</p>' +
+                    '<p><strong> Notes: </strong>' + '<em>' + items.notes + '</em>' + '</p>' +
+                    '</li>').appendTo('#ajaxData');
+            }
+            $("#ajaxData").listview('refresh');
+        },
+
     });
+});
 
-    //XML
-    $('#xmlBtn').on('click', function () {
 
-        $('#ajaxData').empty();
-        $.ajax({
-            url: "items.xml",
-            type: "GET",
-            dataType: "xml",
-            success: function (xml, data) {
-                console.log(xml);
-                alert("XML Data is now loaded.");
-                for (var i = 0, j = json.Items.length; i < j; i++) {
 
-                    $(xml).find("items").each(function () {
-                        var catgry = $(this).find('catgry').text(),
-                            type = $(this).find('type').text(),
-                            name = $(this).find('name').text(),
-                            quantity = $(this).find('quantity').text(),
-                            condition = $(this).find('condition').text(),
-                            status = $(this).find('status').text(),
-                            notes = $(this).find('notes').text();
+//XML
+$('#xmlBtn').on('click', function () {
 
-                        $('<ul>' +
-                            '<li>' + "Category: " + catgry + '<br />' + '</li>' +
-                            '<li>' + "Type: " + type + '<br />' + '</li>' +
-                            '<li>' + "Name: " + name + '<br />' + '</li>' +
-                            '<li>' + "Quantity: " + quantity + '<br />' + '</li>' +
-                            '<li>' + "Condition: " + condition + '<br />' + '</li>' +
-                            '<li>' + "Status: " + status + '<br />' + '</li>' +
-                            '<li>' + "Notes: " + notes + '<br />' + '</li>' +
-                            '</ul>').appendTo("#ajaxData");
-                    });
-                    $('#ajaxData').listview();
-                    $('#ajaxData').listview('refresh');
-                }
-                error: function (data) {}
-            },
-        });
+    $('#ajaxData').empty();
+    $.ajax({
+        url: "items.xml",
+        type: "GET",
+        dataType: "xml",
+        success: function (xml,data) {
+            console.log(xml);
+            alert("XML Data is now loaded.");
+                $(xml).find("items").each(function () {
+                    var catgry = $(this).find('catgry').text(),
+                        type = $(this).find('type').text(),
+                        name = $(this).find('name').text(),
+                        quantity = $(this).find('quantity').text(),
+                        condition = $(this).find('condition').text(),
+                        status = $(this).find('status').text(),
+                        notes = $(this).find('notes').text();
+
+            $("#ajaxData").append(
+                    $('<ul>' +
+                        '<li>' + "Category: " + catgry + '<br />' + '</li>' +
+                        '<li>' + "Type: " + type + '<br />' + '</li>' +
+                        '<li>' + "Name: " + name + '<br />' + '</li>' +
+                        '<li>' + "Quantity: " + quantity + '<br />' + '</li>' +
+                        '<li>' + "Condition: " + condition + '<br />' + '</li>' +
+                        '<li>' + "Status: " + status + '<br />' + '</li>' +
+                        '<li>' + "Notes: " + notes + '<br />' + '</li>' +
+                        '</ul>'));
+                });
+                $('#ajaxData').listview();
+                $('#ajaxData').listview('refresh');   
+        },
+        errors: function (data) {}
     });
+});
 
-    //CSV
-    $('#csvBtn').on('click', function () {
-        $('#ajaxData').empty();
+//CSV
+$('#csvBtn').on('click', function () {
+    $('#ajaxData').empty();
 
-        $.ajax(
+    $.ajax({
         url: "items.csv",
         type: "GET",
         dataType: "text",
         success: function (data) {
-            console.log(data) {
+            console.log(data);
+            alert("CSV Data is now loaded.");
                 var lines = data.split("\n");
                 for (var lineNum = 1; lineNum < lines.length; lineNum++) {
                     var row = lines[lineNum];
                     var columns = row.split(",");
+                    $("#ajaxData").append(
                     $('<ul>' +
                         '<li>' + "Category: " + columns(0) + '<br />' + '</li>' +
                         '<li>' + "Type: " + columns(1) + '<br />' + '</li>' +
@@ -227,28 +229,28 @@ $('#ajax').on('pageinit', function () {
                         '<li>' + "Condition: " + columns(4) + '<br />' + '</li>' +
                         '<li>' + "Status: " + columns(5) + '<br />' + '</li>' +
                         '<li>' + "Notes: " + columns(6) + '<br />' + '</li>' +
-                        '</ul>').appendTo("#ajaxData");
+                        '</ul>'));
                 }
                 $('#ajaxData').listview();
                 $('#ajaxData').listview('refresh');
             },
         });
-    });
-
 });
 
 
-//Set Link & Submit Click Events
+
 /*
+//Set Link & Submit Click Events
+
 $('#additem').on('click', function(){
-	validate();
+    validate();
 });
 
 $('#browse').on('click', function(){
-	getData();
+    getData();
 });
 
 $('#clear').on('click', function(){
-	clearLocal();
+    clearLocal();
 });
 */
