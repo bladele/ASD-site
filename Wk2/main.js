@@ -76,7 +76,7 @@ $("#storage").on('click', function () {
 
 
 //Get JSON Data when browse page is open.
-/*$("#browseBtn").on("click", function () {
+$("#browseBtn").on("click", function () {
 
     $.mobile.changePage("#browse");
     $.ajax({
@@ -108,7 +108,7 @@ $("#storage").on('click', function () {
         },
         errors: function (data) {}
     });
-});*/
+});
 
 
 
@@ -175,11 +175,9 @@ $('#xmlBtn').on('click', function () {
         url: "items.xml",
         type: "GET",
         dataType: "xml",
-        success: function (xml, data) {
+        success: function (xml,data) {
             console.log(xml);
             alert("XML Data is now loaded.");
-            for (var i = 0, j = json.Items.length; i < j; i++) {
-
                 $(xml).find("items").each(function () {
                     var catgry = $(this).find('catgry').text(),
                         type = $(this).find('type').text(),
@@ -189,6 +187,7 @@ $('#xmlBtn').on('click', function () {
                         status = $(this).find('status').text(),
                         notes = $(this).find('notes').text();
 
+            $("#ajaxData").append(
                     $('<ul>' +
                         '<li>' + "Category: " + catgry + '<br />' + '</li>' +
                         '<li>' + "Type: " + type + '<br />' + '</li>' +
@@ -197,17 +196,14 @@ $('#xmlBtn').on('click', function () {
                         '<li>' + "Condition: " + condition + '<br />' + '</li>' +
                         '<li>' + "Status: " + status + '<br />' + '</li>' +
                         '<li>' + "Notes: " + notes + '<br />' + '</li>' +
-                        '</ul>').appendTo("#ajaxData");
+                        '</ul>'));
                 });
-                $('#ajaxData').listview('refresh');
-                
-            }
-
+                $('#ajaxData').listview();
+                $('#ajaxData').listview('refresh');   
         },
+        errors: function (data) {}
     });
 });
-
-/*
 
 //CSV
 $('#csvBtn').on('click', function () {
@@ -218,11 +214,13 @@ $('#csvBtn').on('click', function () {
         type: "GET",
         dataType: "text",
         success: function (data) {
-            console.log(data) {
+            console.log(data);
+            alert("CSV Data is now loaded.");
                 var lines = data.split("\n");
                 for (var lineNum = 1; lineNum < lines.length; lineNum++) {
                     var row = lines[lineNum];
                     var columns = row.split(",");
+                    $("#ajaxData").append(
                     $('<ul>' +
                         '<li>' + "Category: " + columns(0) + '<br />' + '</li>' +
                         '<li>' + "Type: " + columns(1) + '<br />' + '</li>' +
@@ -231,16 +229,15 @@ $('#csvBtn').on('click', function () {
                         '<li>' + "Condition: " + columns(4) + '<br />' + '</li>' +
                         '<li>' + "Status: " + columns(5) + '<br />' + '</li>' +
                         '<li>' + "Notes: " + columns(6) + '<br />' + '</li>' +
-                        '</ul>').appendTo("#ajaxData");
+                        '</ul>'));
                 }
                 $('#ajaxData').listview();
                 $('#ajaxData').listview('refresh');
-            }
-        },
-    });
+            },
+        });
 });
 
-*/
+
 
 /*
 //Set Link & Submit Click Events
