@@ -322,24 +322,27 @@
       <!-- Buttons for populating data in header-navbar -->  
       <div data-role="header" data-position="fixed" data-theme="a">
       	<h1>AJAX DATA</h1>
+      	<!-- Nav bar buttons for populating data -->
       	<div data-role="navbar">
-				<ul>
-					<li><a href="#json" id="jsonBtn" data-role="button">JSON</a></li>				
-					<li><a href="#xml" id="xmlBtn" data-role="button">XML</a></li>
-					<li><a href="#csv" id="csvBtn" data-role="button">CSV</a></li>  
-				</ul>
-				<div id="ajaxData" ></div>
-		</div>
-        
-      </div>     
-
-
-      
-        
-        
-      	
-
-
+			<ul>
+				<li><a href="#json" id="jsonBtn" data-role="button">JSON</a></li>		
+				<li><a href="#xml" id="xmlBtn" data-role="button">XML</a></li>
+				<li><a href="#csv" id="csvBtn" data-role="button">CSV</a></li>  
+			</ul>
+		</div> 
+      </div>
+      <!-- AJAX DATA -->
+      <div data-role="content">
+		  <div id="json">
+		  	<ul data-role="listview" id="ajaxData" data-filter="true" ></ul>
+		  </div>
+		  <div id="xml">
+		  	<ul data-role="listview" id="ajaxData" ></ul>
+		  </div> 
+		  <div id="csv">
+		  	<ul data-role="listview" id="ajaxData" ></ul>
+		  </div>
+	  </div>
 
 <!--_______Footer: Navigation Bar_________-->
 		<div data-role="footer" data-postition="fixed" data-theme="a">
