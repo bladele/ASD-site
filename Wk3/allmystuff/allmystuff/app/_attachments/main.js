@@ -33,7 +33,6 @@ $('#additem').on('pageinit', function () {
 
 });
 
-$('#d')
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
 
@@ -80,33 +79,32 @@ $("#browseBtn").on("click", function () {
 
     $.mobile.changePage("#browse");
     $.ajax({
-        url: "items.json",
+        url: "_view/items",
         type: "Get",
         dataType: "json",
-        success: function (json) {
+        success: function (data) {
+            console.log(data);
             alert("All items are loaded.");
+            $('<h3>').html("").appendTo('#browse');
+                $.each(data.rows, function (index, item) {
 
-            $("#ajaxJson").empty(); //Remove all current
-
-            for (var i = 0, j = json.Items.length; i < j; i++) {
-                var items = json.Items[i];
-                $('' +
-                    '<li>' +
-                    '<p><strong> Category: </strong> ' + '<em>' + items.catgry + '</em>' + '</p>' +
-                    '<p><strong> Type: </strong>' + '<em>' + items.type + '</em>' + '</p>' +
-                    '<p><strong> Name: </strong>' + '<em>' + items.name + '</em>' + '</p>' +
-                    '<p><strong> Quantity: </strong>' + '<em>' + items.quantity + '</em>' + '</p>' +
-                    '<p><strong> Condition: </strong>' + '<em>' + items.condition + '</em>' + '</p>' +
-                    '<p><strong> Usage: </strong>' + '<em>' + items.usage + '</em>' + '</p>' +
-                    '<p><strong> Status: </strong>' + '<em>' + items.status + '</em>' + '</p>' +
-                    '<p><strong> Notes: </strong>' + '<em>' + items.notes + '</em>' + '</p>' +
-                    '</li>').appendTo('#ajaxJson');
-            }
-            $("#ajaxJson").listview('refresh');
-
-            $.mobile.changePage("#browse");
+                    $('' +
+                        '<li>' +
+                        '<p><strong> Category: </strong> ' + '<em>' + item.value.catgry + '</em>' + '</p>' +
+                        '<p><strong> Type: </strong>' + '<em>' + item.value.type + '</em>' + '</p>' +
+                        '<p><strong> Name: </strong>' + '<em>' + item.value.name + '</em>' + '</p>' +
+                        '<p><strong> Quantity: </strong>' + '<em>' + item.value.quantity + '</em>' + '</p>' +
+                        '<p><strong> Condition: </strong>' + '<em>' + item.value.condition + '</em>' + '</p>' +
+                        '<p><strong> Usage: </strong>' + '<em>' + item.value.usage + '</em>' + '</p>' +
+                        '<p><strong> Status: </strong>' + '<em>' + item.value.status + '</em>' + '</p>' +
+                        '<p><strong> Notes: </strong>' + '<em>' + item.value.notes + '</em>' + '</p>' +
+                        '</li>'
+                    ).appendTo('#ajaxJson');
+            });        
+                $("#ajaxJson").listview('refresh');
+                $.mobile.changePage("#browse");
         },
-        errors: function (data) {}
+            errors: function (data) {}
     });
 });
 

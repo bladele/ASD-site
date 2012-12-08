@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <items>
+
 	<item>
 		<catgry>Entertainment</catgry>
 		<type>DVD</type>
@@ -55,4 +56,5 @@
 		<status>In</status>
 		<notes>Never let you wife buy electrionics.</notes>
 	</item>
+
 </items>

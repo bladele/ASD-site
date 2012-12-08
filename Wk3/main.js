@@ -7,7 +7,7 @@ $('#home').on('pageinit', function () {
 
 $('#additem').on('pageinit', function () {
 
-    var iForm = $('#additemform'),
+    var iForm = $('#additemform');
         errorslink = $('#errorslink');
 
     iForm.validate({
@@ -46,14 +46,14 @@ var storeData = function (data) {
     //Gather up all our form field value and store in an object.
     //Object properties contain array with the form lable and input value.
     var item = {};
-    item.catgry = ["Category: ", $('#catgry').val()];
-    item.type = ["Type: ", $('#type').val()];
-    item.name = ["Name: ", $('#name').val()];
-    item.quantity = ["Quantity: ", $('#quantity').value];
-    item.usage = ["Usage: ", $('#usage').val()];
-    item.condition = ["Condition: ", $('#usage').val()];
-    item.status = ["Status: ", $('#status').val()];
-    item.notes = ["Notes: ", $('#notes').value];
+    item.catgry     = ["Category: ", $('#catgry').val()];
+    item.type       = ["Type: ", $('#type').val()];
+    item.name       = ["Name: ", $('#name').val()];
+    item.quantity   = ["Quantity: ", $('#quantity').value];
+    item.usage      = ["Usage: ", $('#usage').val()];
+    item.condition  = ["Condition: ", $('#usage').val()];
+    item.status     = ["Status: ", $('#status').val()];
+    item.notes      = ["Notes: ", $('#notes').value];
 
 
     localStorage.setItem(id, JSON.stringify(item));

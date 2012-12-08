@@ -205,7 +205,7 @@ $('#xmlBtn').on('click', function () {
     });
 });
 
-//CSV
+/*CSV
 $('#csvBtn').on('click', function () {
     $('#ajaxData').empty();
 
@@ -237,7 +237,7 @@ $('#csvBtn').on('click', function () {
         });
 });
 
-
+*/
 
 /*
 //Set Link & Submit Click Events
