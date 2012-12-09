@@ -9,6 +9,7 @@
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="jquery.couch.js" ></script>
 	
 	<!-- Mobile IE needs ClearType for smoothing fonts -->
 	<meta http-equiv="cleartype" content="on">
@@ -36,15 +37,39 @@
 			<p><a href="#additem" data-role="button" data-theme="b">Add Item</a></p>
 			<p><a href="#about" data-role="button" data-theme="e">The Mission</a></p>
 <!-- _______________Categories_________________-->
-<!--		<div data-role="content">
-				<li><h2>Categories</h2>
+			<div data-role="content">
+				
+				<ul data-role="listview" data-inset="true" data-theme="e">
+					<li><h2>Browse by Category</h2></li>
 					<li>
-						<a href="" data-transition="slide">
-
+						<a href="#books" data-transition="slide">
+							<h2>Book</h2>
 						</a>
 					</li>
-				</li>
-			</div> -->
+					<li>
+						<a href="#entertainment" data-transition="slide">
+							<h2>Entertainment</h2>
+						</a>
+					</li>
+					<li>
+						<a href="#gear" data-transition="slide">
+							<h2>Gear</h2>
+						</a>
+					</li>
+					<li>
+						<a href="#houseHold" data-transition="slide">
+							<h2>House Hold</h2>
+						</a>
+					</li>
+					<li>
+						<a href="#vehicle" data-transition="slide">
+							<h2>Vehicle</h2>
+						</a>
+					</li>
+				</ul>
+
+			</div>
+
 		</div>
 
 <!--______________Footer: Navigation Bar_____________-->
@@ -54,7 +79,7 @@
 					<li><a href="#home" data-icon="home">Home</a></li>				
 					<li><a href="#browse" id="browseBtn" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
-					<li><a href="#favs" id="favsbtn" data-icon="star">Favs</a></li>
+					<li><a href="#contacts" data-icon="star">Contacts</a></li>
 					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li>
 				</ul>
 			</div>
@@ -89,9 +114,9 @@
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" id="browseBtn" data-icon="search">Browse</a></li>
+					<li><a href="#browse" id="browseBtn1" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
-					<li><a href="#favs" id="favsbtn" data-icon="star">Favs</a></li>
+					<li><a href="#contacts" data-icon="star">Contacts</a></li>
 					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li>  
 				</ul>
 			</div>
@@ -101,7 +126,7 @@
 <!-- __________________About Page(end)____________________ -->
 
 
-<!-- _____________Browse Page(begin)_____________ -->
+<!-- _____________Browse All Items Page(begin)_____________ -->
 	<div data-role="page" id="browse" data-add-back-btn="true">
 		<div data-role="header" data-position="fixed" data-theme="b">
 			<h1>All My Stuff</h1>
@@ -123,22 +148,22 @@
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" id="browseBtn" data-icon="search">Browse</a></li>
+					<li><a href="#browse" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
-					<li><a href="#favs" id="favsbtn" data-icon="star">Favs</a></li>
+					<li><a href="#contacts" data-icon="star">Contacts</a></li>
 					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
 				</ul>
 			</div>
 		</div>
 
 	</div>	
-<!-- __________________Browse Page(end)____________________ -->
+<!-- __________________Browse All Items Page(end)____________________ -->
 
 
-<!-- _____________Favourites Page(begin)_____________ -->
-	<div data-role="page" id="favs" data-add-back-btn="true">
+<!-- _____________Contacts Page(begin)_____________ -->
+	<div data-role="page" id="contacts" data-add-back-btn="true">
 		<div data-role="header" data-position="fixed" data-theme="b">
-			<h1>Favourite Stuff</h1>
+			<h1>Contacts</h1>
 				<a href="#" data-icon="minus" id="favClrBtn" class="ui-btn-right">Clear</a>
 		</div>
        
@@ -153,9 +178,9 @@
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" data-icon="search">Browse</a></li>
+					<li><a href="#browse" id="browseBtn2" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
-					<li><a href="#favs" id="favsbtn" data-icon="star">Favs</a></li>
+					<li><a href="#contacts" data-icon="star">Contacts</a></li>
 					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
 				</ul>
 			</div>
@@ -183,9 +208,9 @@
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" data-icon="search">Browse</a></li>
+					<li><a href="#browse" id="browseBtn3" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
-					<li><a href="#favs" id="favsbtn" data-icon="star">Favs</a></li>
+					<li><a href="#contacts" data-icon="star">Contacts</a></li>
 					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
 				</ul>
 			</div>
@@ -291,9 +316,9 @@
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" data-icon="search">Browse</a></li>
+					<li><a href="#browse" id="browseBtn4" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
-					<li><a href="#favs" id="favsbtn" data-icon="star">Favs</a></li>
+					<li><a href="#contacts" data-icon="star">Contacts</a></li>
 					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li>  
 				</ul>
 			</div>
