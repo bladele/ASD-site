@@ -9,7 +9,7 @@
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="jquery.couch.js" ></script>
+	
 	
 	<!-- Mobile IE needs ClearType for smoothing fonts -->
 	<meta http-equiv="cleartype" content="on">
@@ -43,7 +43,7 @@
 					<li><h2>Browse by Category</h2></li>
 					<li>
 						<a href="#books" data-transition="slide">
-							<h2>Book</h2>
+							<h2>Books</h2>
 						</a>
 					</li>
 					<li>
@@ -57,13 +57,13 @@
 						</a>
 					</li>
 					<li>
-						<a href="#houseHold" data-transition="slide">
-							<h2>House Hold</h2>
+						<a href="#household" data-transition="slide">
+							<h2>Household</h2>
 						</a>
 					</li>
 					<li>
-						<a href="#vehicle" data-transition="slide">
-							<h2>Vehicle</h2>
+						<a href="#vehicles" data-transition="slide">
+							<h2>Vehicles</h2>
 						</a>
 					</li>
 				</ul>
@@ -87,7 +87,6 @@
 
 	</div>	
 <!-- __________________Home Page(end)____________________ -->
-
 
 
 <!-- _____________About Page(begin)_____________ -->
@@ -130,7 +129,6 @@
 	<div data-role="page" id="browse" data-add-back-btn="true">
 		<div data-role="header" data-position="fixed" data-theme="b">
 			<h1>All My Stuff</h1>
-				<a href="#browse" data-icon="minus" id="brsClrBtn" class="ui-btn-right">Clear</a>
 		</div>
 
 		<div data-role="content">
@@ -218,6 +216,166 @@
 
 	</div>	
 <!-- __________________Loans Page(end)____________________ -->
+
+
+<!-- _____________Books Page(begin)_____________ -->
+	<div data-role="page" id="books" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1>Books</h1>
+		</div>
+
+		<div data-role="content">
+				<!-- JSON DATA -->
+      			<div id="jsonData">
+          			<ul data-role="listview" id="ajaxJson" data-filter="true"></ul>
+      			</div>
+		</div>
+
+	 		
+
+<!--______________Footer: Navigation Bar_____________-->
+		<div data-role="footer" data-postition="fixed" data-theme="b">
+			<div data-role="navbar" data-position="fixed">
+				<ul>
+					<li><a href="#home" data-icon="home">Home</a></li>				
+					<li><a href="#browse" data-icon="search">Browse</a></li>
+					<li><a href="#additem" data-icon="plus">Add Item</a></li>
+					<li><a href="#contacts" data-icon="star">Contacts</a></li>
+					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
+				</ul>
+			</div>
+		</div>
+
+	</div>	
+<!-- __________________Books Page(end)____________________ -->
+
+<!-- _____________Entertainment Page(begin)_____________ -->
+	<div data-role="page" id="entertainment" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1>Entertainment</h1>
+		</div>
+
+		<div data-role="content">
+				<!-- JSON DATA -->
+      			<div id="jsonData">
+          			<ul data-role="listview" id="ajaxJson" data-filter="true"></ul>
+      			</div>
+		</div>
+
+	 		
+
+<!--______________Footer: Navigation Bar_____________-->
+		<div data-role="footer" data-postition="fixed" data-theme="b">
+			<div data-role="navbar" data-position="fixed">
+				<ul>
+					<li><a href="#home" data-icon="home">Home</a></li>				
+					<li><a href="#browse" data-icon="search">Browse</a></li>
+					<li><a href="#additem" data-icon="plus">Add Item</a></li>
+					<li><a href="#contacts" data-icon="star">Contacts</a></li>
+					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
+				</ul>
+			</div>
+		</div>
+
+	</div>	
+<!-- __________________Entertainment Page(end)____________________ -->
+
+
+<!-- _____________Gear Page(begin)_____________ -->
+	<div data-role="page" id="gear" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1>Gear</h1>
+		</div>
+
+		<div data-role="content">
+				<!-- JSON DATA -->
+      			<div id="jsonData">
+          			<ul data-role="listview" id="ajaxJson" data-filter="true"></ul>
+      			</div>
+		</div>
+
+	 		
+
+<!--______________Footer: Navigation Bar_____________-->
+		<div data-role="footer" data-postition="fixed" data-theme="b">
+			<div data-role="navbar" data-position="fixed">
+				<ul>
+					<li><a href="#home" data-icon="home">Home</a></li>				
+					<li><a href="#browse" data-icon="search">Browse</a></li>
+					<li><a href="#additem" data-icon="plus">Add Item</a></li>
+					<li><a href="#contacts" data-icon="star">Contacts</a></li>
+					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
+				</ul>
+			</div>
+		</div>
+
+	</div>	
+<!-- __________________Gear Page(end)____________________ -->
+
+
+<!-- _____________ Household Page(begin) _____________ -->
+	<div data-role="page" id="household" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1>Household</h1>
+		</div>
+
+		<div data-role="content">
+				<!-- JSON DATA -->
+      			<div id="jsonData">
+          			<ul data-role="listview" id="ajaxJson" data-filter="true"></ul>
+      			</div>
+		</div>
+
+	 		
+
+<!--______________Footer: Navigation Bar_____________-->
+		<div data-role="footer" data-postition="fixed" data-theme="b">
+			<div data-role="navbar" data-position="fixed">
+				<ul>
+					<li><a href="#home" data-icon="home">Home</a></li>				
+					<li><a href="#browse" data-icon="search">Browse</a></li>
+					<li><a href="#additem" data-icon="plus">Add Item</a></li>
+					<li><a href="#contacts" data-icon="star">Contacts</a></li>
+					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
+				</ul>
+			</div>
+		</div>
+
+	</div>	
+<!-- __________________ Household Page(end) ____________________ -->
+
+
+
+<!-- _____________ Vehicles Page(begin) _____________ -->
+	<div data-role="page" id="vehicles" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1>Vehicles</h1>
+		</div>
+
+		<div data-role="content">
+				<!-- JSON DATA -->
+      			<div id="jsonData">
+          			<ul data-role="listview" id="ajaxJson" data-filter="true"></ul>
+      			</div>
+		</div>
+
+	 		
+
+<!--______________Footer: Navigation Bar_____________-->
+		<div data-role="footer" data-postition="fixed" data-theme="b">
+			<div data-role="navbar" data-position="fixed">
+				<ul>
+					<li><a href="#home" data-icon="home">Home</a></li>				
+					<li><a href="#browse" data-icon="search">Browse</a></li>
+					<li><a href="#additem" data-icon="plus">Add Item</a></li>
+					<li><a href="#contacts" data-icon="star">Contacts</a></li>
+					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
+				</ul>
+			</div>
+		</div>
+
+	</div>	
+<!-- __________________ Vehicles Page(end) ____________________ -->
 
 
 
@@ -347,6 +505,7 @@
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script><!--Go to http://jquerymobile.com/download/ and get the most recent version from the CDN-->
 	<script src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
 	<script type="text/javascript" src="jquery.validate.min.js"></script>
+	<script src="jquery.couch.js" ></script>
 	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>

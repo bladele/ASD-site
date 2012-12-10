@@ -4,9 +4,33 @@ $('#home').on('pageinit', function () {
     console.log("Home page loaded."); //code needed for home page goes here
 });
 
+
+$(document).on("pageshow", "#browse", function(){
+    $.couch.db("allmystuff").view("allmystuff/items",  {
+        success: function(data){
+            console.log(data);
+            $('#ajaxJson').empty();
+            $.each(data.rows, function(index, value){
+                var item = (value.value || value.doc);
+                $('#ajaxJson').append(
+                    $('<li>').append(
+                        $('<a>')
+                        .attr("href", "#")
+                        .text(item.name)
+                    )
+                );
+            });
+            $('#ajaxJson').listview('refresh');
+        }
+    }); 
+});
+
+
+
 /*
 $('#additem').on('pageinit', function () {
     //Set Link & Submit Click Events
+    var displayData = $('#browse')
     var saveItem = $('#submit');
     save.on("click", storeData);
 
@@ -52,24 +76,7 @@ $('#additem').on('pageinit', function () {
         localStorage.setItem(id, JSON.stringify(item));
         alert("Item Saved");
     }
-
-*/
-
-
-//The functions below can go inside or outside the pageinit function for the page in which it is needed.
-
-
-
-
-
-
-//Get localStorage 
-//$("#storage").on('click', function () {
-  //  $("#browse")
-//});
-
-
-
+});
 
 //SHOW DATA: Get JSON Data when browse page is open from any of the other pages.
 //For the browseBtn on the home page
@@ -106,141 +113,4 @@ $("#browseBtn").on("click", function () {
     });
 });
 
-//For the browseBtn on the about page
-$("#browseBtn1").on("click", function () {
-
-    $.mobile.changePage("#browse");
-    $.ajax({
-        url: "_view/items",
-        type: "Get",
-        dataType: "json",
-        success: function (data) {
-            $("#ajaxJson").empty(); //Remove all current
-            console.log(data);
-            $('<h3>').html("").appendTo('#browse');
-                $.each(data.rows, function (index, item) {
-
-                    $('' +
-                        '<li>' +
-                        '<p><strong> Category: </strong> ' + '<em>' + item.value.catgry + '</em>' + '</p>' +
-                        '<p><strong> Type: </strong>' + '<em>' + item.value.type + '</em>' + '</p>' +
-                        '<p><strong> Name: </strong>' + '<em>' + item.value.name + '</em>' + '</p>' +
-                        '<p><strong> Quantity: </strong>' + '<em>' + item.value.quantity + '</em>' + '</p>' +
-                        '<p><strong> Condition: </strong>' + '<em>' + item.value.condition + '</em>' + '</p>' +
-                        '<p><strong> Usage: </strong>' + '<em>' + item.value.usage + '</em>' + '</p>' +
-                        '<p><strong> Status: </strong>' + '<em>' + item.value.status + '</em>' + '</p>' +
-                        '<p><strong> Notes: </strong>' + '<em>' + item.value.notes + '</em>' + '</p>' +
-                        '</li>'
-                    ).appendTo('#ajaxJson');
-            });        
-                $("#ajaxJson").listview('refresh');
-                $.mobile.changePage("#browse");
-        },
-            errors: function (data) {}
-    });
-});
-
-//For the browseBtn on the contacts page
-$("#browseBtn2").on("click", function () {
-
-    $.mobile.changePage("#browse");
-    $.ajax({
-        url: "_view/items",
-        type: "Get",
-        dataType: "json",
-        success: function (data) {
-            $("#ajaxJson").empty(); //Remove all current
-            console.log(data);
-            $('<h3>').html("").appendTo('#browse');
-                $.each(data.rows, function (index, item) {
-
-                    $('' +
-                        '<li>' +
-                        '<p><strong> Category: </strong> ' + '<em>' + item.value.catgry + '</em>' + '</p>' +
-                        '<p><strong> Type: </strong>' + '<em>' + item.value.type + '</em>' + '</p>' +
-                        '<p><strong> Name: </strong>' + '<em>' + item.value.name + '</em>' + '</p>' +
-                        '<p><strong> Quantity: </strong>' + '<em>' + item.value.quantity + '</em>' + '</p>' +
-                        '<p><strong> Condition: </strong>' + '<em>' + item.value.condition + '</em>' + '</p>' +
-                        '<p><strong> Usage: </strong>' + '<em>' + item.value.usage + '</em>' + '</p>' +
-                        '<p><strong> Status: </strong>' + '<em>' + item.value.status + '</em>' + '</p>' +
-                        '<p><strong> Notes: </strong>' + '<em>' + item.value.notes + '</em>' + '</p>' +
-                        '</li>'
-                    ).appendTo('#ajaxJson');
-            });        
-                $("#ajaxJson").listview('refresh');
-                $.mobile.changePage("#browse");
-        },
-            errors: function (data) {}
-    });
-});
-
-//For the browseBtn on the loans page
-$("#browseBtn3").on("click", function () {
-
-    $.mobile.changePage("#browse");
-    $.ajax({
-        url: "_view/items",
-        type: "Get",
-        dataType: "json",
-        success: function (data) {
-            $("#ajaxJson").empty(); //Remove all current
-            console.log(data);
-            $('<h3>').html("").appendTo('#browse');
-                $.each(data.rows, function (index, item) {
-
-                    $('' +
-                        '<li>' +
-                        '<p><strong> Category: </strong> ' + '<em>' + item.value.catgry + '</em>' + '</p>' +
-                        '<p><strong> Type: </strong>' + '<em>' + item.value.type + '</em>' + '</p>' +
-                        '<p><strong> Name: </strong>' + '<em>' + item.value.name + '</em>' + '</p>' +
-                        '<p><strong> Quantity: </strong>' + '<em>' + item.value.quantity + '</em>' + '</p>' +
-                        '<p><strong> Condition: </strong>' + '<em>' + item.value.condition + '</em>' + '</p>' +
-                        '<p><strong> Usage: </strong>' + '<em>' + item.value.usage + '</em>' + '</p>' +
-                        '<p><strong> Status: </strong>' + '<em>' + item.value.status + '</em>' + '</p>' +
-                        '<p><strong> Notes: </strong>' + '<em>' + item.value.notes + '</em>' + '</p>' +
-                        '</li>'
-                    ).appendTo('#ajaxJson');
-            });        
-                $("#ajaxJson").listview('refresh');
-                $.mobile.changePage("#browse");
-        },
-            errors: function (data) {}
-    });
-});
-
-//For the browseBtn on the additem page
-$("#browseBtn4").on("click", function () {
-
-    $.mobile.changePage("#browse");
-    $.ajax({
-        url: "_view/items",
-        type: "Get",
-        dataType: "json",
-        success: function (data) {
-            console.log(data);
-            $('<h3>').html("").appendTo('#browse');
-                $.each(data.rows, function (index, item) {
-
-                    $('' +
-                        '<li>' +
-                        '<p><strong> Category: </strong> ' + '<em>' + item.value.catgry + '</em>' + '</p>' +
-                        '<p><strong> Type: </strong>' + '<em>' + item.value.type + '</em>' + '</p>' +
-                        '<p><strong> Name: </strong>' + '<em>' + item.value.name + '</em>' + '</p>' +
-                        '<p><strong> Quantity: </strong>' + '<em>' + item.value.quantity + '</em>' + '</p>' +
-                        '<p><strong> Condition: </strong>' + '<em>' + item.value.condition + '</em>' + '</p>' +
-                        '<p><strong> Usage: </strong>' + '<em>' + item.value.usage + '</em>' + '</p>' +
-                        '<p><strong> Status: </strong>' + '<em>' + item.value.status + '</em>' + '</p>' +
-                        '<p><strong> Notes: </strong>' + '<em>' + item.value.notes + '</em>' + '</p>' +
-                        '</li>'
-                    ).appendTo('#ajaxJson');
-            });        
-                $("#ajaxJson").listview('refresh');
-                $.mobile.changePage("#browse");
-        },
-            errors: function (data) {}
-    });
-});
-
-
-
-
+*/
