@@ -38,50 +38,25 @@
 			<p><a href="#ajax" data-role="button" data-theme="a">AJAX DATA</a></p>
 <!-- _______________Categories_________________-->
 			<div data-role="content">
-				
-				<ul data-role="listview" data-inset="true" data-theme="e">
-					<li><h2>Browse by Category</h2></li>
+				<li><h2>Categories</h2>
 					<li>
-						<a href="#books" data-transition="slide">
-							<h2>Books</h2>
-						</a>
-					</li>
-					<li>
-						<a href="#entertainment" data-transition="slide">
-							<h2>Entertainment</h2>
-						</a>
-					</li>
-					<li>
-						<a href="#gear" data-transition="slide">
-							<h2>Gear</h2>
-						</a>
-					</li>
-					<li>
-						<a href="#household" data-transition="slide">
-							<h2>Household</h2>
-						</a>
-					</li>
-					<li>
-						<a href="#vehicles" data-transition="slide">
-							<h2>Vehicles</h2>
-						</a>
-					</li>
-				</ul>
+						<a href="" data-transition="slide">
 
+						</a>
+					</li>
+				</li>
 			</div>
-
 		</div>
-
 
 <!--______________Footer: Navigation Bar_____________-->
 		<div data-role="footer" data-postition="fixed" data-theme="b">
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" id="browseBtn3" data-icon="search">Browse</a></li>
+					<li><a href="#browse" id="browseBtn" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
-					<li><a href="#contacts" data-icon="star">Contacts</a></li>
-					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
+					<li><a href="#favs" id="favsbtn" data-icon="star">Favs</a></li>
+					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li>
 				</ul>
 			</div>
 		</div>
@@ -115,10 +90,10 @@
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" id="browseBtn3" data-icon="search">Browse</a></li>
+					<li><a href="#browse" id="browseBtn" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
-					<li><a href="#contacts" data-icon="star">Contacts</a></li>
-					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
+					<li><a href="#favs" id="favsbtn" data-icon="star">Favs</a></li>
+					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li>  
 				</ul>
 			</div>
 		</div>
@@ -138,7 +113,6 @@
 				<!-- JSON DATA -->
       			<div id="jsonData">
           			<ul data-role="listview" id="ajaxJson" data-filter="true">
-          			</ul>
       			</div>
 		</div>
 
@@ -149,9 +123,9 @@
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" id="browseBtn3" data-icon="search">Browse</a></li>
+					<li><a href="#browse" id="browseBtn" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
-					<li><a href="#contacts" data-icon="star">Contacts</a></li>
+					<li><a href="#favs" id="favsbtn" data-icon="star">Favs</a></li>
 					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
 				</ul>
 			</div>
@@ -161,10 +135,10 @@
 <!-- __________________Browse Page(end)____________________ -->
 
 
-<!-- _____________ Contacts Page(begin)_____________ -->
-	<div data-role="page" id="contacts" data-add-back-btn="true">
+<!-- _____________Favourites Page(begin)_____________ -->
+	<div data-role="page" id="favs" data-add-back-btn="true">
 		<div data-role="header" data-position="fixed" data-theme="b">
-			<h1>Contacts</h1>
+			<h1>Favourite Stuff</h1>
 				<a href="#" data-icon="minus" id="favClrBtn" class="ui-btn-right">Clear</a>
 		</div>
        
@@ -179,16 +153,16 @@
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" id="browseBtn2" data-icon="search">Browse</a></li>
+					<li><a href="#browse" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
-					<li><a href="#contacts" data-icon="star">Contacts</a></li>
+					<li><a href="#favs" id="favsbtn" data-icon="star">Favs</a></li>
 					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
 				</ul>
 			</div>
 		</div>
 
 	</div>	
-<!-- __________________ Contacts Page(end)____________________ -->
+<!-- __________________Favourites Page(end)____________________ -->
 
 
 <!-- _____________Loans Page(begin)_____________ -->
@@ -209,9 +183,9 @@
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" id="browseBtn3" data-icon="search">Browse</a></li>
+					<li><a href="#browse" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
-					<li><a href="#contacts" data-icon="star">Contacts</a></li>
+					<li><a href="#favs" id="favsbtn" data-icon="star">Favs</a></li>
 					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
 				</ul>
 			</div>
@@ -219,166 +193,6 @@
 
 	</div>	
 <!-- __________________Loans Page(end)____________________ -->
-
-
-<!-- _____________Books Page(begin)_____________ -->
-	<div data-role="page" id="books" data-add-back-btn="true">
-		<div data-role="header" data-position="fixed" data-theme="b">
-			<h1>Books</h1>
-		</div>
-
-		<div data-role="content">
-				<!-- JSON DATA -->
-      			<div id="jsonData">
-          			<ul data-role="listview" id="ajaxJson" data-filter="true"></ul>
-      			</div>
-		</div>
-
-	 		
-
-<!--______________Footer: Navigation Bar_____________-->
-		<div data-role="footer" data-postition="fixed" data-theme="b">
-			<div data-role="navbar" data-position="fixed">
-				<ul>
-					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" data-icon="search">Browse</a></li>
-					<li><a href="#additem" data-icon="plus">Add Item</a></li>
-					<li><a href="#contacts" data-icon="star">Contacts</a></li>
-					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
-				</ul>
-			</div>
-		</div>
-
-	</div>	
-<!-- __________________Books Page(end)____________________ -->
-
-<!-- _____________Entertainment Page(begin)_____________ -->
-	<div data-role="page" id="entertainment" data-add-back-btn="true">
-		<div data-role="header" data-position="fixed" data-theme="b">
-			<h1>Entertainment</h1>
-		</div>
-
-		<div data-role="content">
-				<!-- JSON DATA -->
-      			<div id="jsonData">
-          			<ul data-role="listview" id="ajaxJson" data-filter="true"></ul>
-      			</div>
-		</div>
-
-	 		
-
-<!--______________Footer: Navigation Bar_____________-->
-		<div data-role="footer" data-postition="fixed" data-theme="b">
-			<div data-role="navbar" data-position="fixed">
-				<ul>
-					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" data-icon="search">Browse</a></li>
-					<li><a href="#additem" data-icon="plus">Add Item</a></li>
-					<li><a href="#contacts" data-icon="star">Contacts</a></li>
-					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
-				</ul>
-			</div>
-		</div>
-
-	</div>	
-<!-- __________________Entertainment Page(end)____________________ -->
-
-
-<!-- _____________Gear Page(begin)_____________ -->
-	<div data-role="page" id="gear" data-add-back-btn="true">
-		<div data-role="header" data-position="fixed" data-theme="b">
-			<h1>Gear</h1>
-		</div>
-
-		<div data-role="content">
-				<!-- JSON DATA -->
-      			<div id="jsonData">
-          			<ul data-role="listview" id="ajaxJson" data-filter="true"></ul>
-      			</div>
-		</div>
-
-	 		
-
-<!--______________Footer: Navigation Bar_____________-->
-		<div data-role="footer" data-postition="fixed" data-theme="b">
-			<div data-role="navbar" data-position="fixed">
-				<ul>
-					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" data-icon="search">Browse</a></li>
-					<li><a href="#additem" data-icon="plus">Add Item</a></li>
-					<li><a href="#contacts" data-icon="star">Contacts</a></li>
-					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
-				</ul>
-			</div>
-		</div>
-
-	</div>	
-<!-- __________________Gear Page(end)____________________ -->
-
-
-<!-- _____________ Household Page(begin) _____________ -->
-	<div data-role="page" id="household" data-add-back-btn="true">
-		<div data-role="header" data-position="fixed" data-theme="b">
-			<h1>Household</h1>
-		</div>
-
-		<div data-role="content">
-				<!-- JSON DATA -->
-      			<div id="jsonData">
-          			<ul data-role="listview" id="ajaxJson" data-filter="true"></ul>
-      			</div>
-		</div>
-
-	 		
-
-<!--______________Footer: Navigation Bar_____________-->
-		<div data-role="footer" data-postition="fixed" data-theme="b">
-			<div data-role="navbar" data-position="fixed">
-				<ul>
-					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" data-icon="search">Browse</a></li>
-					<li><a href="#additem" data-icon="plus">Add Item</a></li>
-					<li><a href="#contacts" data-icon="star">Contacts</a></li>
-					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
-				</ul>
-			</div>
-		</div>
-
-	</div>	
-<!-- __________________ Household Page(end) ____________________ -->
-
-
-
-<!-- _____________ Vehicles Page(begin) _____________ -->
-	<div data-role="page" id="vehicles" data-add-back-btn="true">
-		<div data-role="header" data-position="fixed" data-theme="b">
-			<h1>Vehicles</h1>
-		</div>
-
-		<div data-role="content">
-				<!-- JSON DATA -->
-      			<div id="jsonData">
-          			<ul data-role="listview" id="ajaxJson" data-filter="true"></ul>
-      			</div>
-		</div>
-
-	 		
-
-<!--______________Footer: Navigation Bar_____________-->
-		<div data-role="footer" data-postition="fixed" data-theme="b">
-			<div data-role="navbar" data-position="fixed">
-				<ul>
-					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" data-icon="search">Browse</a></li>
-					<li><a href="#additem" data-icon="plus">Add Item</a></li>
-					<li><a href="#contacts" data-icon="star">Contacts</a></li>
-					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
-				</ul>
-			</div>
-		</div>
-
-	</div>	
-<!-- __________________ Vehicles Page(end) ____________________ -->
 
 
 
@@ -477,10 +291,10 @@
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" id="browseBtn3" data-icon="search">Browse</a></li>
+					<li><a href="#browse" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
-					<li><a href="#contacts" data-icon="star">Contacts</a></li>
-					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li>   
+					<li><a href="#favs" id="favsbtn" data-icon="star">Favs</a></li>
+					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li>  
 				</ul>
 			</div>
 		</div>		
@@ -502,34 +316,44 @@
 <!-- _____________Validation Dialogue Page(end)_____________ -->
 
 
-<!-- _____________AJAX DATA Page(begin)_____________ -->
+<!-- _____________JSON DATA Page(begin)_____________ -->
 	<div data-role="page" id="ajax" data-add-back-btn="true">
       <!-- Buttons for populating data in header-navbar -->  
       <div data-role="header" data-position="fixed" data-theme="a">
       	<h1>AJAX DATA</h1>
-      	<!-- Nav bar buttons for populating data -->
       	<div data-role="navbar">
-			<ul>
-				<li><a href="#json" id="jsonBtn" data-role="button">JSON</a></li>		
-				<li><a href="#xml" id="xmlBtn" data-role="button">XML</a></li>
-				<li><a href="#csv" id="csvBtn" data-role="button">CSV</a></li>  
-			</ul>
-		</div> 
+				<ul>
+					<li><a href="#json" id="json" data-role="button">JSON</a></li>				
+					<li><a href="#xml" id="xml" data-role="button">XML</a></li>
+					<li><a href="#csv" id="csv" data-role="button">CSV</a></li>  
+				</ul>
+		</div>
+        
+      </div>     
+
+<!-- JSON DATA -->
+      <div id="json">
+        <ul data-role="listview" id="ajaxJson2">
+      </div>		
+<!-- JSON DATA -->
+      <div id="xml">
+          <ul data-role="listview" id="xml">
       </div>
-      <!-- AJAX DATA -->
-      <div data-role="content">
-      	<ul data-role="listview" id="ajaxData" data-filter="true" ></ul>
-	  </div>
+<!-- JSON DATA -->
+      <div id="csv">
+          <ul data-role="listview" id="csv">
+      </div> 
+
 
 <!--_______Footer: Navigation Bar_________-->
 		<div data-role="footer" data-postition="fixed" data-theme="a">
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" id="browseBtn3" data-icon="search">Browse</a></li>
+					<li><a href="#browse" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
-					<li><a href="#contacts" data-icon="star">Contacts</a></li>
-					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li>   
+					<li><a href="#favs" id="favsbtn" data-icon="star">Favs</a></li>
+					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li>  
 				</ul>
 			</div>
 		</div>	
