@@ -6,7 +6,7 @@
 
 #home h2{ text-align: center;}
 
-label.error{display: block; margin:10px 0; color: #cc0000;}
+label.error{display: block; margin:10px 0; color:#cc0000;}
 
 #logerrorslink{display: none;}
 
@@ -19,13 +19,28 @@ label.error{display: block; margin:10px 0; color: #cc0000;}
 #browse{background:url(background.jpg) repeat left top;
 }
 
-#favs{background:url(background.jpg) repeat left top;
+#contacts{background:url(background.jpg) repeat left top;
 }
 
 #loans{background:url(background.jpg) repeat left top;
 }
 
 #ajax{background:url(background.jpg) repeat left top;
+}
+
+#books{background:url(background.jpg) repeat left top;
+}
+
+#entertainment{background:url(background.jpg) repeat left top;
+}
+
+#gear{background:url(background.jpg) repeat left top;
+}
+
+#household{background:url(background.jpg) repeat left top;
+}
+
+#vehicles{background:url(background.jpg) repeat left top;
 }
 
 
