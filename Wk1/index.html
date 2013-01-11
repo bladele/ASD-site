@@ -23,16 +23,17 @@
 </head>
 <body>
 
+
 <!-- _________________________ Home Page (begin) ________________________ -->
 	<div data-role="page" id="home">
 		<div data-role="header" data-position="fixed" data-theme="b">
 			<h1>All My Stuff</h1>
-				<a href="" data-icon=gear class="ui-btn-right">GHP</a>
+				<a href="https://github.com/bladele/ASD-site/tree/gh-pages/Wk1" data-icon="gear" class="ui-btn-right">GHP</a>
 		</div>
-		
+
 		<div data-role="content">
-			<h1><img src="als-logo.png"
-			<h3>Take Stock of Your Life!</h3>
+			<h1><img src="als-logo.png" width="305" height="198" align="middle"></h1>
+			<h2>Take Stock of Your Life!</h2>
 			<p><a href="#additem" data-role="button" data-theme="b">Add Item</a></p>
 			<p><a href="#about" data-role="button" data-theme="e">The Mission</a></p>
 			<p><a href="#ajax" data-role="button" data-theme="a">AJAX DATA</a></p>
@@ -75,7 +76,7 @@
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" id="browseBtn3" data-icon="search">Browse</a></li>
+					<li><a href="#browse" id="browseBtn" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
 					<li><a href="#contacts" data-icon="star">Contacts</a></li>
 					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
@@ -109,7 +110,7 @@
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" id="browseBtn3" data-icon="search">Browse</a></li>
+					<li><a href="#browse" id="browseBtn1" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
 					<li><a href="#contacts" data-icon="star">Contacts</a></li>
 					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
@@ -122,25 +123,26 @@
 
 
 <!-- _________________________ Browse Page (begin) ________________________ -->
-	<div data-role="page" id="contacts" data-add-back-btn="true">
+	<div data-role="page" id="browse" data-add-back-btn="true">
 		<div data-role="header" data-position="fixed" data-theme="b">
 			<h1>All My Stuff</h1>
-				<a href="#" data-icon="minus" id="clear" class="ui-btn-right">Clear</a>
+				<a href="#browse" data-icon="minus" id="brsClrBtn" class="ui-btn-right">Clear</a>
 		</div>
-		
+
 		<div data-role="content">
-			<!-- JSON DATA -->
-			<div id="jsonData">
-				<ul data-role="listview" id="ajaxJason" data-filter="true"></ul>
-			</div>
+				<!-- JSON DATA -->
+      			<div id="jsonData">
+          			<ul data-role="listview" id="ajaxJson" data-filter="true">
+          			</ul>
+      			</div>
 		</div>
-	
+			
 <!-- _________________________ Footer: Nav Bar (end) ________________________ -->
 		<div data-role="footer" data-position="fixed" data-theme="b">
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" id="browseBtn3" data-icon="search">Browse</a></li>
+					<li><a href="#browse" id="browseBtn2" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
 					<li><a href="#contacts" data-icon="star">Contacts</a></li>
 					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
@@ -152,16 +154,13 @@
 <!-- _________________________ Browse Page (end) ________________________ -->
 
 <!-- _________________________ Contacts Page (begin) ________________________ -->
-	<div data-role="page" id="browse" data-add-back-btn="true">
+	<div data-role="page" id="contacts" data-add-back-btn="true">
 		<div data-role="header" data-position="fixed" data-theme="b">
-			<h1>All My Stuff</h1>
+			<h1>Contacts</h1>
 		</div>
 		
 		<div data-role="content">
-			<!-- JSON DATA -->
-			<div id="jsonData">
-				<ul data-role="listview" id="ajaxJason" data-filter="true"></ul>
-			</div>
+				<ul data-role="listview" id="" data-filter="true"></ul>
 		</div>
 	
 <!-- _________________________ Footer: Nav Bar (end) ________________________ -->
@@ -183,14 +182,12 @@
 <!-- _________________________ Loans Page (begin) ________________________ -->
 	<div data-role="page" id="loans" data-add-back-btn="true">
 		<div data-role="header" data-position="fixed" data-theme="b">
-			<h1>All My Stuff</h1>
+			<h1>Loans</h1>
 		</div>
 		
 		<div data-role="content">
-			<!-- JSON DATA -->
-			<div id="jsonData">
-				<ul data-role="listview" id="ajaxJason" data-filter="true"></ul>
-			</div>
+			<ul data-role="listview" data-filter="true"></ul>
+				<div id="data"></div>
 		</div>
 	
 <!-- _________________________ Footer: Nav Bar (end) ________________________ -->
@@ -198,7 +195,7 @@
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" id="browseBtn3" data-icon="search">Browse</a></li>
+					<li><a href="#browse" id="browseBtn4" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
 					<li><a href="#contacts" data-icon="star">Contacts</a></li>
 					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
@@ -216,17 +213,15 @@
 		</div>
 
 		<div data-role="content">
-				<!-- JSON DATA -->
-      			<div id="jsonData">
-          			<ul data-role="listview" id="ajaxJson" data-filter="true"></ul>
-      			</div>
+			<ul data-role="listview" data-filter="true"></ul>
+				<div id="data"></div>
 		</div>
 <!-- _________________________ Footer: Nav Bar (end) ________________________ -->
 		<div data-role="footer" data-position="fixed" data-theme="b">
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" id="browseBtn3" data-icon="search">Browse</a></li>
+					<li><a href="#browse" id="browseBtn5" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
 					<li><a href="#contacts" data-icon="star">Contacts</a></li>
 					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
@@ -244,17 +239,15 @@
 		</div>
 
 		<div data-role="content">
-				<!-- JSON DATA -->
-      			<div id="jsonData">
-          			<ul data-role="listview" id="ajaxJson" data-filter="true"></ul>
-      			</div>
+			<ul data-role="listview" data-filter="true"></ul>
+				<div id="data"></div>
 		</div>
 <!-- _________________________ Footer: Nav Bar (end) ________________________ -->
 		<div data-role="footer" data-position="fixed" data-theme="b">
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" id="browseBtn3" data-icon="search">Browse</a></li>
+					<li><a href="#browse" id="browseBtn6" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
 					<li><a href="#contacts" data-icon="star">Contacts</a></li>
 					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
@@ -272,17 +265,15 @@
 		</div>
 
 		<div data-role="content">
-				<!-- JSON DATA -->
-      			<div id="jsonData">
-          			<ul data-role="listview" id="ajaxJson" data-filter="true"></ul>
-      			</div>
+			<ul data-role="listview" data-filter="true"></ul>
+				<div id="data"></div>
 		</div>
 <!-- _________________________ Footer: Nav Bar (end) ________________________ -->
 		<div data-role="footer" data-position="fixed" data-theme="b">
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" id="browseBtn3" data-icon="search">Browse</a></li>
+					<li><a href="#browse" id="browseBtn7" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
 					<li><a href="#contacts" data-icon="star">Contacts</a></li>
 					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
@@ -300,17 +291,15 @@
 		</div>
 
 		<div data-role="content">
-				<!-- JSON DATA -->
-      			<div id="jsonData">
-          			<ul data-role="listview" id="ajaxJson" data-filter="true"></ul>
-      			</div>
+			<ul data-role="listview" data-filter="true"></ul>
+				<div id="data"></div>
 		</div>
 <!-- _________________________ Footer: Nav Bar (end) ________________________ -->
 		<div data-role="footer" data-position="fixed" data-theme="b">
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" id="browseBtn3" data-icon="search">Browse</a></li>
+					<li><a href="#browse" id="browseBtn8" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
 					<li><a href="#contacts" data-icon="star">Contacts</a></li>
 					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
@@ -328,17 +317,15 @@
 		</div>
 
 		<div data-role="content">
-				<!-- JSON DATA -->
-      			<div id="jsonData">
-          			<ul data-role="listview" id="ajaxJson" data-filter="true"></ul>
-      			</div>
+			<ul data-role="listview" data-filter="true"></ul>
+				<div id="data"></div>
 		</div>
 <!-- _________________________ Footer: Nav Bar(end) ________________________ -->
 		<div data-role="footer" data-position="fixed" data-theme="b">
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" id="browseBtn3" data-icon="search">Browse</a></li>
+					<li><a href="#browse" id="browseBtn9" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
 					<li><a href="#contacts" data-icon="star">Contacts</a></li>
 					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
@@ -360,9 +347,9 @@
 				
 					<h2>*Fields are Required</h2>
 					<div data-role="fieldcontain">
-<!--I want the catgry to be dynamic; that might have to come later when I better at coding.-->
-						<label for="catigory" class="select">*Categories: </label>
-							<select name="catigory" id="catigory" data-native-menu="true" class="required" data-theme="b" >
+<!--I want the category to be dynamic; that might have to come later when I better at coding.-->
+						<label for="category" class="select">*Categories: </label>
+							<select name="category" id="category" data-native-menu="true" class="required" data-theme="b" >
 								<option data-placeholder="true">Please Select One</option>
 								<option value="book">Book</option>
 								<option value="ent">Entertainment</option>
@@ -425,7 +412,7 @@
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" id="browseBtn3" data-icon="search">Browse</a></li>
+					<li><a href="#browse" id="browseBtn" data-icon="search">Browse</a></li>
 					<li><a href="#additem" data-icon="plus">Add Item</a></li>
 					<li><a href="#contacts" data-icon="star">Contacts</a></li>
 					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
@@ -470,7 +457,7 @@
 		</div>
 				
 <!-- _________________________ Footer: Nav Bar(end) ________________________ -->
-		<div data-role="footer" data-position="fixed" data-theme="b">
+		<div data-role="footer" data-position="fixed" data-theme="a">
 			<div data-role="navbar" data-position="fixed">
 				<ul>
 					<li><a href="#home" data-icon="home">Home</a></li>				

@@ -1,7 +1,7 @@
 {
 	"Items"	:[
 		{
-		"catgry"	: "Entertainment",
+		"category"	: "Entertainment",
 		"type"		: "DVD",
 		"name"		: "The Matrix",
 		"quantity"	: "1",
@@ -11,7 +11,7 @@
 		"notes"		: "My favourite movie."
 		},
 	 	{
-		"catgry"	: "Gear",
+		"category"	: "Gear",
 		"type"		: "Winter",
 		"name"		: "Snowboard",
 		"quantity"	: "1",
@@ -21,7 +21,7 @@
 		"notes"		: "Live more, use the damn thing."
 		},
 		{
-		"catgry"	: "Entertainment",
+		"category"	: "Entertainment",
 		"type"		: "Tech Toy",
 		"name"		: "Wii Console",
 		"quantity"	: "1",
@@ -31,7 +31,7 @@
 		"notes"		: "Keep it, just for the kids."
 		},
 		{
-		"catgry"	: "House Hold",
+		"category"	: "House Hold",
 		"type"		: "Appliance",
 		"name"		: "Flat Screen TV-40 inches",
 		"quantity"	: "1",
@@ -41,7 +41,7 @@
 		"notes"		: "Used too much"
 		},
 		{
-		"catgry"	: "House Hold",
+		"category"	: "House Hold",
 		"type"		: "Appliance",
 		"name"		: "DVD Player",
 		"quantity"	: "1",
@@ -51,7 +51,7 @@
 		"notes"		: "Never let you wife buy electrionics."
 		},
 		{
-		"catgry"	: "Book",
+		"category"	: "Book",
 		"type"		: "Comic Book",
 		"name"		: "The Amazing Spiderman #1",
 		"quantity"	: "1",
@@ -61,7 +61,7 @@
 		"notes"		: "Not for sale."
 		},
 		{
-		"catgry"	: "Book",
+		"category"	: "Book",
 		"type"		: "Fiction Novel",
 		"name"		: "The Assassin's Apprentice",
 		"quantity"	: "1",
@@ -71,7 +71,7 @@
 		"notes"		: "Great book, but maybe I should get a digital copy."
 		},
 		{
-		"catgry"	: "Vehicle",
+		"category"	: "Vehicle",
 		"type"		: "Car",
 		"name"		: "1993 Honda Accord",
 		"quantity"	: "1",
@@ -81,7 +81,7 @@
 		"notes"		: "It's payed for and it works."
 		},
 		{
-		"catgry"	: "Vehicle",
+		"category"	: "Vehicle",
 		"type"		: "Car",
 		"name"		: "1993 Shevy Lumina",
 		"quantity"	: "1",
@@ -91,7 +91,7 @@
 		"notes"		: "It's payed for and it works."
 		},
 		{
-		"catgry"	: "Gear",
+		"category"	: "Gear",
 		"type"		: "Fishing",
 		"name"		: "Audrey's Fishing pole",
 		"quantity"	: "1",
@@ -101,7 +101,7 @@
 		"notes"		: "I  should take her fishing more often."
 		},
 		{
-		"catgry"	: "Entertainment",
+		"category"	: "Entertainment",
 		"type"		: "Toy",
 		"name"		: "Large Kite",
 		"quantity"	: "1",
