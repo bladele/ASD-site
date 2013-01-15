@@ -6,9 +6,11 @@
 
 #home h2{ text-align: center;}
 
-label.error{display: block; margin:10px 0; color:#cc0000;}
+label.error{display: block; margin:5px 0; color:#cc0000;}
 
 #logerrorslink{display: none;}
+
+#iferrorslink{display: none;}
 
 #about{background:url(background.jpg) repeat left top;
 }

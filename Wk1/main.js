@@ -7,66 +7,63 @@ $('#home').on('pageinit', function () {
 
 });
 
-$('#additem').on('pageinit', function () {
+
+
+
+$('#itemform').on('pageinit', function () {
 
     var itemForm = $('#additemform'),
-        errorslink = $('#errorslink');
+        logerrorslink = $('#logerrorslink');
 
     itemForm.validate({
-        invalidHandler: function (form, validator) {
-            errorslink.click();
+        invalidHandler: function(form, validator){
+			logerrorslink.click();
             var html = '';
             $("#errors ul").html("");
-            for (var key in validator.submitted) {
-                var label = $('lable[for^="' + key + '"]').not('[generated]');
-                var legend = label.closet('fieldset').find('.ui-controlgroup-label');
-                var fieldName = legend.lenght ? legend.text() : label.text();
-                html += '<li>' + fieldName + '</li>';
-            };
-            $("#errors ul").html(html);
+            for(var key in validator.submitted){
+				var label = $('label[for^="'+ key +'"]').not('[generated]');
+				var legend = label.closest('fieldset').find('.ui-controlgroup-label');
+				var fieldName =  legend.length ? legend.text() : label.text();
+				html += '<li>'+ fieldName +'</li>';
+			};
+            $("#newLogerrors ul").html(html);
         },
-        submitHandler: function () {
-            var data = iForm.serializeArray();
+        submitHandler: function(){
+            var data = itemForm.serializeArray();
             console.log(data);
             storeData(data);
         }
     });
+    
+//Any other code needed for addItem page goes here
 
 
 });
 
-// Submit click events
-//$('#submit').on('click', validate);
+$('#browseBtn').on('click', function(){ // display link gets data
+	getData();
+});
+
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
-
-
-//To Store Data into Local Storage
-var storeData = function (data) {
-    if (!data) {
-        var id = Math.floor(Math.random() * 10000001);
-    } else {
-        id = data;
+function storeData(key){
+	if(!key){
+		var id = Math.floor(Math.random() * 100000001);
+	}else{
+		id = key;
 	}
-	
 	var item 		= {};
 	item.category 	= ["Category: ", $('#category').val()];
-	item.type		= ["Type: ", $('#type').val()];
-	item.name		= ["Name: ", $('#name').val()];
-	item.quantity	= ["Quantity: ", $('#quantity').va()];
-	item.usage		= ["Usage: ", $('#usage').val()];
-	item.condition	= ["Condition: ", $('#condition').val()];
-	item.status		= ["Status: ", $('#status').val()];
-	item.notes		= ["Notes: ", $('#notes').val()];
+	item.type 		= ["Type: ", $('#type').val()];
+	item.name 		= ["Name: ", $('#name').val()];
+	item.category 	= ["Category: ", $('#category').val()];
+	item.condition 	= ["Condition: ", $('#condition').val()];
+	item.status 	= ["Status: ", $('#status').val()];
+	item.notes 		= ["Notes: ", $('#notes').val()];
 	
-	//save data
 	localStorage.setItem(id, JSON.stringify(item));
-    alert("Item Saved!");
-    changePage("showData");
-    getData();
-    console.log('getData');
+	alert("Item Saved!");
 };
-
 
 
 
