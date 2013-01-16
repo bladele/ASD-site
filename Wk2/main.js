@@ -123,7 +123,7 @@ $("#jsonBtn").on("click", function () {
                 var items = json.Items[i];
                 $('' +
                     '<li>' +
-                    '<p><strong> Category: </strong> ' + '<em>' + items.catgry + '</em>' + '</p>' +
+                    '<p><strong> Category: </strong> ' + '<em>' + items.category + '</em>' + '</p>' +
                     '<p><strong> Type: </strong>' + '<em>' + items.type + '</em>' + '</p>' +
                     '<p><strong> Name: </strong>' + '<em>' + items.name + '</em>' + '</p>' +
                     '<p><strong> Quantity: </strong>' + '<em>' + items.quantity + '</em>' + '</p>' +
@@ -152,8 +152,8 @@ $('#xmlBtn').on('click', function () {
         success: function (xml,data) {
             console.log(xml);
             alert("XML Data is now loaded.");
-                $(xml).find("items").each(function () {
-                    var catgry = $(this).find('catgry').text(),
+                $(xml).find("item").each(function () {
+                    var category = $(this).find('category').text(),
                         type = $(this).find('type').text(),
                         name = $(this).find('name').text(),
                         quantity = $(this).find('quantity').text(),
@@ -163,7 +163,7 @@ $('#xmlBtn').on('click', function () {
 
             $("#ajaxData").append(
                     $('<ul>' +
-                        '<li>' + "Category: " + catgry + '<br />' + '</li>' +
+                        '<li>' + "Category: " + category + '<br />' + '</li>' +
                         '<li>' + "Type: " + type + '<br />' + '</li>' +
                         '<li>' + "Name: " + name + '<br />' + '</li>' +
                         '<li>' + "Quantity: " + quantity + '<br />' + '</li>' +

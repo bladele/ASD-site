@@ -2,7 +2,7 @@
 
 <items>
 	<item>
-		<catgry>Entertainment</catgry>
+		<category>Entertainment</category>
 		<type>DVD</type>
 		<name>The Matrix</name>
 		<quantity>1</quantity>
@@ -13,7 +13,7 @@
 	</item>
 
 	<item>
-		<catgry>Gear</catgry>
+		<category>Gear</category>
 		<type>Winter</type>
 		<name>Snowboard</name>
 		<quantity>1</quantity>
@@ -24,7 +24,7 @@
 	</item>
 
 	<item>
-		<catgry>Book</catgry>
+		<category>Book</category>
 		<type>Comic Book</type>
 		<name>The Amazing Spiderman #1</name>
 		<quantity>1</quantity>
@@ -35,7 +35,7 @@
 	</item>
 
 	<item>
-		<catgry>Vehicle</catgry>
+		<category>Vehicle</category>
 		<type>Car</type>
 		<name>1993 Honda Accord</name>
 		<quantity>1</quantity>
@@ -46,7 +46,7 @@
 	</item>
 
 	<item>
-		<catgry>House Hold</catgry>
+		<category>House Hold</category>
 		<type>Appliance</type>
 		<name>DVD Player</name>
 		<quantity>1</quantity>
