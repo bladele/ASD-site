@@ -56,7 +56,6 @@ function storeData(key){
 	item.category 	= ["Category: ", $('#category').val()];
 	item.type 		= ["Type: ", $('#type').val()];
 	item.name 		= ["Name: ", $('#name').val()];
-	item.category 	= ["Category: ", $('#category').val()];
 	item.condition 	= ["Condition: ", $('#condition').val()];
 	item.status 	= ["Status: ", $('#status').val()];
 	item.notes 		= ["Notes: ", $('#notes').val()];
@@ -88,9 +87,7 @@ $("#browseBtn").on("click", function () {
                     '<p><strong> Category: </strong> ' + '<em>' + items.category + '</em>' + '</p>' +
                     '<p><strong> Type: </strong>' + '<em>' + items.type + '</em>' + '</p>' +
                     '<p><strong> Name: </strong>' + '<em>' + items.name + '</em>' + '</p>' +
-                    '<p><strong> Quantity: </strong>' + '<em>' + items.quantity + '</em>' + '</p>' +
                     '<p><strong> Condition: </strong>' + '<em>' + items.condition + '</em>' + '</p>' +
-                    '<p><strong> Usage: </strong>' + '<em>' + items.usage + '</em>' + '</p>' +
                     '<p><strong> Status: </strong>' + '<em>' + items.status + '</em>' + '</p>' +
                     '<p><strong> Notes: </strong>' + '<em>' + items.notes + '</em>' + '</p>' +
                     '</li>').appendTo('#ajaxJson');
@@ -126,9 +123,7 @@ $("#jsonBtn").on("click", function () {
                     '<p><strong> Category: </strong> ' + '<em>' + items.category + '</em>' + '</p>' +
                     '<p><strong> Type: </strong>' + '<em>' + items.type + '</em>' + '</p>' +
                     '<p><strong> Name: </strong>' + '<em>' + items.name + '</em>' + '</p>' +
-                    '<p><strong> Quantity: </strong>' + '<em>' + items.quantity + '</em>' + '</p>' +
                     '<p><strong> Condition: </strong>' + '<em>' + items.condition + '</em>' + '</p>' +
-                    '<p><strong> Usage: </strong>' + '<em>' + items.usage + '</em>' + '</p>' +
                     '<p><strong> Status: </strong>' + '<em>' + items.status + '</em>' + '</p>' +
                     '<p><strong> Notes: </strong>' + '<em>' + items.notes + '</em>' + '</p>' +
                     '</li>').appendTo('#ajaxData');
@@ -162,15 +157,14 @@ $('#xmlBtn').on('click', function () {
                         notes = $(this).find('notes').text();
 
             $("#ajaxData").append(
-                    $('<ul>' +
-                        '<li>' + "Category: " + category + '<br />' + '</li>' +
-                        '<li>' + "Type: " + type + '<br />' + '</li>' +
-                        '<li>' + "Name: " + name + '<br />' + '</li>' +
-                        '<li>' + "Quantity: " + quantity + '<br />' + '</li>' +
-                        '<li>' + "Condition: " + condition + '<br />' + '</li>' +
-                        '<li>' + "Status: " + status + '<br />' + '</li>' +
-                        '<li>' + "Notes: " + notes + '<br />' + '</li>' +
-                        '</ul>'));
+                    $('<li>' +
+		                    '<p><strong> Category: </strong> ' + '<em>' + category + '</em>' + '</p>' +
+		                    '<p><strong> Type: </strong>' + '<em>' + type + '</em>' + '</p>' +
+		                    '<p><strong> Name: </strong>' + '<em>' + name + '</em>' + '</p>' +
+		                    '<p><strong> Condition: </strong>' + '<em>' + condition + '</em>' + '</p>' +
+		                    '<p><strong> Status: </strong>' + '<em>' + status + '</em>' + '</p>' +
+		                    '<p><strong> Notes: </strong>' + '<em>' + notes + '</em>' + '</p>' +
+                    '</li>'));
                 });
                 $('#ajaxData').listview();
                 $('#ajaxData').listview('refresh');   
@@ -179,7 +173,7 @@ $('#xmlBtn').on('click', function () {
     });
 });
 
-/*CSV
+//CSV
 $('#csvBtn').on('click', function () {
     $('#ajaxData').empty();
 
@@ -199,7 +193,6 @@ $('#csvBtn').on('click', function () {
                         '<li>' + "Category: " + columns(0) + '<br />' + '</li>' +
                         '<li>' + "Type: " + columns(1) + '<br />' + '</li>' +
                         '<li>' + "Name: " + columns(2) + '<br />' + '</li>' +
-                        '<li>' + "Quantity: " + columns(3) + '<br />' + '</li>' +
                         '<li>' + "Condition: " + columns(4) + '<br />' + '</li>' +
                         '<li>' + "Status: " + columns(5) + '<br />' + '</li>' +
                         '<li>' + "Notes: " + columns(6) + '<br />' + '</li>' +
@@ -211,4 +204,3 @@ $('#csvBtn').on('click', function () {
         });
 });
 
-*/
