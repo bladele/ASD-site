@@ -56,7 +56,9 @@ function storeData(key){
 	item.category 	= ["Category: ", $('#category').val()];
 	item.type 		= ["Type: ", $('#type').val()];
 	item.name 		= ["Name: ", $('#name').val()];
+	item.quantity 	= ["Quantity: ", $('#quantity').val()];
 	item.condition 	= ["Condition: ", $('#condition').val()];
+	item.usage 		= ["Usage: ", $('#usage').val()];
 	item.status 	= ["Status: ", $('#status').val()];
 	item.notes 		= ["Notes: ", $('#notes').val()];
 	
@@ -84,12 +86,14 @@ $("#browseBtn").on("click", function () {
                 var items = json.Items[i];
                 $('' +
                     '<li>' +
-                    '<p><strong> Category: </strong> ' + '<em>' + items.category + '</em>' + '</p>' +
-                    '<p><strong> Type: </strong>' + '<em>' + items.type + '</em>' + '</p>' +
-                    '<p><strong> Name: </strong>' + '<em>' + items.name + '</em>' + '</p>' +
-                    '<p><strong> Condition: </strong>' + '<em>' + items.condition + '</em>' + '</p>' +
-                    '<p><strong> Status: </strong>' + '<em>' + items.status + '</em>' + '</p>' +
-                    '<p><strong> Notes: </strong>' + '<em>' + items.notes + '</em>' + '</p>' +
+	                    '<p><strong> Category: </strong> ' + '<em>' + items.category + '</em>' + '</p>' +
+	                    '<p><strong> Type: </strong>' + '<em>' + items.type + '</em>' + '</p>' +
+	                    '<p><strong> Name: </strong>' + '<em>' + items.name + '</em>' + '</p>' +
+	                    '<p><strong> Quantity: </strong>' + '<em>' + items.quantity + '</em>' + '</p>' +
+	                    '<p><strong> Condition: </strong>' + '<em>' + items.condition + '</em>' + '</p>' +
+	                    '<p><strong> Usage: </strong>' + '<em>' + items.usage + '</em>' + '</p>' +
+	                    '<p><strong> Status: </strong>' + '<em>' + items.status + '</em>' + '</p>' +
+	                    '<p><strong> Notes: </strong>' + '<em>' + items.notes + '</em>' + '</p>' +
                     '</li>').appendTo('#ajaxJson');
             }
             $("#ajaxJson").listview('refresh');
@@ -120,12 +124,14 @@ $("#jsonBtn").on("click", function () {
                 var items = json.Items[i];
                 $('' +
                     '<li>' +
-                    '<p><strong> Category: </strong> ' + '<em>' + items.category + '</em>' + '</p>' +
-                    '<p><strong> Type: </strong>' + '<em>' + items.type + '</em>' + '</p>' +
-                    '<p><strong> Name: </strong>' + '<em>' + items.name + '</em>' + '</p>' +
-                    '<p><strong> Condition: </strong>' + '<em>' + items.condition + '</em>' + '</p>' +
-                    '<p><strong> Status: </strong>' + '<em>' + items.status + '</em>' + '</p>' +
-                    '<p><strong> Notes: </strong>' + '<em>' + items.notes + '</em>' + '</p>' +
+                    	'<p><strong> Category: </strong> ' + '<em>' + items.category + '</em>' + '</p>' +
+	                    '<p><strong> Type: </strong>' + '<em>' + items.type + '</em>' + '</p>' +
+	                    '<p><strong> Name: </strong>' + '<em>' + items.name + '</em>' + '</p>' +
+	                    '<p><strong> Quantity: </strong>' + '<em>' + items.quantity + '</em>' + '</p>' +
+	                    '<p><strong> Condition: </strong>' + '<em>' + items.condition + '</em>' + '</p>' +
+	                    '<p><strong> Usage: </strong>' + '<em>' + items.usage + '</em>' + '</p>' +
+	                    '<p><strong> Status: </strong>' + '<em>' + items.status + '</em>' + '</p>' +
+	                    '<p><strong> Notes: </strong>' + '<em>' + items.notes + '</em>' + '</p>' +
                     '</li>').appendTo('#ajaxData');
             }
             $("#ajaxData").listview('refresh');
@@ -153,17 +159,20 @@ $('#xmlBtn').on('click', function () {
                         name = $(this).find('name').text(),
                         quantity = $(this).find('quantity').text(),
                         condition = $(this).find('condition').text(),
+                        usage = $(this).find('usage').text(),
                         status = $(this).find('status').text(),
                         notes = $(this).find('notes').text();
 
             $("#ajaxData").append(
                     $('<li>' +
-		                    '<p><strong> Category: </strong> ' + '<em>' + category + '</em>' + '</p>' +
-		                    '<p><strong> Type: </strong>' + '<em>' + type + '</em>' + '</p>' +
-		                    '<p><strong> Name: </strong>' + '<em>' + name + '</em>' + '</p>' +
-		                    '<p><strong> Condition: </strong>' + '<em>' + condition + '</em>' + '</p>' +
-		                    '<p><strong> Status: </strong>' + '<em>' + status + '</em>' + '</p>' +
-		                    '<p><strong> Notes: </strong>' + '<em>' + notes + '</em>' + '</p>' +
+		                '<p><strong> Category: </strong> ' + '<em>' + category + '</em>' + '</p>' +
+	                    '<p><strong> Type: </strong>' + '<em>' + type + '</em>' + '</p>' +
+	                    '<p><strong> Name: </strong>' + '<em>' + name + '</em>' + '</p>' +
+	                    '<p><strong> Quantity: </strong>' + '<em>' + quantity + '</em>' + '</p>' +
+	                    '<p><strong> Condition: </strong>' + '<em>' + condition + '</em>' + '</p>' +
+	                    '<p><strong> Usage: </strong>' + '<em>' + usage + '</em>' + '</p>' +
+	                    '<p><strong> Status: </strong>' + '<em>' + status + '</em>' + '</p>' +
+	                    '<p><strong> Notes: </strong>' + '<em>' + notes + '</em>' + '</p>' +
                     '</li>'));
                 });
                 $('#ajaxData').listview();
@@ -185,18 +194,21 @@ $('#csvBtn').on('click', function () {
             console.log(data);
             alert("CSV Data is now loaded.");
                 var lines = data.split("\n");
-                for (var lineNum = 1; lineNum < lines.length; lineNum++) {
+                for (var lineNum = 0; lineNum < lines.length; lineNum++) {
                     var row = lines[lineNum];
                     var columns = row.split(",");
+                    console.log(columns);
                     $("#ajaxData").append(
-                    $('<ul>' +
-                        '<li>' + "Category: " + columns(0) + '<br />' + '</li>' +
-                        '<li>' + "Type: " + columns(1) + '<br />' + '</li>' +
-                        '<li>' + "Name: " + columns(2) + '<br />' + '</li>' +
-                        '<li>' + "Condition: " + columns(4) + '<br />' + '</li>' +
-                        '<li>' + "Status: " + columns(5) + '<br />' + '</li>' +
-                        '<li>' + "Notes: " + columns(6) + '<br />' + '</li>' +
-                        '</ul>'));
+                    $('<li>' +
+	                        '<p><strong> Category: </strong> ' + '<em>' + columns[0] + '</em>' + '</p>' +
+	                        '<p><strong> Type: </strong>' + '<em>' + columns[1] + '</em>' + '</p>' +
+	                        '<p><strong> Name: </strong>' + '<em>' + columns[2] + '</em>' + '</p>' +
+	                        '<p><strong> Quantity: </strong>' + '<em>' + columns[3] + '</em>' + '</p>' +
+	                        '<p><strong> Condition: </strong>' + '<em>' + columns[4] + '</em>' + '</p>' +
+	                        '<p><strong> Usage: </strong>' + '<em>' + columns[5] + '</em>' + '</p>' +
+	                        '<p><strong> Status: </strong>' + '<em>' + columns[6] + '</em>' + '</p>' +
+	                        '<p><strong> Notes: </strong>' + '<em>' + columns[7] + '</em>' + '</p>' +
+                        '</li>'));
                 }
                 $('#ajaxData').listview();
                 $('#ajaxData').listview('refresh');

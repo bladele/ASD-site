@@ -348,6 +348,7 @@
 					<h2>*Fields are Required</h2>
 					<ul id= "errors"></ul>
 					
+					<!-- Category -->
 					<div data-role="fieldcontain">
 <!--I want the category to be dynamic; that might have to come later when I better at coding.-->
 						<label for="category" class="select">*Categories: </label>
@@ -360,17 +361,37 @@
 								<option value="vehcl">Vehicle</option>
 							</select>
 					</div>
-					
+					<!-- Type -->
 					<div data-role="fieldcontain">
 						<label for="type">*Item Type Within Category: </label>
 						<input type="text" name="type" id="type" class="required" placeholder="Expl: 'Comic Book' for the Book Category" />
 					</div>
-					
+					<!-- Name -->
 					<div data-role="fieldcontain" class="ui-hide-label">
 						<label for="name">Item Name: </label>
 						<input type="text" name="name" id="name"  placeholder="*Item Name" class="required" />
 					</div>
-					
+					<!-- Quantity -->
+					<div data-role="fieldcontain">
+						<label for="quantity">Quantity: </label>
+						<input type="range" name="quantity" id="quantity" value="1" min="1" max="100" data-highlight="true" />
+					</div>
+					<!-- Usage -->
+					<div data-role="fieldcontain" >
+						<fieldset data-role="controlgroup">
+							<legend>Usage(How much item is used?) : </legend>
+							<input type="radio" name="usage" id="radio-choice-1" value="choice-1" checked="checked" data-theme="b" />
+							<label for="radio-choice-1">Often</label>
+	
+							<input type="radio" name="usage" id="radio-choice-2" value="choice-2" data-theme="b" />
+							<label for="radio-choice-2">Sometimes</label>
+	
+							<input type="radio" name="usage" id="radio-choice-3" value="choice-3" data-theme="b" />
+							<label for="radio-choice-3">Never</label>
+						</fieldset>
+					</div>
+				
+					<!-- Condition -->
 					<div data-role="fieldcontain">
 						<fieldset data-role="controlgroup" data-type="horizontal">
 							<legend>Choose Condition: </legend>
@@ -384,7 +405,7 @@
 							<label for="radio-choice-3">Worn</label>
 						</fieldset>
 					</div>
-					
+					<!-- Status -->
 					<div class="containing-element">
 						<label for="status">Status: </label>
 							<select name="status" data-role="slider" data-theme="b" />
@@ -392,12 +413,12 @@
 								<option value="on">Item Out</option>
 							</select>
 					</div>
-					
+					<!-- Notes -->
 					<div data-role="fieldcontain">
 						<label for="textarea">Notes: </label>
 							<textarea name="note" id="notes" value="" />Type additional notes here.</textarea>
 					</div>
-					
+					<!-- Submit & Reset Buttons -->
 					<div data-role="fieldcontain">
 						<input type="submit" value="Add item" id="submit" data-theme="b" />
 					</div>
