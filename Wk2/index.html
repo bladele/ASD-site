@@ -126,7 +126,7 @@
 	<div data-role="page" id="browse" data-add-back-btn="true">
 		<div data-role="header" data-position="fixed" data-theme="b">
 			<h1>All My Stuff</h1>
-				<a href="#browse" data-icon="minus" id="brsClrBtn" class="ui-btn-right">Clear</a>
+				<a href="#browse" data-icon="minus" id="clrBtn" class="ui-btn-right">Clear</a>
 		</div>
 
 		<div data-role="content">
@@ -351,9 +351,9 @@
 					<!-- Category -->
 					<div data-role="fieldcontain">
 <!--I want the category to be dynamic; that might have to come later when I better at coding.-->
-						<label for="category" class="select">*Categories: </label>
+						<label for="category" class="select">*Categories</label>
 							<select name="category" id="category" data-native-menu="false" data-theme="b" class="required">
-								<option data-placeholder="true">Please Select One</option>
+								<option value="" data-placeholder="true">Please Select One</option>
 								<option value="book">Book</option>
 								<option value="ent">Entertainment</option>
 								<option value="gear">Gear</option>
@@ -363,24 +363,25 @@
 					</div>
 					<!-- Type -->
 					<div data-role="fieldcontain">
-						<label for="type">*Item Type Within Category: </label>
-						<input type="text" name="type" id="type" class="required" placeholder="Expl: 'Comic Book' for the Book Category" />
+						<label for="type">*Item Type Within Category</label>
+						<input type="text" name="type" id="type" class="required" placeholder="Expl:'Comic Book' for the Book Category" />
 					</div>
 					<!-- Name -->
 					<div data-role="fieldcontain" class="ui-hide-label">
-						<label for="name">Item Name: </label>
+						<label for="name">Item Name</label>
 						<input type="text" name="name" id="name"  placeholder="*Item Name" class="required" />
 					</div>
 					<!-- Quantity -->
 					<div data-role="fieldcontain">
-						<label for="quantity">Quantity: </label>
+						<label for="quantity">Quantity</label>
 						<input type="range" name="quantity" id="quantity" value="1" min="1" max="100" data-highlight="true" />
 					</div>
 					<!-- Usage -->
 					<div data-role="fieldcontain" >
 						<fieldset data-role="controlgroup">
-							<legend>Usage(How much item is used?) : </legend>
-							<input type="radio" name="usage" id="radio-choice-1" value="choice-1" checked="checked" data-theme="b" />
+							<legend>Usage(How much item is used?)</legend>
+							
+							<input type="radio" name="usage" id="radio-choice-1" value="choice-1" data-theme="b" checked="checked" class="required"/>
 							<label for="radio-choice-1">Often</label>
 	
 							<input type="radio" name="usage" id="radio-choice-2" value="choice-2" data-theme="b" />
@@ -388,26 +389,28 @@
 	
 							<input type="radio" name="usage" id="radio-choice-3" value="choice-3" data-theme="b" />
 							<label for="radio-choice-3">Never</label>
+							
+							<!-- <label for="usage" class="error">Please select usage</label> -->
 						</fieldset>
 					</div>
 				
 					<!-- Condition -->
 					<div data-role="fieldcontain">
 						<fieldset data-role="controlgroup" data-type="horizontal">
-							<legend>Choose Condition: </legend>
-							<input type="radio" name="condition" id="radio-choice-1" value="choice-1" checked="checked" class="required" />
+							<legend>Choose Condition</legend>
+							<input type="radio" name="condition" id="radio-choice-1" value="condition-1" checked="checked" />
 							<label for="radio-choice-1">New</label>
 							
-							<input type="radio" name="condition" id="radio-choice-2" value="choice-2" />
+							<input type="radio" name="condition" id="radio-choice-2" value="condition-2" />
 							<label for="radio-choice-2">Good</label>
 							
-							<input type="radio" name="condition" id="radio-choice-3" value="choice-3" />
+							<input type="radio" name="condition" id="radio-choice-3" value="condition-3" />
 							<label for="radio-choice-3">Worn</label>
 						</fieldset>
 					</div>
 					<!-- Status -->
 					<div class="containing-element">
-						<label for="status">Status: </label>
+						<label for="status">Status</label>
 							<select name="status" data-role="slider" data-theme="b" />
 								<option value="off">Item In</option>
 								<option value="on">Item Out</option>
@@ -415,7 +418,7 @@
 					</div>
 					<!-- Notes -->
 					<div data-role="fieldcontain">
-						<label for="textarea">Notes: </label>
+						<label for="textarea">Notes</label>
 							<textarea name="note" id="notes" value="" />Type additional notes here.</textarea>
 					</div>
 					<!-- Submit & Reset Buttons -->
@@ -427,7 +430,7 @@
 						<input type="button" value="Reset" id="reset" data-theme="a" onClick="window.location.reload()"/>
 					</div>
 					
-					<a href="#newLogerrors" id="logerrorslink" data-rel="dialog" data-transition="flip">Open errors</a>
+					<a href="#itemformerrors" id="itemerrorslink" data-rel="dialog" data-transition="flip">Open errors</a>
 				</form>
 		</div>
 <!-- _________________________ Footer: Nav Bar(end) ________________________ -->
@@ -447,7 +450,7 @@
 <!-- _________________________ Add Item Page(end) ________________________ -->
 
 <!-- _________________________ Validation Dialogue Page(begin) ________________________ -->
-	<div data-role="dialog" id="newLogerrors">
+	<div data-role="dialog" id="itemformerrors">
 		<div data-role="header" data-position="fixed" data-theme="b">
 			<h1>Missing Fields</h1>
 		</div>

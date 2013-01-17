@@ -8,16 +8,15 @@ $('#home').on('pageinit', function () {
 });
 
 
-
-
 $('#itemform').on('pageinit', function () {
 
     var itemForm = $('#additemform'),
-        logerrorslink = $('#logerrorslink');
+        itemerrorslink = $('#itemerrorslink');
 
     itemForm.validate({
         invalidHandler: function(form, validator){
-			logerrorslink.click();
+			itemerrorslink.click();
+			rules:{usage:"required"}
             var html = '';
             $("#errors ul").html("");
             for(var key in validator.submitted){
@@ -26,19 +25,19 @@ $('#itemform').on('pageinit', function () {
 				var fieldName =  legend.length ? legend.text() : label.text();
 				html += '<li>'+ fieldName +'</li>';
 			};
-            $("#newLogerrors ul").html(html);
+            $("#itemformerrors ul").html(html);
         },
         submitHandler: function(){
-            var data = itemForm.serializeArray();
-            console.log(data);
-            storeData(data);
+        var data = itemForm.serializeArray();
+        console.log(data);
+        storeData(data);
+        $.mobile.changePage("#browse");
         }
-    });
-    
+    });    
+});
+
 //Any other code needed for addItem page goes here
 
-
-});
 
 $('#browseBtn').on('click', function(){ // display link gets data
 	getData();
@@ -70,9 +69,9 @@ function storeData(key){
 
 
 //Get JSON Data when browse page is open. ------------------------------------------------------------------------------------------->
-$("#browseBtn").on("click", function () {
+$("#browse").on("pageinit", function () {
 
-    $.mobile.changePage("#browse");
+    
     $.ajax({
         url: "items.json",
         type: "Get",
