@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<items>
+	<item>
+		<category>Entertainment</category>
+		<type>DVD</type>
+		<name>The Matrix</name>
+		<quantity>1</quantity>
+		<condition>Good</condition>
+		<usage>Sometimes</usage>
+		<status>In</status>
+		<notes>My favourite movie.</notes>
+	</item>
+
+	<item>
+		<category>Gear</category>
+		<type>Winter</type>
+		<name>Snowboard</name>
+		<quantity>1</quantity>
+		<condition>New</condition>
+		<usage>Never</usage>
+		<status>In</status>
+		<notes>Live more, use the damn thing.</notes>
+	</item>
+
+	<item>
+		<category>Book</category>
+		<type>Comic Book</type>
+		<name>The Amazing Spiderman #1</name>
+		<quantity>1</quantity>
+		<condition>Good</condition>
+		<usage>Never</usage>
+		<status>In</status>
+		<notes>Not for sale.</notes>
+	</item>
+
+	<item>
+		<category>Vehicle</category>
+		<type>Car</type>
+		<name>1993 Honda Accord</name>
+		<quantity>1</quantity>
+		<condition>worn</condition>
+		<usage>Often</usage>
+		<status>In</status>
+		<notes>It's payed for and it works.</notes>
+	</item>
+
+	<item>
+		<category>House Hold</category>
+		<type>Appliance</type>
+		<name>DVD Player</name>
+		<quantity>1</quantity>
+		<condition>Worn</condition>
+		<usage>Sometimes</usage>
+		<status>In</status>
+		<notes>Never let you wife buy electrionics.</notes>
+	</item>
+</items>

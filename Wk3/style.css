@@ -1,0 +1,55 @@
+/* write your CSS in here */
+
+#home{	background:url(background.jpg) repeat left top;
+		text-align: left;
+}
+
+#home h2{ text-align: center;}
+
+
+label.error{display: block; margin:5px 0; color:#cc0000;}
+
+label.error.valid{display: none;}
+
+#itemerrorslink{display: none;}
+
+#about{background:url(background.jpg) repeat left top;
+}
+
+#additem{background:url(background.jpg) repeat left top;
+}
+
+#browse{background:url(background.jpg) repeat left top;
+}
+
+#contacts{background:url(background.jpg) repeat left top;
+}
+
+#loans{background:url(background.jpg) repeat left top;
+}
+
+#ajax{background:url(background.jpg) repeat left top;
+}
+
+#books{background:url(background.jpg) repeat left top;
+}
+
+#entertainment{background:url(background.jpg) repeat left top;
+}
+
+#gear{background:url(background.jpg) repeat left top;
+}
+
+#household{background:url(background.jpg) repeat left top;
+}
+
+#vehicles{background:url(background.jpg) repeat left top;
+}
+
+
+/*#home .ui-grid-a div{text-align:center;}*/
+
+/*#home .ui-grid-a .ui-bar{padding:50px 20px;}*/
+
+.containing-element .ui-slider-switch { width: 12em }
+
