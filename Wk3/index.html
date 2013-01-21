@@ -36,7 +36,7 @@
 			<h2>Take Stock of Your Life!</h2>
 			<p><a href="#itemform" data-role="button" data-theme="b">Add Item</a></p>
 			<p><a href="#about" data-role="button" data-theme="e">The Mission</a></p>
-			<p><a href="#ajax" data-role="button" data-theme="a">AJAX DATA</a></p>
+			
 <!-- _________________________ Categories (begin) ________________________ -->
 			<div data-role="content">
 				<ul data-role="listview" data-inset="true" data-theme="e">
@@ -47,7 +47,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#entertainment" data-inset="true" data-theme="e">
+						<a href="#entertainment" data-transition="slide">
 							<h2>Entertainment</h2>
 						</a>
 					</li>
@@ -130,11 +130,16 @@
 		</div>
 
 		<div data-role="content">
-				<!-- JSON DATA -->
-      			<div id="jsonData">
+      			<div id="data">
           			<ul data-role="listview" id="ajaxJson" data-filter="true">
           			</ul>
       			</div>
+      			
+      			<!-- JSON DATA 
+      			<div id="jsonData">
+          			<ul data-role="listview" id="ajaxJson" data-filter="true">
+          			</ul>
+      			</div> -->
 		</div>
 			
 <!-- _________________________ Footer: Nav Bar (end) ________________________ -->
@@ -354,11 +359,11 @@
 						<label for="category" class="select">*Categories</label>
 							<select name="category" id="category" data-native-menu="true" data-theme="b" class="required">
 								<option value="" data-placeholder="true">Please Select One</option>
-								<option value="book">Book</option>
-								<option value="ent">Entertainment</option>
-								<option value="gear">Gear</option>
-								<option value="hshld">Household</option>
-								<option value="vehcl">Vehicle</option>
+								<option value="Book">Book</option>
+								<option value="Entertainment">Entertainment</option>
+								<option value="Gear">Gear</option>
+								<option value="Household">Household</option>
+								<option value="Vehicle">Vehicle</option>
 							</select>
 					</div>
 					<!-- Type -->
@@ -381,13 +386,13 @@
 						<fieldset data-role="controlgroup">
 							<legend>Usage(How much item is used?)</legend>
 							
-							<input type="radio" name="usage" id="radio-choice-1" value="choice-1" data-theme="b" checked="checked" class="required"/>
+							<input type="radio" name="usage" id="radio-choice-1" value="Often" data-theme="b" checked="checked" class="required"/>
 							<label for="radio-choice-1">Often</label>
 	
-							<input type="radio" name="usage" id="radio-choice-2" value="choice-2" data-theme="b" />
+							<input type="radio" name="usage" id="radio-choice-2" value="Sometimes" data-theme="b" />
 							<label for="radio-choice-2">Sometimes</label>
 	
-							<input type="radio" name="usage" id="radio-choice-3" value="choice-3" data-theme="b" />
+							<input type="radio" name="usage" id="radio-choice-3" value="Never" data-theme="b" />
 							<label for="radio-choice-3">Never</label>
 							
 							<!-- <label for="usage" class="error">Please select usage</label> -->
@@ -398,13 +403,13 @@
 					<div data-role="fieldcontain">
 						<fieldset data-role="controlgroup" data-type="horizontal">
 							<legend>Choose Condition</legend>
-							<input type="radio" name="condition" id="radio-choice-1" value="condition-1" checked="checked" />
+							<input type="radio" name="condition" id="radio-choice-1" value="New" checked="checked" />
 							<label for="radio-choice-1">New</label>
 							
-							<input type="radio" name="condition" id="radio-choice-2" value="condition-2" />
+							<input type="radio" name="condition" id="radio-choice-2" value="Good" />
 							<label for="radio-choice-2">Good</label>
 							
-							<input type="radio" name="condition" id="radio-choice-3" value="condition-3" />
+							<input type="radio" name="condition" id="radio-choice-3" value="Worn" />
 							<label for="radio-choice-3">Worn</label>
 						</fieldset>
 					</div>
@@ -412,8 +417,8 @@
 					<div class="containing-element">
 						<label for="status">Status</label>
 							<select name="status" data-role="slider" data-theme="b" />
-								<option value="off">Item In</option>
-								<option value="on">Item Out</option>
+								<option value="In">Item In</option>
+								<option value="Out">Item Out</option>
 							</select>
 					</div>
 					<!-- Notes -->
@@ -463,40 +468,6 @@
 	</div>
 <!-- _________________________ Validation Dialogue Page(end) ________________________ -->
 
-<!-- _________________________ AJAX DATA Page(begin) ________________________ -->
-	<div data-role="page" id="ajax" data-add-back-btn="true">
-		<!-- Buttons for populating data in header-navbar -->
-		<div data-role="header" data-position="fixed" data-theme="a">
-			<h1>AJAX DATA</h1>
-			<!-- Nav bar buttons for populating data -->
-			<div data-role="navbar">
-				<ul>
-					<li><a href="#json" id="jsonBtn" data-role="button">JSON</a></li>
-					<li><a href="#xml" id="xmlBtn" data-role="button">XML</a></li>
-					<li><a href="#csv" id="csvBtn" data-role="button">CSV</a></li>
-				</ul>
-			</div>
-		</div>
-		<!-- AJAX DATA -->
-		<div data-role="content">
-			<ul data-role="listview" id="ajaxData" data-filter="true"></ul>
-		</div>
-				
-<!-- _________________________ Footer: Nav Bar(end) ________________________ -->
-		<div data-role="footer" data-position="fixed" data-theme="a">
-			<div data-role="navbar" data-position="fixed">
-				<ul>
-					<li><a href="#home" data-icon="home">Home</a></li>				
-					<li><a href="#browse" id="browseBtn3" data-icon="search">Browse</a></li>
-					<li><a href="#itemform" data-icon="plus">Add Item</a></li>
-					<li><a href="#contacts" data-icon="star">Contacts</a></li>
-					<li><a href="#loans" id="loansbtn" data-icon="alert">Loans</a></li> 
-				</ul>
-			</div>
-		</div>
-	
-	</div>
-<!-- _________________________ AJAX DATA Page(end) ________________________ -->
 
 
 
@@ -505,5 +476,6 @@
 	<script src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
 	<script type="text/javascript" src="jquery.validate.min.js"></script>
 	<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript" src="items.json"></script>
 </body>
 </html>

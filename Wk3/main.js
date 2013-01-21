@@ -38,13 +38,19 @@ $('#itemform').on('pageinit', function () {
 
 //Any other code needed for addItem page goes here
 
-
-$('#browseBtn').on('click', function(){ // display link gets data
+//Get Data from local storage
+$("#browse").on('pageinit', function(){
 	getData();
-});
+}); 
+
+//Clear Data Function
+$("#clrBtn").on('click', function(){
+	clearLocal();
+	});
 
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
+//Store Data Function.
 function storeData(key){
 	if(!key){
 		var id = Math.floor(Math.random() * 100000001);
@@ -63,11 +69,144 @@ function storeData(key){
 	
 	localStorage.setItem(id, JSON.stringify(item));
 	alert("Item Saved!");
+	$.mobile.changePage("#browse");
+	getData();
+	console.log(getData);
 };
 
 
 
+//Populate Dummy Data
+/*function getDumyData(){
+	for(var n in json){
+		var id = Math.floor(Math.random() * 100000001);
+		localStorage.setItem(id, JSON.stringify(json[n]));
+	}
+}*/
 
+
+//Get Data
+function getData(){
+	if(localStorage.length === 0){
+		alert("Currently, there are not items saved, so dummy data will be loaded.");
+		//getDumyData();
+	};
+	
+	//Write Data from Local Storage to the browser.
+    $('#data').empty();
+    var makeDiv = document.createElement('div');
+    makeDiv.setAttribute("id", "items");
+    var makeList = document.createElement('ul');
+    makeDiv.appendChild(makeList);
+    
+    makeList.setAttribute("id", "itemslist");
+    makeDiv.appendChild(makeList);
+    $('#data').append(makeDiv);
+    $('#items').show;
+    for(i = 0, len=localStorage.length; i<len; i++){
+        var makeli = document.createElement('li');
+        var linksLi = document.createElement('li');
+        makeList.appendChild(makeli);
+        var key = localStorage.key(i);
+        var value = localStorage.getItem(key);
+        //Convert the string from local storage value back to an abject by using JSON.parse()
+        var obj = JSON.parse(value);
+        var makeSublist = document.createElement('ul');
+        makeli.appendChild(makeSublist);
+        for(var n in obj){
+            var makeSublistLi = document.createElement('li');
+            makeSublist.appendChild(makeSublistLi);
+            var optSubText = obj[n][0] + " " + obj[n][1];
+            makeSublistLi.innerHTML = optSubText;
+            makeSublist.appendChild(linksLi);
+        }
+        makeEventLinks(localStorage.key(i), linksLi); //Creat edit and delete buttons/link for each item in local storage.
+        console.log(getData);
+        };
+};
+        
+
+    
+    
+//Make Item Links
+//Create the edit and delet links for each stored item when displayed.
+	function makeEventLinks(key, linksLi) {
+		//add edit single item link
+		var editLink = document.createElement('button');
+		editLink.href = "#"; 
+		editLink.key = key;
+		var editText = "Edit Item";
+		editLink.addEventListener("click", editItem);
+		editLink.innerHTML = editText;
+		linksLi.appendChild(editLink);
+	
+		//add line break
+		var breakTag = document.createElement('br');
+		linksLi.appendChild(breakTag);
+	
+		//add delete single item link
+		var deleteLink = document.createElement('button');
+		deleteLink.href = "#";
+		deleteLink.key = key;
+		var deleteText = "Delete Item";
+		deleteLink.addEventListener("click", deleteItem);
+		deleteLink.innerHTML = deleteText;
+		linksLi.appendChild(deleteLink);
+	}
+	
+	//Edit a single log.
+	function editItem() {
+		//Grab the data from our item from local storage.
+		var value = localStorage.getItem(this.key);
+		var item = JSON.parse(value);
+	
+		//populate the form fields with current localStorage values.
+		$("#category").val(item.category[1]);
+		$("#type").val(item.type[1]);
+		$("#name").val(item.name[1]);
+		$("#quantity").val(item.quantity[1]);
+		$("#condition").val(item.condition[1]);
+		$("#usage").val(item.usage[1]);
+		$("#status").val(item.status[1]);
+		$("#notes").val(item.notes[1]);
+	
+		//Remove the initial listner fromt the input 'save log' botton.
+		save.removeEventListener("click", storeData);
+		//Change Submit Button Value to Edit Botton
+		$('#submit').value = "Edit Item";
+		var editSubmit = $('#submit');
+		/*Save the key value established in this function as a property of the editSubmit event
+		so we can ust that value when we save the data edited.*/
+		editSubmit.addEventListener("click", validate);
+		editSubmit.key = this.key;
+		};
+		
+		// Delete One Item
+		function deleteItem(){
+	        var ask = confirm("Sure you want to delete this item?");
+	        if(ask){
+	                    localStorage.removeItem(this.key);
+	                    alert("Item was deleted.");
+	                    getData();
+	        }else{
+	                    alert("Item was not deleted.");
+	        }  
+        }
+
+//Clear Local Storage
+	function clearLocal(){
+		if(localStorage.length === 0){
+	        alert("There are no items to clear.");
+	    }else{
+	        localStorage.clear();
+	        alert("All items are deleted!");
+	        window.location.reload();
+	        return false;
+	    }
+    }
+
+
+/*
 //Get JSON Data when browse page is open. ------------------------------------------------------------------------------------------->
 $("#browse").on("pageinit", function () {
 
@@ -103,115 +242,6 @@ $("#browse").on("pageinit", function () {
     });
 });
 
+*/
 
-
-
-
-//Get AJAX Data ------------------------------------------------------------------------------------------------------------------------------------------------>
-
-//JSON Data
-$("#jsonBtn").on("click", function () {
-    $("#ajaxData").empty(); //Remove all current data
-    $.ajax({
-        url: "items.json",
-        type: "GET",
-        dataType: "json",
-        success: function (json) {
-            console.log(json);
-            alert("JSON Data is now loaded.");
-            for (var i = 0, j = json.Items.length; i < j; i++) {
-                var items = json.Items[i];
-                $('' +
-                    '<li>' +
-                    	'<p><strong> Category: </strong> ' + '<em>' + items.category + '</em>' + '</p>' +
-	                    '<p><strong> Type: </strong>' + '<em>' + items.type + '</em>' + '</p>' +
-	                    '<p><strong> Name: </strong>' + '<em>' + items.name + '</em>' + '</p>' +
-	                    '<p><strong> Quantity: </strong>' + '<em>' + items.quantity + '</em>' + '</p>' +
-	                    '<p><strong> Condition: </strong>' + '<em>' + items.condition + '</em>' + '</p>' +
-	                    '<p><strong> Usage: </strong>' + '<em>' + items.usage + '</em>' + '</p>' +
-	                    '<p><strong> Status: </strong>' + '<em>' + items.status + '</em>' + '</p>' +
-	                    '<p><strong> Notes: </strong>' + '<em>' + items.notes + '</em>' + '</p>' +
-                    '</li>').appendTo('#ajaxData');
-            }
-            $("#ajaxData").listview('refresh');
-        },
-
-    });
-});
-
-
-
-//XML
-$('#xmlBtn').on('click', function () {
-
-    $('#ajaxData').empty();
-    $.ajax({
-        url: "items.xml",
-        type: "GET",
-        dataType: "xml",
-        success: function (xml,data) {
-            console.log(xml);
-            alert("XML Data is now loaded.");
-                $(xml).find("item").each(function () {
-                    var category = $(this).find('category').text(),
-                        type = $(this).find('type').text(),
-                        name = $(this).find('name').text(),
-                        quantity = $(this).find('quantity').text(),
-                        condition = $(this).find('condition').text(),
-                        usage = $(this).find('usage').text(),
-                        status = $(this).find('status').text(),
-                        notes = $(this).find('notes').text();
-
-            $("#ajaxData").append(
-                    $('<li>' +
-		                '<p><strong> Category: </strong> ' + '<em>' + category + '</em>' + '</p>' +
-	                    '<p><strong> Type: </strong>' + '<em>' + type + '</em>' + '</p>' +
-	                    '<p><strong> Name: </strong>' + '<em>' + name + '</em>' + '</p>' +
-	                    '<p><strong> Quantity: </strong>' + '<em>' + quantity + '</em>' + '</p>' +
-	                    '<p><strong> Condition: </strong>' + '<em>' + condition + '</em>' + '</p>' +
-	                    '<p><strong> Usage: </strong>' + '<em>' + usage + '</em>' + '</p>' +
-	                    '<p><strong> Status: </strong>' + '<em>' + status + '</em>' + '</p>' +
-	                    '<p><strong> Notes: </strong>' + '<em>' + notes + '</em>' + '</p>' +
-                    '</li>'));
-                });
-                $('#ajaxData').listview();
-                $('#ajaxData').listview('refresh');   
-        },
-        errors: function (data) {}
-    });
-});
-
-//CSV
-$('#csvBtn').on('click', function () {
-    $('#ajaxData').empty();
-
-    $.ajax({
-        url: "items.csv",
-        type: "GET",
-        dataType: "text",
-        success: function (data) {
-            console.log(data);
-            alert("CSV Data is now loaded.");
-                var lines = data.split("\n");
-                for (var lineNum = 0; lineNum < lines.length; lineNum++) {
-                    var row = lines[lineNum];
-                    var columns = row.split(",");
-                    console.log(columns);
-                    $("#ajaxData").append(
-                    $('<li>' +
-	                        '<p><strong> Category: </strong> ' + '<em>' + columns[0] + '</em>' + '</p>' +
-	                        '<p><strong> Type: </strong>' + '<em>' + columns[1] + '</em>' + '</p>' +
-	                        '<p><strong> Name: </strong>' + '<em>' + columns[2] + '</em>' + '</p>' +
-	                        '<p><strong> Quantity: </strong>' + '<em>' + columns[3] + '</em>' + '</p>' +
-	                        '<p><strong> Condition: </strong>' + '<em>' + columns[4] + '</em>' + '</p>' +
-	                        '<p><strong> Usage: </strong>' + '<em>' + columns[5] + '</em>' + '</p>' +
-	                        '<p><strong> Status: </strong>' + '<em>' + columns[6] + '</em>' + '</p>' +
-	                        '<p><strong> Notes: </strong>' + '<em>' + columns[7] + '</em>' + '</p>' +
-                        '</li>'));
-                }
-                $('#ajaxData').listview();
-                $('#ajaxData').listview('refresh');
-            },
-        });
-});
 
