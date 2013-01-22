@@ -36,8 +36,191 @@ $('#itemform').on('pageinit', function () {
     });    
 });
 
+
+
 //Any other code needed for addItem page goes here
 
+//View For All Items
+$(document).on("pageshow", "#browse", function(){
+    $.ajax({
+    	"url":"_view/items",
+    	"dataType": "json",
+    	"success": function(data){
+    		$("#itemData").empty();
+    		console.log(data);
+    		$('<h3>').html("").appendTo('#browse');
+                $.each(data.rows, function (index, item) {
+                    $('' +
+                        '<li>' +
+                        '<p><strong> Category: </strong> ' + '<em>' + item.value.category + '</em>' + '</p>' +
+                        '<p><strong> Type: </strong>' + '<em>' + item.value.type + '</em>' + '</p>' +
+                        '<p><strong> Name: </strong>' + '<em>' + item.value.name + '</em>' + '</p>' +
+                        '<p><strong> Quantity: </strong>' + '<em>' + item.value.quantity + '</em>' + '</p>' +
+                        '<p><strong> Condition: </strong>' + '<em>' + item.value.condition + '</em>' + '</p>' +
+                        '<p><strong> Usage: </strong>' + '<em>' + item.value.usage + '</em>' + '</p>' +
+                        '<p><strong> Status: </strong>' + '<em>' + item.value.status + '</em>' + '</p>' +
+                        '<p><strong> Notes: </strong>' + '<em>' + item.value.notes + '</em>' + '</p>' +
+                        '</li>'
+                    ).appendTo('#itemData');
+            });        
+                $("#itemData").listview('refresh');
+                $.mobile.changePage("#browse");
+        },
+            errors: function (data) {}
+    });
+});
+
+//View For Book Items
+$(document).on("pageshow", "#books", function(){
+    $.ajax({
+    	"url":"_view/books",
+    	"dataType": "json",
+    	"success": function(data){
+    		$("#bookData").empty();
+    		console.log(data);
+    		$('<h3>').html("").appendTo('#books');
+                $.each(data.rows, function (index, item) {
+                    $('' +
+                        '<li>' +
+                        '<p><strong> Category: </strong> ' + '<em>' + item.value.category + '</em>' + '</p>' +
+                        '<p><strong> Type: </strong>' + '<em>' + item.value.type + '</em>' + '</p>' +
+                        '<p><strong> Name: </strong>' + '<em>' + item.value.name + '</em>' + '</p>' +
+                        '<p><strong> Quantity: </strong>' + '<em>' + item.value.quantity + '</em>' + '</p>' +
+                        '<p><strong> Condition: </strong>' + '<em>' + item.value.condition + '</em>' + '</p>' +
+                        '<p><strong> Usage: </strong>' + '<em>' + item.value.usage + '</em>' + '</p>' +
+                        '<p><strong> Status: </strong>' + '<em>' + item.value.status + '</em>' + '</p>' +
+                        '<p><strong> Notes: </strong>' + '<em>' + item.value.notes + '</em>' + '</p>' +
+                        '</li>'
+                    ).appendTo('#bookData');
+            });        
+                $("#bookData").listview('refresh');
+                $.mobile.changePage("#books");
+        },
+            errors: function (data) {}
+    });
+});
+
+//View For Entertainment Items
+$(document).on("pageshow", "#entertainment", function(){
+    $.ajax({
+    	"url":"_view/entertainment",
+    	"dataType": "json",
+    	"success": function(data){
+    		$("#entData").empty();
+    		console.log(data);
+    		$('<h3>').html("").appendTo('#entertainment');
+                $.each(data.rows, function (index, item) {
+                    $('' +
+                        '<li>' +
+                        '<p><strong> Category: </strong> ' + '<em>' + item.value.category + '</em>' + '</p>' +
+                        '<p><strong> Type: </strong>' + '<em>' + item.value.type + '</em>' + '</p>' +
+                        '<p><strong> Name: </strong>' + '<em>' + item.value.name + '</em>' + '</p>' +
+                        '<p><strong> Quantity: </strong>' + '<em>' + item.value.quantity + '</em>' + '</p>' +
+                        '<p><strong> Condition: </strong>' + '<em>' + item.value.condition + '</em>' + '</p>' +
+                        '<p><strong> Usage: </strong>' + '<em>' + item.value.usage + '</em>' + '</p>' +
+                        '<p><strong> Status: </strong>' + '<em>' + item.value.status + '</em>' + '</p>' +
+                        '<p><strong> Notes: </strong>' + '<em>' + item.value.notes + '</em>' + '</p>' +
+                        '</li>'
+                    ).appendTo('#entData');
+            });        
+                $("#entData").listview('refresh');
+                $.mobile.changePage("#entertainment");
+        },
+            errors: function (data) {}
+    });
+});
+
+//View For Gear Items
+$(document).on("pageshow", "#gear", function(){
+    $.ajax({
+    	"url":"_view/gear",
+    	"dataType": "json",
+    	"success": function(data){
+    		$("#gearData").empty();
+    		console.log(data);
+    		$('<h3>').html("").appendTo('#gear');
+                $.each(data.rows, function (index, item) {
+                    $('' +
+                        '<li>' +
+                        '<p><strong> Category: </strong> ' + '<em>' + item.value.category + '</em>' + '</p>' +
+                        '<p><strong> Type: </strong>' + '<em>' + item.value.type + '</em>' + '</p>' +
+                        '<p><strong> Name: </strong>' + '<em>' + item.value.name + '</em>' + '</p>' +
+                        '<p><strong> Quantity: </strong>' + '<em>' + item.value.quantity + '</em>' + '</p>' +
+                        '<p><strong> Condition: </strong>' + '<em>' + item.value.condition + '</em>' + '</p>' +
+                        '<p><strong> Usage: </strong>' + '<em>' + item.value.usage + '</em>' + '</p>' +
+                        '<p><strong> Status: </strong>' + '<em>' + item.value.status + '</em>' + '</p>' +
+                        '<p><strong> Notes: </strong>' + '<em>' + item.value.notes + '</em>' + '</p>' +
+                        '</li>'
+                    ).appendTo('#gearData');
+            });        
+                $("#gearData").listview('refresh');
+                $.mobile.changePage("#gear");
+        },
+            errors: function (data) {}
+    });
+});
+
+//View For Household Items
+$(document).on("pageshow", "#household", function(){
+    $.ajax({
+    	"url":"_view/household",
+    	"dataType": "json",
+    	"success": function(data){
+    		$("#houseData").empty();
+    		console.log(data);
+    		$('<h3>').html("").appendTo('#household');
+                $.each(data.rows, function (index, item) {
+                    $('' +
+                        '<li>' +
+                        '<p><strong> Category: </strong> ' + '<em>' + item.value.category + '</em>' + '</p>' +
+                        '<p><strong> Type: </strong>' + '<em>' + item.value.type + '</em>' + '</p>' +
+                        '<p><strong> Name: </strong>' + '<em>' + item.value.name + '</em>' + '</p>' +
+                        '<p><strong> Quantity: </strong>' + '<em>' + item.value.quantity + '</em>' + '</p>' +
+                        '<p><strong> Condition: </strong>' + '<em>' + item.value.condition + '</em>' + '</p>' +
+                        '<p><strong> Usage: </strong>' + '<em>' + item.value.usage + '</em>' + '</p>' +
+                        '<p><strong> Status: </strong>' + '<em>' + item.value.status + '</em>' + '</p>' +
+                        '<p><strong> Notes: </strong>' + '<em>' + item.value.notes + '</em>' + '</p>' +
+                        '</li>'
+                    ).appendTo('#houseData');
+            });        
+                $("#houseData").listview('refresh');
+                $.mobile.changePage("#household");
+        },
+            errors: function (data) {}
+    });
+});
+
+//View For Vehicle Items
+$(document).on("pageshow", "#vehicles", function(){
+    $.ajax({
+    	"url":"_view/vehicles",
+    	"dataType": "json",
+    	"success": function(data){
+    		$("#motorData").empty();
+    		console.log(data);
+    		$('<h3>').html("").appendTo('#vehicles');
+                $.each(data.rows, function (index, item) {
+                    $('' +
+                        '<li>' +
+                        '<p><strong> Category: </strong> ' + '<em>' + item.value.category + '</em>' + '</p>' +
+                        '<p><strong> Type: </strong>' + '<em>' + item.value.type + '</em>' + '</p>' +
+                        '<p><strong> Name: </strong>' + '<em>' + item.value.name + '</em>' + '</p>' +
+                        '<p><strong> Quantity: </strong>' + '<em>' + item.value.quantity + '</em>' + '</p>' +
+                        '<p><strong> Condition: </strong>' + '<em>' + item.value.condition + '</em>' + '</p>' +
+                        '<p><strong> Usage: </strong>' + '<em>' + item.value.usage + '</em>' + '</p>' +
+                        '<p><strong> Status: </strong>' + '<em>' + item.value.status + '</em>' + '</p>' +
+                        '<p><strong> Notes: </strong>' + '<em>' + item.value.notes + '</em>' + '</p>' +
+                        '</li>'
+                    ).appendTo('#motorData');
+            });        
+                $("#motorData").listview('refresh');
+                $.mobile.changePage("#vehicles");
+        },
+            errors: function (data) {}
+    });
+});
+
+/*
 //Get Data from local storage
 $("#browse").on('pageinit', function(){
 	getData();
@@ -73,7 +256,7 @@ function storeData(key){
 	getData();
 	console.log(getData);
 };
-
+*/
 
 
 //Populate Dummy Data
@@ -85,7 +268,7 @@ function storeData(key){
 }*/
 
 
-//Get Data
+/*//Get Data
 function getData(){
 	if(localStorage.length === 0){
 		alert("Currently, there are not items saved, so dummy data will be loaded.");
@@ -175,8 +358,8 @@ function getData(){
 		//Change Submit Button Value to Edit Botton
 		$('#submit').value = "Edit Item";
 		var editSubmit = $('#submit');
-		/*Save the key value established in this function as a property of the editSubmit event
-		so we can ust that value when we save the data edited.*/
+		//Save the key value established in this function as a property of the editSubmit event
+		//so we can ust that value when we save the data edited.
 		editSubmit.addEventListener("click", validate);
 		editSubmit.key = this.key;
 		};
@@ -204,7 +387,7 @@ function getData(){
 	        return false;
 	    }
     }
-
+*/
 
 /*
 //Get JSON Data when browse page is open. ------------------------------------------------------------------------------------------->
