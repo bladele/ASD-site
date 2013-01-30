@@ -46,6 +46,9 @@ label.error.valid{display: none;}
 #vehicles{background:url(background.jpg) repeat left top;
 }
 
+#item{background:url(background.jpg) repeat left top;
+}
+
 
 /*#home .ui-grid-a div{text-align:center;}*/
 

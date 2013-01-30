@@ -31,27 +31,110 @@ $('#itemform').on('pageinit', function () {
         var data = itemForm.serializeArray();
         console.log(data);
         storeData(data);
-        $.mobile.changePage("#browse");
         }
     });    
 });
 
-
-
 //Any other code needed for addItem page goes here
 
-//View For All Items
-$(document).on("pageshow", "#browse", function(){
-    $.ajax({
-    	"url":"_view/items",
-    	"dataType": "json",
-    	"success": function(data){
-    		$("#itemData").empty();
+//Store Data function
+var storeData = function(idValue, revValue){
+	
+	var item 		= {};
+	item.category 	= $('#category').val();
+	item.type 		= $('#type').val();
+	item.name 		= $('#name').val();
+	item.quantity	= $('#quantity').val();
+	item.category 	= $('#category').val();
+	item.condition 	= $('#condition').val();
+	item.status 	= $('#status').val();
+	item.notes 		= $('#notes').val();
+	//Changes id to format I can use in CouchDB
+	item["_id"] = "item:" + $('#category').val() + ":" + $('#type').val() + ":" + $('#name').val();
+	
+	$.couch.db("amsdb").saveDoc(item,{
+		success: function(data){
+			console.log(data);
+		},
+		error: function(status){
+			console.log(status);
+		}
+	}); 
+	alert("Item Saved!");
+	$.mobile.changePage("#browse");
+};
+
+var save = $('#submit');
+save.on("click");
+
+
+//----------------------------View For All Items ------------------------------------------
+$('#browse').on("pageinit", function(){
+	$.couch.db("amsdb").view("amsdb/items",{
+    	success: function(data){
     		console.log(data);
-    		$('<h3>').html("").appendTo('#browse');
-                $.each(data.rows, function (index, item) {
-                    $('' +
-                        '<li>' +
+    		$("#itemData").empty();
+            $.each(data.rows, function (index, value){
+            	var item = (value.value || value.doc);
+            	$('#itemData').append(
+            		$('<li>').append(
+            			$('<a>')
+            				.attr("href", "item.html?item=" + item.name)
+            				.text(item.name)
+            		)
+            	);
+            });        
+                $("#itemData").listview('refresh');
+        }
+    });
+});
+
+var urlVars = function(){
+	var urlData = $($.mobile.activePage).data("url");
+	var urlParts = urlData.split('?');
+	var urlPairs = urlParts[1].plit('&');
+	var urlValues = {};
+	for (var pair in urlPairs){
+		var keyValue = urlPairs[pair].split('=');
+		var key = decodeURIComponent(keyValue[0]);
+		var value = decodeURIComponent(keyValue[1]);
+		urlValues[key] = value;
+	}
+	return urlValues;
+};
+
+
+//--------------------------------- Detailed view of Item ------------------------------------------------------
+$('#item').on("pageinit", function(){
+	var item = urlVars()["item"];
+	$.couch.db("amsdb").view("amsdb/item", {
+		key: "item:" + name
+	});	
+});
+//-----------------------------------------------------------------
+/*
+$("#item").on("pageinit", function({
+	var urlVars = function(){
+		var urlData = $($.mobile.activePage).data("url");
+		var urlParts = urlData.split('?');
+		var urlPairs = urlParts[1].plit('&');
+		var urlValues = {};
+		for (var pair in urlPairs){
+			var keyValue = urlPairs[pair].split('=');
+			var key = decodeURIComponent(keyValue[0]);
+			var value = decodeURIComponent(keyValue[1]);
+			urlValues[key] = value;
+	}
+	return urlValues;
+};
+var itemDetails = urlVars()["itemdeets"];
+var dbKeys = urlVars()["dbkey"].split("|");
+console.log(itemDetails);
+console.log(dbKeys);
+	$.couch.db("amsdb").openDoc(item, {
+		success: function(data){
+			$('' +
+					'<li>' +
                         '<p><strong> Category: </strong> ' + '<em>' + item.value.category + '</em>' + '</p>' +
                         '<p><strong> Type: </strong>' + '<em>' + item.value.type + '</em>' + '</p>' +
                         '<p><strong> Name: </strong>' + '<em>' + item.value.name + '</em>' + '</p>' +
@@ -60,18 +143,26 @@ $(document).on("pageshow", "#browse", function(){
                         '<p><strong> Usage: </strong>' + '<em>' + item.value.usage + '</em>' + '</p>' +
                         '<p><strong> Status: </strong>' + '<em>' + item.value.status + '</em>' + '</p>' +
                         '<p><strong> Notes: </strong>' + '<em>' + item.value.notes + '</em>' + '</p>' +
-                        '</li>'
-                    ).appendTo('#itemData');
-            });        
-                $("#itemData").listview('refresh');
-                $.mobile.changePage("#browse");
-        },
-            errors: function (data) {}
-    });
+                    '</li>'
+                    
+			).appendTo('#itemDeets');
+			console.log(data);
+			console.log("Item Loaded!");
+		},
+		error: function(status){
+			console.log(status);
+		}
+	});
+
 });
+*/
+
+
+
+
 
 //View For Book Items
-$(document).on("pageshow", "#books", function(){
+$("#books").on("pageinit", function(){
     $.ajax({
     	"url":"_view/books",
     	"dataType": "json",
@@ -101,7 +192,7 @@ $(document).on("pageshow", "#books", function(){
 });
 
 //View For Entertainment Items
-$(document).on("pageshow", "#entertainment", function(){
+$("#entertainment").on("pageinit", function(){
     $.ajax({
     	"url":"_view/entertainment",
     	"dataType": "json",
@@ -131,7 +222,7 @@ $(document).on("pageshow", "#entertainment", function(){
 });
 
 //View For Gear Items
-$(document).on("pageshow", "#gear", function(){
+$("#gear").on("pageinit", function(){
     $.ajax({
     	"url":"_view/gear",
     	"dataType": "json",
@@ -161,7 +252,7 @@ $(document).on("pageshow", "#gear", function(){
 });
 
 //View For Household Items
-$(document).on("pageshow", "#household", function(){
+$("#household").on("pageinit", function(){
     $.ajax({
     	"url":"_view/household",
     	"dataType": "json",
@@ -191,7 +282,7 @@ $(document).on("pageshow", "#household", function(){
 });
 
 //View For Vehicle Items
-$(document).on("pageshow", "#vehicles", function(){
+$("#vehicles").on("pageinit", function(){
     $.ajax({
     	"url":"_view/vehicles",
     	"dataType": "json",
