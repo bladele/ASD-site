@@ -1,6 +1,6 @@
 function(doc) {
   if (doc._id.substr(0, 4) === "item") {
-    emit(doc._id.substr(0, 4),{
+    emit(doc._id,{
     	"category":doc.category,
     	"type":doc.type,
     	"name":doc.name,

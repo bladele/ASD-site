@@ -79,7 +79,7 @@ $('#browse').on("pageinit", function(){
             	$('#itemData').append(
             		$('<li>').append(
             			$('<a>')
-            				.attr("href", "item.html?item=" + item.name)
+            				.attr("href", "specs.html?item=" + item.name)
             				.text(item.name)
             		)
             	);
@@ -105,60 +105,46 @@ var urlVars = function(){
 
 
 //--------------------------------- Detailed view of Item ------------------------------------------------------
-$('#item').on("pageinit", function(){
-	var item = urlVars()["item"];
-	$.couch.db("amsdb").view("amsdb/item", {
-		key: "item:" + name
-	});	
-});
-//-----------------------------------------------------------------
-/*
-$("#item").on("pageinit", function({
-	var urlVars = function(){
-		var urlData = $($.mobile.activePage).data("url");
-		var urlParts = urlData.split('?');
-		var urlPairs = urlParts[1].plit('&');
+$('#specs').live("pageshow", function(){
+
+var urlVars = function(urlData){
+	var urlData = $($.mobile.activePage).data("url");
+	var urlParts = urlData.split('?');
+		var urlPairs = urlParts[1].split('&');
 		var urlValues = {};
 		for (var pair in urlPairs){
-			var keyValue = urlPairs[pair].split('=');
-			var key = decodeURIComponent(keyValue[0]);
-			var value = decodeURIComponent(keyValue[1]);
-			urlValues[key] = value;
-	}
-	return urlValues;
-};
-var itemDetails = urlVars()["itemdeets"];
-var dbKeys = urlVars()["dbkey"].split("|");
-console.log(itemDetails);
-console.log(dbKeys);
-	$.couch.db("amsdb").openDoc(item, {
-		success: function(data){
-			$('' +
-					'<li>' +
-                        '<p><strong> Category: </strong> ' + '<em>' + item.value.category + '</em>' + '</p>' +
-                        '<p><strong> Type: </strong>' + '<em>' + item.value.type + '</em>' + '</p>' +
-                        '<p><strong> Name: </strong>' + '<em>' + item.value.name + '</em>' + '</p>' +
-                        '<p><strong> Quantity: </strong>' + '<em>' + item.value.quantity + '</em>' + '</p>' +
-                        '<p><strong> Condition: </strong>' + '<em>' + item.value.condition + '</em>' + '</p>' +
-                        '<p><strong> Usage: </strong>' + '<em>' + item.value.usage + '</em>' + '</p>' +
-                        '<p><strong> Status: </strong>' + '<em>' + item.value.status + '</em>' + '</p>' +
-                        '<p><strong> Notes: </strong>' + '<em>' + item.value.notes + '</em>' + '</p>' +
-                    '</li>'
-                    
-			).appendTo('#itemDeets');
-			console.log(data);
-			console.log("Item Loaded!");
-		},
-		error: function(status){
-			console.log(status);
+				var keyValue = urlPairs[pair].split('=');
+				var key = decodeURIComponent(keyValue[0]);
+				var value = decodeURIComponent(keyValue[1]);
+				urlValues[key] = value;
 		}
-	});
+		return urlValues;
+};
 
+		var itemSpecs = urlVars()["specs"];
+		$.couch.db("amsdb").view("amsdb/itemSpecs", {
+			success: function(data){
+				$('' + 
+						'<li>' +
+	                    '<p><strong> Category: </strong> ' + '<em>' + data.category + '</em>' + '</p>' +
+	                    '<p><strong> Type: </strong>' + '<em>' + data.type + '</em>' + '</p>' +
+	                    '<p><strong> Name: </strong>' + '<em>' + data.name + '</em>' + '</p>' +
+	                    '<p><strong> Quantity: </strong>' + '<em>' + data.quantity + '</em>' + '</p>' +
+	                    '<p><strong> Condition: </strong>' + '<em>' + data.condition + '</em>' + '</p>' +
+	                    '<p><strong> Usage: </strong>' + '<em>' + data.usage + '</em>' + '</p>' +
+	                    '<p><strong> Status: </strong>' + '<em>' + data.status + '</em>' + '</p>' +
+	                    '<p><strong> Notes: </strong>' + '<em>' + data.notes + '</em>' + '</p>' +
+	                    '</li>'
+	                    
+				).appendTo('#itemSpecs');
+				console.log(data);
+				console.log("Specs Loaded!");
+			},
+			errors: function (status) {
+	            console.log(status);
+            }
+		});		
 });
-*/
-
-
-
 
 
 //View For Book Items
@@ -189,6 +175,8 @@ $("#books").on("pageinit", function(){
         },
             errors: function (data) {}
     });
+    
+    
 });
 
 //View For Entertainment Items
