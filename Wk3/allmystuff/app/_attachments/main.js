@@ -54,6 +54,8 @@ var storeData = function(idValue, revValue){
 	
 	$.couch.db("amsdb").saveDoc(item,{
 		success: function(data){
+			//Console log the id
+			data.id = "item:" + $('#category').val() + ":" + $('#type').val() + ":" + $('#name').val();
 			console.log(data);
 		},
 		error: function(status){
@@ -79,7 +81,7 @@ $('#browse').on("pageinit", function(){
             	$('#itemData').append(
             		$('<li>').append(
             			$('<a>')
-            				.attr("href", "specs.html?item=" + item.name)
+            				.attr("href", "itemspecs.html?item=" + item.name)
             				.text(item.name)
             		)
             	);
@@ -89,23 +91,9 @@ $('#browse').on("pageinit", function(){
     });
 });
 
-var urlVars = function(){
-	var urlData = $($.mobile.activePage).data("url");
-	var urlParts = urlData.split('?');
-	var urlPairs = urlParts[1].plit('&');
-	var urlValues = {};
-	for (var pair in urlPairs){
-		var keyValue = urlPairs[pair].split('=');
-		var key = decodeURIComponent(keyValue[0]);
-		var value = decodeURIComponent(keyValue[1]);
-		urlValues[key] = value;
-	}
-	return urlValues;
-};
-
 
 //--------------------------------- Detailed view of Item ------------------------------------------------------
-$('#specs').live("pageshow", function(){
+
 
 var urlVars = function(urlData){
 	var urlData = $($.mobile.activePage).data("url");
@@ -117,35 +105,43 @@ var urlVars = function(urlData){
 				var key = decodeURIComponent(keyValue[0]);
 				var value = decodeURIComponent(keyValue[1]);
 				urlValues[key] = value;
+				var urlname = key
 		}
-		return urlValues;
+		return [urlValues, urlname];
 };
 
-		var itemSpecs = urlVars()["specs"];
-		$.couch.db("amsdb").view("amsdb/itemSpecs", {
-			success: function(data){
-				$('' + 
-						'<li>' +
-	                    '<p><strong> Category: </strong> ' + '<em>' + data.category + '</em>' + '</p>' +
-	                    '<p><strong> Type: </strong>' + '<em>' + data.type + '</em>' + '</p>' +
-	                    '<p><strong> Name: </strong>' + '<em>' + data.name + '</em>' + '</p>' +
-	                    '<p><strong> Quantity: </strong>' + '<em>' + data.quantity + '</em>' + '</p>' +
-	                    '<p><strong> Condition: </strong>' + '<em>' + data.condition + '</em>' + '</p>' +
-	                    '<p><strong> Usage: </strong>' + '<em>' + data.usage + '</em>' + '</p>' +
-	                    '<p><strong> Status: </strong>' + '<em>' + data.status + '</em>' + '</p>' +
-	                    '<p><strong> Notes: </strong>' + '<em>' + data.notes + '</em>' + '</p>' +
-	                    '</li>'
-	                    
-				).appendTo('#itemSpecs');
-				console.log(data);
-				console.log("Specs Loaded!");
-			},
-			errors: function (status) {
-	            console.log(status);
-            }
-		});		
+$('#itemspecs').live("pageshow", function(){
+		var specs = urlVars()[0]["specs"];
+		console.log(specs);
+		var itemdis;
+		$.couch.db("amsdb").view("amsdb/specs", {
+				success: function(data){
+	    		$("#itemSpecs").empty();
+	    		$.each(data.rows, function (index, value){
+            	var item = (value.value || value.doc);
+	            if(item.name === itemdis){
+	            	itemdis = item;
+	            	itemVal = value;
+	            	};
+	            	$('' +
+                        '<li>' +
+                        '<p><strong> Category: </strong> ' + '<em>' + data.category + '</em>' + '</p>' +
+                        '<p><strong> Type: </strong>' + '<em>' + data.type + '</em>' + '</p>' +
+                        '<p><strong> Name: </strong>' + '<em>' + data.name + '</em>' + '</p>' +
+                        '<p><strong> Quantity: </strong>' + '<em>' + data.quantity + '</em>' + '</p>' +
+                        '<p><strong> Condition: </strong>' + '<em>' + data.condition + '</em>' + '</p>' +
+                        '<p><strong> Usage: </strong>' + '<em>' + data.usage + '</em>' + '</p>' +
+                        '<p><strong> Status: </strong>' + '<em>' + data.status + '</em>' + '</p>' +
+                        '<p><strong> Notes: </strong>' + '<em>' + data.notes + '</em>' + '</p>' +
+                        '</li>'
+	            ).appendTo('#itemSpecs');
+	            }); 
+	            $("#itemSpecs").listview('refresh');
+	            
+	            }
+	   });		
 });
-
+//---------------------------------------------------------------
 
 //View For Book Items
 $("#books").on("pageinit", function(){
